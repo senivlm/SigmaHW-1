@@ -8,9 +8,9 @@ namespace Task3
 
         public int this[int index]
         {
-            get 
-            { 
-                if(index < array.Length && index >= 0)
+            get
+            {
+                if (index < array.Length && index >= 0)
                 {
                     return array[index];
                 }
@@ -18,7 +18,7 @@ namespace Task3
                 {
                     throw new IndexOutOfRangeException();
                 }
-                    
+
             }
             set { array[index] = value; }
         }
@@ -138,7 +138,7 @@ namespace Task3
                 startHead += $"{array[i]}";
             }
 
-            for (int i = array.Length - 1 ; i >= 0 ; i--)
+            for (int i = array.Length - 1; i >= 0; i--)
             {
                 startEnd += $"{array[i]}";
             }
@@ -150,7 +150,7 @@ namespace Task3
         {
             var tempArray = new int[array.Length];
 
-            for (int i = 0,j = array.Length - 1; i < array.Length; i++)
+            for (int i = 0, j = array.Length - 1; i < array.Length; i++)
             {
                 tempArray[i] = array[j];
                 j--;
@@ -166,44 +166,9 @@ namespace Task3
             Array.Reverse(array);
         }
 
-        public int MostOfTheSame()
+        public void MostOfTheSame()
         {
-            Pair[] pairs = new Pair[array.Length];
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                pairs[i] = new Pair(0, 0);
-            }
-
-            int countDifference = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                bool isElement = false;
-                for (int j = 0; j < countDifference; j++)
-                {
-                    if (array[i] == pairs[j].Number)
-                    {
-                        pairs[j].Frequency++;
-                        isElement = true;
-                        break;
-                    }
-                }
-                if (!isElement)
-                {
-                    pairs[countDifference].Frequency++;
-                    pairs[countDifference].Number = array[i];
-                    countDifference++;
-                }
-            }
-
-            Pair[] result = new Pair[countDifference];
-            for (int i = 0; i < result.Length; i++)
-            {
-                result[i] = pairs[i];
-            }
-
-
-            return result;
         }
 
         public void MyInitShuffle()
@@ -233,6 +198,6 @@ namespace Task3
                     }
                 }
             }
-        } 
+        }  // Optimaze
     }
 }

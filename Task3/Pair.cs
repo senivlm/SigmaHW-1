@@ -47,5 +47,10 @@ namespace Task3
             return this.Number == ((Pair)obj).Number;
       
         }
+
+        public override int GetHashCode()
+        {
+            return number.GetHashCode() ^ frequency.GetHashCode();
+        }
     }
 }

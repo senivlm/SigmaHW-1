@@ -29,7 +29,7 @@ namespace Products.Task1_Task2.Products
             get { return price; }
             set
             {
-                if (value >= 0 || value != null)
+                if (value >= 0)
                 {
                     price = value;
                 }
@@ -44,7 +44,7 @@ namespace Products.Task1_Task2.Products
             get { return weight; }
             set
             {
-                if (value >= 0 || value != null)
+                if (value >= 0)
                 {
                     weight = value;
                 }
