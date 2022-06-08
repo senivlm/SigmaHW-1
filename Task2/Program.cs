@@ -11,6 +11,9 @@ namespace Task2
             Matrix.FillingSpiralSnake(4, 4);
             Console.WriteLine();
             Matrix.FillingDiagonalSnake(5, 5);
+            Console.WriteLine();
+            Matrix.FillingDiagonalSnake(5, 5, Enums.Detour.Down);
+            Console.WriteLine();
 
 
             Console.ReadLine();

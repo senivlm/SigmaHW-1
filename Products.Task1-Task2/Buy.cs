@@ -8,26 +8,6 @@ namespace Products.Task1_Task2
     {
         private List<Product> products;
 
-        public List<Product> Products
-        {
-            get 
-            {
-                return products; 
-            }
-            private set 
-            {
-                if(products != null)
-                {
-                    products = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
-            }
-        }
-
-
         public int Count { get; }
 
         public decimal TotalPrice { get; }
