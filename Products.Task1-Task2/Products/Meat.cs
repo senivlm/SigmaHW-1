@@ -4,8 +4,8 @@ namespace Products.Task1_Task2.Products
 {
     internal class Meat : Product
     {
-        Category category;
-        MeatType meatType;
+        readonly Category category;
+        readonly MeatType meatType;
 
         public Meat(Category category, MeatType meatType, decimal price, int weight) : base($"Meat_{category}_{meatType}", price, weight)
         {
@@ -14,7 +14,8 @@ namespace Products.Task1_Task2.Products
         }
         public Meat() : base(string.Empty, default, default)
         {
-
+            category = Category.NaN;
+            meatType = MeatType.Nan;
         }
 
         public void ChangePriceByCategory(int percent)

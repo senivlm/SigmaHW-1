@@ -13,7 +13,7 @@ namespace Products.Task1_Task2.Products
 
         public DairyProducts() : base(string.Empty, default, default)
         {
-
+            appurtenanceTerm = default;
         }
 
         public void ChangePriceByAppurTerm(int percent)

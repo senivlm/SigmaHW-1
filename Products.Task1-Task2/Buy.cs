@@ -1,10 +1,32 @@
 ﻿using Products.Task1_Task2.Products;
+using System;
+using System.Collections.Generic;
 
 namespace Products.Task1_Task2
 {
     internal class Buy
     {
-        Product product;
+        private List<Product> products;
+
+        public List<Product> Products
+        {
+            get 
+            {
+                return products; 
+            }
+            private set 
+            {
+                if(products != null)
+                {
+                    products = value;
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
+            }
+        }
+
 
         public int Count { get; }
 
@@ -12,7 +34,7 @@ namespace Products.Task1_Task2
 
         public Buy(Product product, int count)
         {
-            this.product = product;
+            products.Add(product);
             Count += count;
             TotalPrice += (product.Price * count);
         }
@@ -25,7 +47,12 @@ namespace Products.Task1_Task2
 
         public override string ToString()
         {
-            return string.Format($"Info for Buy:\n  Name: {product}, Count: {Count}, TotalPrice: {TotalPrice}");
+            string result = string.Empty;
+            foreach (var item in products)
+            {
+                result += string.Format($"Info for Buy:\n  Name: {products}, Count: {Count}, TotalPrice: {TotalPrice}\n");
+            }
+            return result;
         }
     }
 }

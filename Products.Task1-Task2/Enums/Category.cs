@@ -1,6 +1,6 @@
 ﻿namespace Products.Task1_Task2.Enums
 {
 
-    enum Category { TopGrade, SecondGrade }
+    enum Category { NaN, TopGrade, SecondGrade }
 
 }

@@ -5,9 +5,55 @@ namespace Products.Task1_Task2.Products
     internal class Product
     {
         public readonly Guid Id;
-        public string Name { get; private set; }
-        public decimal Price { get; private set; }
-        public int Weight { get; set; }
+        private decimal price;
+        private int weight;
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value != null)
+                {
+                    name = value;
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
+            }
+        }
+        public decimal Price
+        {
+            get { return price; }
+            set
+            {
+                if (value >= 0 || value != null)
+                {
+                    price = value;
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
+            }
+        }
+        public int Weight
+        {
+            get { return weight; }
+            set
+            {
+                if (value >= 0 || value != null)
+                {
+                    weight = value;
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
+            }
+        }
 
         public Product(string name, decimal price, int weight)
         {
