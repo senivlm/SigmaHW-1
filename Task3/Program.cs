@@ -12,11 +12,11 @@ namespace Task3
                 //TestTwo();
                 //TestThreEquals();
                 //TestHWIsPalindrom();
-                TestHWMostOfTheSame();
+                //TestHWMostOfTheSame();
                 //TestHWReverse();
-                TestHWMyInitShuffle();
-                TestBubleSort();
-                TestCountingSort();
+                //TestHWMyInitShuffle();
+                //TestBubleSort();
+                //TestCountingSort();
                 TestQuickSort();
             }
             catch (Exception ex)
@@ -83,7 +83,14 @@ namespace Task3
 
         public static void TestHWMostOfTheSame()
         {
+            Vector v = new Vector(20);
+            v.InitRand(1, 5);
 
+            Console.WriteLine("in array: \n" + v);
+
+            int maxFrequency = v.MostOfTheSame();
+
+            Console.WriteLine($"Max Frquency number in array: {v.MostOfTheSame()}\n");
         }
 
         public static void TestHWReverse()
@@ -106,17 +113,24 @@ namespace Task3
 
         public static void TestHWMyInitShuffle()
         {
+            var vector1 = new Vector(new int[] { 5, 4, 3, 2, 1 });
+            Console.WriteLine(vector1 + "before InitShufle");
 
+            vector1.MyInitShuffle();
+
+            Console.WriteLine(vector1 + "after InitShufle");
+            Console.WriteLine("***********");
         }
 
         public static void TestBubleSort()
         {
-            var vector1 = new Vector(new int[] { 5, 4, 3, 2, 1 });
-            Console.WriteLine(vector1 + "after buble sort");
+            //var vector1 = new Vector(new int[] { 5, 4, 3, 2, 1 });
+            var vector1 = new Vector(new int[] { 1, 4, 3, 5, 2 });
+            Console.WriteLine(vector1 + "before buble sort");
 
             vector1.Buble();
 
-            Console.WriteLine(vector1 + "before buble sort");
+            Console.WriteLine(vector1 + "after buble sort");
             Console.WriteLine("***********");
 
         }
@@ -124,22 +138,22 @@ namespace Task3
         public static void TestCountingSort()
         {
             var vector1 = new Vector(new int[] { 5, 4, 3, 2, 1 });
-            Console.WriteLine(vector1 + "after counting sort");
+            Console.WriteLine(vector1 + "before counting sort");
 
             vector1.Counting();
 
-            Console.WriteLine(vector1 + "before counting sort");
+            Console.WriteLine(vector1 + "after counting sort");
             Console.WriteLine("***********");
         }
 
         public static void TestQuickSort()
         {
             var vector1 = new Vector(new int[] { 5, 4, 3, 2, 1 });
-            Console.WriteLine(vector1 + "after QuickSort sort");
+            Console.WriteLine(vector1 + "before QuickSort sort");
 
             vector1.QuickSort();
 
-            Console.WriteLine(vector1 + "before QuickSort sort");
+            Console.WriteLine(vector1 + "after QuickSort sort");
             Console.WriteLine("***********");
         }
 

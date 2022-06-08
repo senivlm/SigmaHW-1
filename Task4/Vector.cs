@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task3
+namespace Task4
 {
     internal class Vector
     {
@@ -175,14 +175,14 @@ namespace Task3
 
             for (int i = 0; i < pairsTemp.Length; i++)
             {
-                if (i < pairsTemp.Length-1)
+                if (i < pairsTemp.Length - 1)
                 {
                     if (pairsTemp[i].Frequency > pairsTemp[i + 1].Frequency && pairsTemp[i].Frequency > numberMaxFrequency)
                     {
                         numberMaxFrequency = pairsTemp[i].Frequency;
                         result = pairsTemp[i].Number;
                     }
-                }                    
+                }
             }
 
             return result;
