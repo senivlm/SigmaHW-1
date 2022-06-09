@@ -277,7 +277,7 @@ namespace Task5
             }
         }
 
-        public void QuickSort()
+        public void QuickSortFirstItem()
         {
             Qsort(0, array.Length - 1);
 
@@ -288,9 +288,10 @@ namespace Task5
                     return;
                 }
 
-                var rotate = Sorting(left, right);
-                Qsort(left, rotate - 1);
-                Qsort(rotate + 1, right);
+                var pivot = Sorting(left, right);
+
+                Qsort(left, pivot - 1);
+                Qsort(pivot + 1, right);
             }
 
             int Sorting(int left, int right)
@@ -311,6 +312,85 @@ namespace Task5
             }
         }
 
+        public void QuickSortLastItem()
+        {
+            Qsort(0, array.Length - 1);
+
+            void Qsort(int left, int right)
+            {
+                if (left >= right)
+                {
+                    return;
+                }
+
+                var pivot = Sorting(left, right);
+
+                Qsort(left, pivot - 1);
+                Qsort(pivot + 1, right);
+            }
+
+            int Sorting(int left, int right)
+            {
+                var pointer = right;
+
+                for (int i = right; i >= left; i--)
+                {
+                    if (array[i] > array[left])
+                    {
+                        Swop(pointer, i);
+                        pointer--;
+                    }
+                }
+
+                Swop(pointer, left);
+                return pointer;
+            }
+        }
+
+        public void QuickSortMidItem()
+        {
+            Qsort(0, array.Length - 1);
+
+            void Qsort(int left, int right)
+            {
+                if (left >= right)
+                {
+                    return;
+                }
+
+                var pivot = Sorting(left, right);
+
+                Qsort(left, pivot - 1);
+                Qsort(pivot + 1, right);
+            }
+
+            int Sorting(int left, int right)
+            {
+                var pointer = array[(left + right) / 2];
+
+                while (left <= right)
+                {
+                    while (array[left] < pointer)
+                    {
+                        left++;
+                    }
+                    while (array[right] > pointer)
+                    {
+                        right--;
+
+                    }
+                    if (left <= right)
+                    {
+                        Swop(left, right);
+
+                        left++;
+                        right--;
+                    }
+                }
+                return left;
+            }
+        }
+
         private void Swop(int positionA, int positionB)
         {
             if (positionA < array.Length && positionB < array.Length)
@@ -321,5 +401,64 @@ namespace Task5
             }
         }
 
+        private void Merge(int left, int mid, int right)
+        {
+            var i = left;
+            var j = mid;
+
+            var temp = new int[right - left + 1];
+            int k = 0;
+            while (i < mid && j < right)
+            {
+                if (array[i] < array[j])
+                {
+                    temp[k] = array[i++];
+                }
+                else
+                {
+                    temp[k] = array[j++];
+                }
+                k++;
+            }
+
+            if (i == mid)
+            {
+                for (int m = j; m <= right; m++)
+                {
+                    temp[k++] = array[m];
+                }
+            }
+            else
+            {
+                while (i < mid)
+                {
+                    temp[k++] = array[i++];
+                }
+            }
+
+            for (int n = 0; n < array.Length; n++)
+            {
+                array[n + left] = temp[n];
+            }
+        }
+
+        private void SplitMergeSort(int start, int end)
+        {
+            if (end - start <= 1)
+            {
+                return;
+            }
+            var middle = (start + end) / 2;
+
+            SplitMergeSort(start, middle);
+            SplitMergeSort(middle, end);
+
+            Merge(start, middle, end);
+        }
+
+        public void MergeSort()
+        {
+            SplitMergeSort(0, array.Length);
+        }
     }
 }

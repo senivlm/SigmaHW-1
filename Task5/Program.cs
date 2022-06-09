@@ -10,6 +10,18 @@ namespace Task5
     {
         static void Main(string[] args)
         {
+            TestMergeSort();
+        }
+
+        public static void TestMergeSort()
+        {
+            var vector = new Vector(10);
+
+            vector.InitRand(10, 99);
+
+            vector.MergeSort();
+
+            Console.WriteLine(vector);
         }
     }
 }
