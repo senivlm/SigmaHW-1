@@ -12,15 +12,9 @@ namespace Task8
             if (args is null)
             {
                 throw new ArgumentNullException(nameof(args));
-            }
-            //Test1();
-            //Test2();
-            //Test3();
-            //Test4();
-            //Test5();
-            Test6();
 
-            Test5();
+            }
+            //ClassWork();
 
 
             Console.ReadKey();
@@ -96,7 +90,7 @@ namespace Task8
 
         public static void Test5()
         {
-            InitComarator myComparer = new InitComarator();
+            MyComparator myComparer = new MyComparator();
 
             var list = new List<int>() { 12, 14, 12, 15 };
             HashSet<int> hset = new HashSet<int>();
@@ -182,6 +176,16 @@ namespace Task8
             }
 
 
+        }
+
+        public static void ClassWork()
+        {
+            Test1();
+            Test2();
+            Test3();
+            Test4();
+            Test5();
+            Test6();
         }
     }
 }
