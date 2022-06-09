@@ -277,7 +277,7 @@ namespace Task4
             }
         }
 
-        public void QuickSort()
+        public void QuickSortFirstItem()
         {
             Qsort(0, array.Length - 1);
 
@@ -288,9 +288,10 @@ namespace Task4
                     return;
                 }
 
-                var rotate = Sorting(left, right);
-                Qsort(left, rotate - 1);
-                Qsort(rotate + 1, right);
+                var pivot = Sorting(left, right);
+
+                Qsort(left, pivot - 1);
+                Qsort(pivot + 1, right);
             }
 
             int Sorting(int left, int right)
@@ -308,6 +309,85 @@ namespace Task4
 
                 Swop(pointer, right);
                 return pointer;
+            }
+        }
+
+        public void QuickSortLastItem()
+        {
+            Qsort(0, array.Length - 1);
+
+            void Qsort(int left, int right)
+            {
+                if (left >= right)
+                {
+                    return;
+                }
+
+                var pivot = Sorting(left, right);
+
+                Qsort(left, pivot - 1);
+                Qsort(pivot + 1, right);
+            }
+
+            int Sorting(int left, int right)
+            {
+                var pointer = right;
+
+                for (int i = right; i >= left; i--)
+                {
+                    if (array[i] > array[left])
+                    {
+                        Swop(pointer, i);
+                        pointer--;
+                    }
+                }
+
+                Swop(pointer, left);
+                return pointer;
+            }
+        }
+
+        public void QuickSortMidItem()
+        {
+            Qsort(0, array.Length - 1);
+
+            void Qsort(int left, int right)
+            {
+                if (left >= right)
+                {
+                    return;
+                }
+
+                var pivot = Sorting(left, right);
+
+                Qsort(left, pivot - 1);
+                Qsort(pivot + 1, right);
+            }
+
+            int Sorting(int left, int right)
+            {
+                var pointer = array[(left + right) / 2];
+
+                while(left <= right)
+                {
+                    while (array[left] < pointer)
+                    {
+                        left++;
+                    }
+                    while (array[right] > pointer)
+                    {
+                        right--;
+
+                    }
+                    if (left <= right)
+                    {
+                        Swop(left, right);
+
+                        left++;
+                        right--;
+                    }
+                }
+                return left;
             }
         }
 
