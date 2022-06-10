@@ -5,6 +5,7 @@ namespace Task5
 {
     internal class FileWriter : IDisposable
     {
+        private string rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task5\Files\";
         private string path;
         private string pathBuffer;
         private string log;
@@ -24,22 +25,22 @@ namespace Task5
 
         public FileWriter(string path)
         {
-            Path = path;
-            //pathBuffer = String.Format("\\buffer" + path);
+            Path = rootPath + path;
+            pathBuffer = String.Format($@"{rootPath}\buffer" + path);
         }
 
         public FileWriter(string path, string text)
         {
-            Path = path;
+            Path = rootPath + path;
             this.someText = text;
-            //pathBuffer = String.Format("\\buffer" + path);
+            pathBuffer = String.Format($@"{rootPath}\buffer" + path);
 
         }
 
         public FileWriter()
         {
-            Path = @"D:\OlegLearning\SigmaHW\SigmaHW\Task5\Files\SortedArray.txt";
-            //pathBuffer = String.Format("buffer\\" + path);
+            Path = rootPath + "SortedArray.txt";
+            pathBuffer = String.Format($@"{rootPath}\buffer" + path);
 
         }
 
@@ -67,6 +68,11 @@ namespace Task5
             File.Create(Path);
 
 
+        }
+
+        public void ChangePath(string newPath)
+        {
+            path = newPath;
         }
 
         public void WriteToFile()

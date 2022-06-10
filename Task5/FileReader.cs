@@ -30,6 +30,11 @@ namespace Task5
             Path = @"D:\OlegLearning\SigmaHW\SigmaHW\Task5\Files\ArrayNoSorted.txt";
         }
 
+        public void ChangePath(string newPath)
+        {
+            path = newPath; 
+        }
+
         public string ReadFile()
         {
             using (StreamReader sr = new StreamReader(path))

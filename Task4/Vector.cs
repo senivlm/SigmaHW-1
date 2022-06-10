@@ -368,7 +368,7 @@ namespace Task4
             {
                 var pointer = array[(left + right) / 2];
 
-                while(left <= right)
+                while (left <= right)
                 {
                     while (array[left] < pointer)
                     {
@@ -400,6 +400,68 @@ namespace Task4
                 array[positionB] = temp;
             }
         }
+
+        #region task 5
+        private void Merge(int l, int r, int q)
+        {
+            var i = l;
+            var j = q;
+
+            var temp = new int[r - l];
+            int k = 0;
+            while (i < q && j < r)
+            {
+                if (array[i] < array[j])
+                {
+                    temp[k] = array[i++];
+                }
+                else
+                {
+                    temp[k] = array[j++];
+                }
+                k++;
+            }
+
+            if (i == q)
+            {
+                for (int m = j; m < r; m++)
+                {
+                    temp[k++] = array[m];
+                }
+            }
+            else
+            {
+                while (i < q)
+                {
+                    temp[k++] = array[i++];
+                }
+            }
+
+            for (int n = 0; n < temp.Length; n++)
+            {
+                array[n + l] = temp[n];
+            }
+        }
+
+        private void SplitMergeSort(int start, int end)
+        {
+            if (end - start <= 1)
+            {
+                return;
+            }
+            var middle = (start + end) / 2;
+
+            SplitMergeSort(start, middle);
+            SplitMergeSort(middle, end);
+
+            Merge(start, end, middle);
+        }
+
+        public void MergeSort()
+        {
+            SplitMergeSort(0, array.Length);
+        }
+        #endregion
 
     }
 }

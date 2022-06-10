@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Task5
 {
@@ -9,6 +11,7 @@ namespace Task5
         private int[,] matrix;
         private int column;
         private int row;
+        private int lenght => array.Length;
 
         public int this[int index]
         {
@@ -411,50 +414,50 @@ namespace Task5
 
         #region Task5
 
-        private void Merge(int l, int r, int q)
+        private void MyMerge(int[] left, int[] right)
         {
-            var i = l;
-            var j = q;
+            var length = left.Length + right.Length;
+            var leftPointer = 0;
+            var rightPointer = 0;
 
-            var temp = new int[r - l];
-            int k = 0;
-            while (i < q && j < r)
+            var result = new List<int>(length);
+
+            for (int i = 0; i < length; i++)
             {
-                if (array[i] < array[j])
+                if (leftPointer < left.Length && rightPointer < right.Length)
                 {
-                    temp[k] = array[i++];
+                    if (left[leftPointer] <= right[rightPointer])
+                    {
+                        result.Add(left[leftPointer]);
+                        leftPointer++;
+                    }
+                    else
+                    {
+                        result.Add(right[rightPointer]);
+                        rightPointer++;
+                    }
                 }
                 else
                 {
-                    temp[k] = array[j++];
-                }
-                k++;
-            }
-
-            if (i == q)
-            {
-                for (int m = j; m < r; m++)
-                {
-                    temp[k++] = array[m];
-                }
-            }
-            else
-            {
-                while (i < q)
-                {
-                    temp[k++] = array[i++];
+                    if (rightPointer < right.Length)
+                    {
+                        result.Add(right[rightPointer]);
+                        rightPointer++;
+                    }
+                    else
+                    {
+                        result.Add(left[leftPointer]);
+                        leftPointer++;
+                    }
                 }
             }
 
-            for (int n = 0; n < temp.Length; n++)
-            {
-                array[n + l] = temp[n];
-            }
+            array = result.ToArray();
         }
 
         private void SplitMergeSort(int start, int end)
         {
-            if (end - start <= 1)
+            if (end - start == 1)
             {
                 return;
             }
@@ -463,12 +466,86 @@ namespace Task5
             SplitMergeSort(start, middle);
             SplitMergeSort(middle, end);
 
-            Merge(start, end, middle);
+            var items = new List<int>();
+            foreach (var item in array)
+            {
+                items.Add(item);
+            }
+
+            var startArr = items.Take(middle).ToArray();
+            var endArr = items.Skip(middle).ToArray();
+
+
+            MyMerge(startArr, endArr);
+        }
+
+        public void MergeSortFromFile()
+        {
+            // 1 2 3 6 5 4 9 8 7 4 4 2 Data in File
+            FileReader fileReader = new FileReader();
+            string fileData = fileReader.ReadFile();
+
+            string[] arr = fileData.Split(' ');
+            int[] parseArray = new int[arr.Length];
+            int counter = default;
+            int resultParseItem;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (int.TryParse(arr[i], out resultParseItem))
+                {
+                    parseArray[i] = resultParseItem;
+                }
+                else
+                {
+                    parseArray[i] = 0;
+                    counter++;
+                }
+            }
+            Console.WriteLine($"Don`t read items {counter}");
+
+            array = parseArray;
+
+            SplitMergeSort(0, array.Length);
+        }
+
+        public void MergeSortFromFile(string text)
+        {
+            FileWriter fileWriter = new FileWriter();
+            fileWriter.ChangePath(@"D:\OlegLearning\SigmaHW\SigmaHW\Task5\Files\ArrayNoSorted.txt");
+            fileWriter.WriteToFile(text);
+
+            FileReader fileReader = new FileReader();
+            string fileData = fileReader.ReadFile();
+
+            string[] arr = fileData.Split(' ');
+            int[] parseArray = new int[arr.Length];
+            int counter = default;
+            int resultParseItem;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (int.TryParse(arr[i], out resultParseItem))
+                {
+                    parseArray[i] = resultParseItem;
+                }
+                else
+                {
+                    parseArray[i] = 0;
+                    counter++;
+                }
+            }
+            Console.WriteLine($"Don`t read items {counter}");
+
+            array = parseArray;
+
+            SplitMergeSort(0, array.Length);
+
         }
 
         public void MergeSort()
         {
-            SplitMergeSort(0, array.Length);
+            SplitMergeSort(0, array.Length - 1);
         }
 
         public void ReadMatrixFromFile(StreamReader reader)
@@ -505,6 +582,57 @@ namespace Task5
                 }
                 Console.WriteLine();
             }
+
+        }
+
+        private void Structurization()
+        {
+            List<int> tempArr = new List<int>();
+            int parentIndex = default;
+            int index = default;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                tempArr.Add(array[i]);
+                parentIndex = (i - 1) / 2;
+
+                index = i;
+                while (index > 0 && tempArr[parentIndex] < tempArr[index])
+                {
+                    Swop(index, parentIndex);
+
+                    index = parentIndex;
+                }               
+            }
+            
+        }
+
+        private void DeleteFirst()
+        {
+            List<int> temp = array.Skip(1).ToList();
+            array = temp.ToArray();
+            
+        }
+
+        public void PiramidSort()
+        {
+           
+            var startLenght = array.Length;
+            int[] temp = new int[startLenght]; 
+            Structurization();
+
+            for (int i = startLenght - 1; i >= 0; i--)
+            {
+                if (array.Length > 0)
+                {
+                    temp[i] = array[0];
+                    DeleteFirst();
+                    Structurization();
+                    
+                }
+            }
+
+            array = temp;            
 
         }
 
