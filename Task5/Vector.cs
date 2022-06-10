@@ -1,10 +1,14 @@
 ﻿using System;
+using System.IO;
 
 namespace Task5
 {
     internal class Vector
     {
-        int[] array { get; set; }
+        private int[] array { get; set; }
+        private int[,] matrix;
+        private int column;
+        private int row;
 
         public int this[int index]
         {
@@ -37,6 +41,8 @@ namespace Task5
         {
             this.array = array;
         }
+
+        #region methods Task3 - Task4
 
         public void InitRand(int a, int b)
         {
@@ -156,7 +162,7 @@ namespace Task5
                 j--;
             }
 
-            array = tempArray;
+            this.array = tempArray;
 
             return array;
         }
@@ -401,14 +407,18 @@ namespace Task5
             }
         }
 
-        private void Merge(int left, int mid, int right)
-        {
-            var i = left;
-            var j = mid;
+        #endregion
 
-            var temp = new int[right - left + 1];
+        #region Task5
+
+        private void Merge(int l, int r, int q)
+        {
+            var i = l;
+            var j = q;
+
+            var temp = new int[r - l];
             int k = 0;
-            while (i < mid && j < right)
+            while (i < q && j < r)
             {
                 if (array[i] < array[j])
                 {
@@ -421,24 +431,24 @@ namespace Task5
                 k++;
             }
 
-            if (i == mid)
+            if (i == q)
             {
-                for (int m = j; m <= right; m++)
+                for (int m = j; m < r; m++)
                 {
                     temp[k++] = array[m];
                 }
             }
             else
             {
-                while (i < mid)
+                while (i < q)
                 {
                     temp[k++] = array[i++];
                 }
             }
 
-            for (int n = 0; n < array.Length; n++)
+            for (int n = 0; n < temp.Length; n++)
             {
-                array[n + left] = temp[n];
+                array[n + l] = temp[n];
             }
         }
 
@@ -453,12 +463,51 @@ namespace Task5
             SplitMergeSort(start, middle);
             SplitMergeSort(middle, end);
 
-            Merge(start, middle, end);
+            Merge(start, end, middle);
         }
 
         public void MergeSort()
         {
             SplitMergeSort(0, array.Length);
         }
+
+        public void ReadMatrixFromFile(StreamReader reader)
+        {
+            string line = reader.ReadLine();
+            string[] sizes = line.Split(' ');
+
+            row = int.Parse(sizes[0]);
+            column = int.Parse(sizes[1]);
+            matrix = new int[row, column];
+
+            for (int i = 0; i < row; i++)
+            {
+                string[] items = reader.ReadLine().Split(' ');
+                for (int j = 0; j < column; j++)
+                {
+                    matrix[i, j] = int.Parse(items[j]);
+                }
+            }
+
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    if ((matrix[i, j] / 10) < 1)
+                    {
+                        Console.Write("| " + matrix[i, j] + "|\t");
+                    }
+                    else
+                    {
+                        Console.Write("|" + matrix[i, j] + "|\t");
+                    }
+
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+        #endregion
     }
 }
