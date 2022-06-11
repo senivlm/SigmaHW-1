@@ -43,14 +43,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consumer.cs" />
+    <Compile Include="ConsumerRepository.cs" />
+    <Compile Include="FileLogger.cs" />
+    <Compile Include="FileReader.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Files\DifficultTextTask.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Description\Task6Info.txt" />
+    <Content Include="Files\Consumers.txt" />
+    <Content Include="Files\Result.txt" />
+    <Content Include="Files\Report.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\Buffer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
