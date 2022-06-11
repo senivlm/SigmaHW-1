@@ -5,9 +5,7 @@ namespace Task6
 {
     internal class FileWriter : IDisposable
     {
-        private readonly string rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task6\Files\";
-        private readonly string pathBuffer = @"D:\OlegLearning\SigmaHW\SigmaHW\Task6\Files\Buffer\log.txt";
-        private string log;
+        private string rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task6\Files\";
         private string fileName;
         private string fullPath;
         private string someText = "Ups....info didn't come";
@@ -20,18 +18,18 @@ namespace Task6
             {
                 if (value != null)
 
-                fullPath = value;
+                    fullPath = value;
             }
         }
 
-        public string FileName
+        public string RootPath
         {
-            get { return fileName; }
+            get { return rootPath; }
             set
             {
                 if (value != null)
 
-                    fileName = value;
+                    rootPath = value;
             }
         }
 
@@ -43,6 +41,17 @@ namespace Task6
                 if (value != null)
 
                     someText = value;
+            }
+        }
+
+        public string FileName
+        {
+            get { return fileName; }
+            set
+            {
+                if (value != null)
+
+                    fileName = value;
             }
         }
 

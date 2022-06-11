@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consumer.cs" />
-    <Compile Include="ConsumerRepository.cs" />
+    <Compile Include="DataLayer\Consumer.cs" />
+    <Compile Include="DataLayer\ConsumerRepository.cs" />
+    <Compile Include="Enums\Mounts.cs" />
+    <Compile Include="Enums\Quarter.cs" />
     <Compile Include="FileLogger.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="FileWriter.cs" />
@@ -53,16 +55,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Content Include="Files\DifficultTextTask.txt" />
+    <Content Include="Files\Task6.2\DifficultTextTask.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Description\Task6Info.txt" />
-    <Content Include="Files\Consumers.txt" />
-    <Content Include="Files\Result.txt" />
-    <Content Include="Files\Report.txt" />
+    <Content Include="Files\Task6.1\First.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\Task6.1\Fourth.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\Task6.1\Third.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\Task6.1\Second.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\Task6.2\Result.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\Task6.1\Report.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Files\Buffer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

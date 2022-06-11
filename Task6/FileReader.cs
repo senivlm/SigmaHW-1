@@ -1,16 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Task6
 {
     internal class FileReader : IDisposable
     {
-        private readonly string rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task6\Files\";
+        private string rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task6\Files";
         private string readLine;
         private string fileName;
         private string fullPath;
         private string someText = "Ups....The info has not been read yet";
         private bool isDisposed = false;
+
+        public string RootPath
+        {
+            get { return rootPath; }
+            set
+            {
+                if (value != null)
+
+                    rootPath = value;
+            }
+        }
 
         public string FullPath
         {
@@ -61,7 +73,16 @@ namespace Task6
             Dispose(false);
         }
 
-        public string ReadFile()
+        public string ReadFileToEnd()
+        {
+            using (StreamReader sr = new StreamReader(fullPath))
+            {
+                readLine = sr.ReadToEnd();
+            }
+            return readLine;
+        }
+
+        public string ReadFileLine()
         {
             using (StreamReader sr = new StreamReader(fullPath))
             {
@@ -70,7 +91,7 @@ namespace Task6
             return readLine;
         }
 
-        public string ReadFile(string fileName)
+        public string ReadFileLine(string fileName)
         {
             fullPath = rootPath + fileName;
             using (StreamReader sr = new StreamReader(fullPath))
@@ -79,6 +100,46 @@ namespace Task6
             }
 
             return readLine;
+        }
+
+        public string ReadFileToEnd(string fileName)
+        {
+            fullPath = rootPath + fileName;
+            using (StreamReader sr = new StreamReader(fullPath))
+            {
+                readLine = sr.ReadToEnd();
+            }
+
+            return readLine;
+        }
+
+        public string[] ReadFileToEnd(string fileName, int startWith = 0)
+        {
+            fullPath = rootPath + fileName;
+
+            List<string> lines = new List<string>();
+            using (StreamReader reader = new StreamReader(fullPath))
+            {
+                int counter = 1;
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if( counter <= startWith)
+                    {
+                        counter++;
+                        continue;
+                    }
+                    else
+                    {
+                        lines.Add(line);
+                        line = "";
+                        counter++;
+                    }
+                   
+                }
+            }
+
+            return lines.ToArray();
         }
 
         protected virtual void Dispose(bool disposing)
