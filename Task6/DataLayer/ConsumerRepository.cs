@@ -9,6 +9,20 @@ namespace Task6
     {
         private List<Consumer>[] _consumers = new List<Consumer>[4];
 
+        private double kWattPrice = 1.99;
+
+        public double KWattPrice
+        {
+            get { return kWattPrice; }
+            set
+            { 
+                if(value < 0)
+                {
+                    return;
+                }
+                kWattPrice = value; 
+            }
+        }
         public int CountRoomOne
         {
             get { return _consumers[0].Count; }
@@ -28,23 +42,55 @@ namespace Task6
 
         public ConsumerRepository(Consumer consumer, int quarter)
         {
+            if (consumer == null | quarter < 0 | quarter > 4)
+            {
+                return;
+            }
             AddConsumer(consumer, quarter);
         }
 
         public ConsumerRepository()
         {
-  
+            _consumers = new List<Consumer>[4];
         }
 
-        public void AddConsumer(Consumer consumer , int quarter)
+        public void AddConsumer(List<Consumer> consumers, int quarter)
         {
-
-            if(consumer == null)
+            if (consumers == null | quarter < 0 | quarter > 4)
             {
                 return;
             }
 
-            if(quarter == 1)
+            if (quarter == 1)
+            {
+                _consumers[0] = consumers;
+            }
+
+            if (quarter == 2)
+            {
+                _consumers[1] = consumers;
+            }
+
+            if (quarter == 3)
+            {
+                _consumers[2] = consumers;
+            }
+
+            if (quarter == 4)
+            {
+                _consumers[3] = consumers;
+            }
+        }      
+
+        public void AddConsumer(Consumer consumer , int quarter)
+        {
+
+            if (consumer == null | quarter < 0 | quarter > 4)
+            {
+                return;
+            }
+
+            if (quarter == 1)
             {
                 _consumers[0].Add(consumer);
             }
@@ -66,8 +112,9 @@ namespace Task6
 
         }
 
-        public List<Consumer> GetConsumer(Quarter quarter)
+        public List<Consumer> GetConsumers(Quarter quarter)
         {
+
             if (quarter == Quarter.First)
             {
                 return _consumers[0];
@@ -87,12 +134,20 @@ namespace Task6
             {
                 return _consumers[3];
             }
+            else
+            {
+                throw new ArgumentException();
+            }
 
-            throw new ArgumentException();
+           
         }
 
-        public List<Consumer> GetConsumer(int quarter)
+        public List<Consumer> GetConsumers(int quarter)
         {
+            if (quarter < 0 | quarter > 4)
+            {
+                
+            }
             if (quarter == 1)
             {
                 return _consumers[0];
@@ -112,8 +167,53 @@ namespace Task6
             {
                 return _consumers[3];
             }
+            else
+            {
+                throw new ArgumentException();
+            }
 
-            throw new ArgumentException();
+            
+        }
+
+        public Consumer GetConsumer(int quarter, int room)
+        { 
+            if (quarter < 0 | quarter > 4)
+            {
+                throw new ArgumentException();
+            }
+
+            List<Consumer> consumers = GetConsumers(quarter);
+
+            return consumers?.Find(p => p.RoomNumber == room);
+           
+        }
+
+        public List<Consumer> GetAllConsumers()
+        {
+            List<Consumer> list = new List<Consumer>();
+            list.AddRange(GetConsumers(1));
+            list.AddRange(GetConsumers(2));
+            list.AddRange(GetConsumers(3));
+            list.AddRange(GetConsumers(4));
+            return list;
+        }
+
+        public double GetPayments(int room)
+        {
+            List<Consumer> paym = new List<Consumer>();
+            paym = GetAllConsumers();
+            Consumer cons = paym.Find(p => p.RoomNumber == room);
+
+            return cons.GetPay();
+        }
+
+        public string GetDifferenceData(int room)
+        {
+            List<Consumer> paym = new List<Consumer>();
+            paym = GetAllConsumers();
+            Consumer cons = paym.Find(p => p.RoomNumber == room);
+
+            return $"{cons} Different days: {cons.GetDifferenceDay()}";           
         }
 
         public int GetConsumerCount(Quarter quarter)

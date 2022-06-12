@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BisnessLogic\BLL.cs" />
     <Compile Include="DataLayer\Consumer.cs" />
     <Compile Include="DataLayer\ConsumerRepository.cs" />
     <Compile Include="Enums\Mounts.cs" />
