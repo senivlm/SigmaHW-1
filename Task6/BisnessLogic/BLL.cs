@@ -5,16 +5,19 @@ namespace Task6.BisnessLogic
 {
     internal class BLL
     {
-        FileLogger FileOne;
-        ConsumerRepository repository;
-        List<Consumer> consumers;
+        private FileLogger FileOne;
+        private ConsumerRepository repository;
+        private List<Consumer> consumers;
+        private Consumer temp;
+        private FileWriter fileWriter;
         private int quarter;
         private int room;
 
         public BLL()
         {
             FileOne = new FileLogger();
-
+            temp = new Consumer();
+            fileWriter = new FileWriter("Task6.1\\Report.txt");
             consumers = new List<Consumer>();
 
             string[] body1 = FileOne.ReadBody("/Task6.1/First.txt");
@@ -35,11 +38,59 @@ namespace Task6.BisnessLogic
             consumers = FileOne.ParseBody(body4);
             repository.AddConsumer(consumers, 4);
 
+            Console.WriteLine("!Hello");
+            Comands();
+
+        }
+
+        private string PrintToFile(string s, List<Consumer> consumers, int quarter)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Print To File Report??? [Y/y] [N/n]");
+            Console.WriteLine(">>");
+            s = Console.ReadLine();
+            s.ToLower();
+            if (s == "y")
+            {
+                fileWriter.ClearFile();
+                fileWriter.WriteHat(quarter);
+                foreach (var item in consumers)
+                {
+                    fileWriter.WriteToFile(item);
+                }
+
+                return s;
+
+            }
+            else
+            {
+                return s;
+            }
+        }
+
+        private string PrintToFile(string text)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Print To File Report??? [Y/y] [N/n]");
+            Console.WriteLine(">>");
+            string s = Console.ReadLine();
+            s.ToLower();
+            if (s == "y")
+            {
+                fileWriter.ClearFile();
+                fileWriter.WriteHat(quarter);
+                fileWriter.WriteToFile(text);
+                return s;
+
+            }
+            else
+            {
+                return s;
+            }
         }
 
         public string StartApp()
         {
-            Comands();
             Console.Write(">>");
             string result = Parse(Console.ReadLine());
             Console.WriteLine();
@@ -48,21 +99,18 @@ namespace Task6.BisnessLogic
             return result;
         }
 
-
         public void Comands()
         {
 
             Console.WriteLine("!Write your " + "command");
             Console.WriteLine(
-                "press>> q = Print to file <Report> all Consumers\n" +
-                "press>> w = Print to file <Report> all Consumers in quarter [1] [2] [3] [4]\n" +
-                "press>> e = Print to file <Report> one Consumer in for his room\n" +
-                "press>> r = Print to file <Report> the strongest debtor\n" +
-                "press>> t = Print to file <Report> the summ debtor\n" +
-                "press>> y = Print to file <Report> the Total payments\n" +
-                "press>> c = Print to Clear console\n" +
-                "press>> x = Exit");
-
+                "!press>> q = Print to file <Report> all Consumers\n" +
+                "!press>> e = Print to file <Report> all Consumers in quarter [1] [2] [3] [4]\n" +
+                "!press>> w = Print to file <Report> one in quarter [1] [2] [3] [4] and his room\n" +
+                "!press>> r = Print to file <Report> the strongest debtor\n" +
+                "!press>> t = Print to file <Report> the summ debtor\n" +
+                "!press>> y = Print to file <Report> the Total payments\n" +
+                "!press>> c = Print to Display Comands\n");
         }
 
         public string Parse(string s)
@@ -71,41 +119,209 @@ namespace Task6.BisnessLogic
             if (s == "q")
             {
                 consumers = repository.GetAllConsumers();
+                Console.WriteLine(temp.WriteHat(quarter));
                 foreach (var item in consumers)
                 {
                     Console.WriteLine(item);
                 }
+
+                    Console.WriteLine("Print To File Report??? [Y/y] [N/n]");
+                Console.WriteLine(">>");
+                s = Console.ReadLine();
+                s.ToLower();
+                if(s == "y")
+                {
+                    fileWriter.ClearFile();
+                    fileWriter.WriteHat(quarter);
+                    foreach (var item in consumers)
+                    {
+                        fileWriter.WriteToFile(item);
+                    }
+
+                }
+                else
+                {
+                    return s;
+                }
+                       
                 return s;
             }
             if (s == "w")
             {
                 int x;
                 Console.WriteLine("input [1] [2] [3] [4]");
+                Console.WriteLine(">>");
+                s = Console.ReadLine();
                 if (s == "1")
                 {
-                    quarter = int.Parse(s);
-                    x = int.Parse(s);
+                    Console.WriteLine("input room number");
+                    Console.WriteLine(">>");
+                    
+                    if (int.TryParse(s, out quarter))
+                    {
+                        s = Console.ReadLine();
+                        if (int.TryParse(s, out room))
+                        {
+                            room = int.Parse(s);
+                            Console.WriteLine(temp.WriteHat(quarter));////
+                            Consumer buffer = repository.GetConsumer(quarter, room);
+                            Console.WriteLine(buffer);
+
+                            PrintToFile(s, new List<Consumer>() { buffer }, quarter);
+
+                            if (repository.GetConsumer(quarter, room) == null)
+                            {
+                                Console.WriteLine("this quarter is not in the database");
+                                return s;
+                            }
+                            else
+                            {
+                                return s;
+                            }
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("this quarter is not in the database");
+                            return s;
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("this quarter is not in the database");
+                        return s;
+                    }
                 }
                 if (s == "2")
                 {
-                    quarter = int.Parse(s);
-                    x = int.Parse(s);
+                    Console.WriteLine("input room number");
+                    Console.WriteLine(">>");
+
+                    if (int.TryParse(s, out quarter))
+                    {
+                        s = Console.ReadLine();
+                        if (int.TryParse(s, out room))
+                        {
+                            room = int.Parse(s);
+                            Console.WriteLine(temp.WriteHat(quarter));////
+                            Consumer buffer = repository.GetConsumer(quarter, room);
+                            Console.WriteLine(buffer);
+
+                            PrintToFile(s, new List<Consumer>() { buffer }, quarter);
+
+                            if (repository.GetConsumer(quarter, room) == null)
+                            {
+                                Console.WriteLine("this quarter is not in the database");
+                                return s;
+                            }
+                            else
+                            {
+                                return s;
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("this quarter is not in the database");
+                            return s;
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("this quarter is not in the database");
+                        return s;
+                    }
                 }
                 if (s == "3")
                 {
-                    quarter = int.Parse(s);
-                    x = int.Parse(s);
+                    Console.WriteLine("input room number");
+                    Console.WriteLine(">>");
+
+                    if (int.TryParse(s, out quarter))
+                    {
+                        s = Console.ReadLine();
+                        if (int.TryParse(s, out room))
+                        {
+                            room = int.Parse(s);
+                            Console.WriteLine(temp.WriteHat(quarter));////
+                            Consumer buffer = repository.GetConsumer(quarter, room);
+                            Console.WriteLine(buffer);
+
+                            PrintToFile(s, new List<Consumer>() { buffer }, quarter);
+
+                            if (repository.GetConsumer(quarter, room) == null)
+                            {
+                                Console.WriteLine("this quarter is not in the database");
+                                return s;
+                            }
+                            else
+                            {
+                                return s;
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("this quarter is not in the database");
+                            return s;
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("this quarter is not in the database");
+                        return s;
+                    }
                 }
                 if (s == "4")
                 {
-                    quarter = int.Parse(s);
-                    x = int.Parse(s);
+                    Console.WriteLine("input room number");
+                    Console.WriteLine(">>");
+
+                    if (int.TryParse(s, out quarter))
+                    {
+                        s = Console.ReadLine();
+                        if (int.TryParse(s, out room))
+                        {
+                            room = int.Parse(s);
+                            Console.WriteLine(temp.WriteHat(quarter));////
+                            Consumer buffer = repository.GetConsumer(quarter, room);
+                            Console.WriteLine(buffer);
+
+                            PrintToFile(s, new List<Consumer>() { buffer }, quarter);
+
+                            if (repository.GetConsumer(quarter, room) == null)
+                            {
+                                Console.WriteLine("this quarter is not in the database");
+                                return s;
+                            }
+                            else
+                            {
+                                return s;
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("this quarter is not in the database");
+                            return s;
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("this quarter is not in the database");
+                        return s;
+                    }
                 }
                 else
                 {
+                    Console.WriteLine("this quarter is not in the database");
                     return s;
                 }
-
+                
                 consumers = repository.GetConsumers(x);
                 foreach (var item in consumers)
                 {
@@ -117,47 +333,193 @@ namespace Task6.BisnessLogic
             if (s == "e")
             {
                 int x;
-                if (int.TryParse(s, out x))
+                Console.WriteLine("input [1] [2] [3] [4]");
+                Console.WriteLine(">>");
+                s = Console.ReadLine();
+                if (s == "1")
                 {
-                    x = int.Parse(s);
+                    if (int.TryParse(s, out quarter))
+                    {
+                        
+                        if (int.TryParse(s, out quarter))
+                        {
+                            Console.WriteLine(temp.WriteHat(quarter));
+                            consumers = repository.GetConsumers(quarter);
+
+                            foreach (var item in consumers)
+                            {
+                                Console.WriteLine(item);
+                            }              
+                            
+                            PrintToFile(s, consumers, quarter);
+                            return s;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("this quarter is not in the database");
+                            return s;
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("this quarter is not in the database");
+                        return s;
+                    }
+                }
+                if (s == "2")
+                {
+                    if (int.TryParse(s, out quarter))
+                    {
+
+                        if (int.TryParse(s, out quarter))
+                        {
+                            Console.WriteLine(temp.WriteHat(quarter));
+                            consumers = repository.GetConsumers(quarter);
+                            foreach (var item in consumers)
+                            {
+                                Console.WriteLine(item);
+                            }
+                            PrintToFile(s, consumers, quarter);
+                            return s;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("this quarter is not in the database");
+                            return s;
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("this quarter is not in the database");
+                        return s;
+                    }
+                }
+                if (s == "3")
+                {
+                    if (int.TryParse(s, out quarter))
+                    {
+
+                        if (int.TryParse(s, out quarter))
+                        {
+                            Console.WriteLine(temp.WriteHat(quarter));
+                            consumers = repository.GetConsumers(quarter);
+                            foreach (var item in consumers)
+                            {
+                                Console.WriteLine(item);
+                            }
+                            PrintToFile(s, consumers, quarter);
+                            return s;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("this quarter is not in the database");
+                            return s;
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("this quarter is not in the database");
+                        return s;
+                    }
+                }
+                if (s == "4")
+                {
+                    if (int.TryParse(s, out quarter))
+                    {
+
+                        if (int.TryParse(s, out quarter))
+                        {
+                            Console.WriteLine(temp.WriteHat(quarter));
+                            consumers = repository.GetConsumers(quarter);
+                            foreach (var item in consumers)
+                            {
+                                Console.WriteLine(item);
+                            }
+                            PrintToFile(s, consumers, quarter);
+                            return s;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("this quarter is not in the database");
+                            return s;
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("this quarter is not in the database");
+                        return s;
+                    }
                 }
                 else
                 {
+                    Console.WriteLine("this quarter is not in the database");
                     return s;
                 }
-                Consumer consumer = repository.GetConsumer(quarter, x);
-
-                    Console.WriteLine(consumer);
-
-
-                return s;
             }
             if (s == "r")
             {
-               ///// ljgbcfnm!!!!!!!!!!!!!11
-                return s;
+                Console.WriteLine("the strongest debtor is :");
+
+
+                string buffer = repository.GetStrongestDebtor();
+                if (buffer != null)
+                {
+                    Console.WriteLine(temp.WriteHat(quarter));
+                    Console.WriteLine(buffer);
+                    PrintToFile(buffer); //
+                    return s;
+                }
+                else
+                {
+                    Console.WriteLine("this room is not in the database");
+                    return s;
+                }
             }
             if (s == "t")
             {
                 Console.WriteLine("press number room");
-                room = int.Parse(Console.ReadLine());
-                Console.WriteLine(repository.GetDifferenceData(room));
-                return s;
+
+                s = Console.ReadLine();
+                Console.WriteLine(">>");
+
+                
+                if (int.TryParse(s, out room))
+                {
+                    room = int.Parse(s);
+                    string buffer = repository.GetDifferenceData(room);
+                    Console.WriteLine(temp.WriteHat(quarter));
+                    Console.WriteLine(buffer);
+                    PrintToFile(buffer); //
+
+                    return s;
+                }
+                else
+                {
+                    Console.WriteLine("this room is not in the database");
+                    return s;
+                }             
             }
             if (s == "y")
             {
                 Console.WriteLine("press number room");
                 room = int.Parse(Console.ReadLine());
-                Console.WriteLine(repository.GetPayments(room));
+                string buffer = repository.GetPaymentsToString(room);
+                Console.WriteLine(temp.WriteHat(quarter));
+                Console.WriteLine(buffer);
+                PrintToFile(buffer); //
                 return s;
             }
             if (s == "c")
             {
-                Console.Clear();
-                return s;
-            }
-            if (s == "x")
-            {
+                Comands();
                 return s;
             }
             else

@@ -207,13 +207,38 @@ namespace Task6
             return cons.GetPay();
         }
 
-        public string GetDifferenceData(int room)
+        public string GetPaymentsToString(int room)
         {
             List<Consumer> paym = new List<Consumer>();
             paym = GetAllConsumers();
             Consumer cons = paym.Find(p => p.RoomNumber == room);
 
-            return $"{cons} Different days: {cons.GetDifferenceDay()}";           
+            if (cons != null)
+            {
+                return $"{cons} \nDifferent days:     [{cons.GetPay()}]";
+            }
+            else
+            {
+                return $"{cons} \nDifferent days:     [{cons.GetPay()}]";
+            };
+        }
+
+        public string GetDifferenceData(int room)
+        {
+           
+            List<Consumer> paym = new List<Consumer>();
+            paym = GetAllConsumers();
+            Consumer cons = paym?.Find(p => p.RoomNumber == room);
+
+            if(cons != null)
+            {
+                return $"{cons} \nDifferent days:     [{cons.GetDifferenceDay()}]";
+            }
+            else
+            {
+                return $"{cons} \nDifferent days:     [{cons.GetDifferenceDay()}]";
+            }
+                      
         }
 
         public int GetConsumerCount(Quarter quarter)
@@ -239,6 +264,33 @@ namespace Task6
             }
 
             throw new ArgumentException();
+        }
+
+        public string GetStrongestDebtor()
+        {
+            double result = 0;
+            Consumer storageResult = default;
+
+            List<Consumer> paym = new List<Consumer>();
+            paym = GetAllConsumers();
+
+            foreach (var item in paym)
+            {
+                if(item.GetPay() > result)
+                {
+                    result = item.GetPay();
+                    storageResult = item;
+                }
+            }
+            
+            if (storageResult != null)
+            {
+                return $"{storageResult} \nDifferent days:     [{storageResult.GetPay()}]";
+            }
+            else
+            {
+                return $"{storageResult} \nDifferent days:     [{storageResult.GetPay()}]";
+            };
         }
 
     }

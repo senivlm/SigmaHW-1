@@ -6,10 +6,20 @@ namespace Task6
 {
     internal class Program
     {
+        
         static void Main(string[] args)
         {
+            Start6_1();
+
+            ////Tests();
+            //Console.ReadKey();
+        }
+
+        private static void Start6_1()
+        {
             string isExit;
-            Console.WriteLine("!Hello");
+
+
             BLL bll = new BLL();
 
             do
@@ -22,10 +32,9 @@ namespace Task6
                 {
                     Console.WriteLine(ex);
                 }
-            } while (true);
 
-            //Tests();
-            Console.ReadKey();
+
+            } while (true);
         }
 
         public void Tests()

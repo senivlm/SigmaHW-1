@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Task6
@@ -86,7 +87,7 @@ namespace Task6
 
         public void WriteToFile()
         {
-            using (StreamWriter sw = new StreamWriter(fullPath))
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
             {
                 sw.WriteLine(someText);
             }
@@ -94,7 +95,7 @@ namespace Task6
 
         public void WriteToFile(string file)
         {
-            using (StreamWriter sw = new StreamWriter(fullPath))
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
             {
                 sw.WriteLine(file);
             }
@@ -103,7 +104,7 @@ namespace Task6
         public void WriteToFile(string file, string fileName)
         {
             fullPath = rootPath + fileName;
-            using (StreamWriter sw = new StreamWriter(fullPath))
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
             {
                 sw.WriteLine(file);
             }
@@ -111,13 +112,52 @@ namespace Task6
 
         public void WriteToFile(int[] array)
         {
-            using (StreamWriter sw = new StreamWriter(fullPath))
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
             {
                 for (int i = 0; i < array.Length; i++)
                 {
                     sw.WriteLine(array[i] + " ");
                 }
 
+            }
+        }
+
+        public void WriteToFile(List<Consumer> array)
+        {
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
+            {
+                for (int i = 0; i < array.Count; i++)
+                {
+                    sw.WriteLine(array[i] + " ");
+                }
+
+            }
+        }
+
+        public void WriteToFile(Consumer consumer)
+        {
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
+            {
+                sw.WriteLine(consumer);
+            }
+        }
+
+        public void WriteHat(int quarter)
+        {
+            Consumer consumer = new Consumer();
+
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
+            {
+                sw.WriteLine(consumer.WriteHat(quarter));
+            }
+        }
+
+        public void ClearFile()
+        {
+            using (StreamWriter sw = new StreamWriter(fullPath))
+            {
+                //sw.WriteLine();
+                sw.Close();
             }
         }
 
