@@ -1,6 +1,6 @@
 ﻿[5] [1]
-[001] Semenov   [00123,55] [00125,25] {January - 01.01.21 | February - 01.02.21 | Martch - 01.03.21}
-[002] Bogdanov  [00129,55] [00155,35] {January - 02.01.21 | February - 02.02.21 | Martch - 02.03.21}
-[003] Kerimov   [00955,55] [01033,25] {January - 03.01.21 | February - 03.02.21 | Martch - 03.03.21}
-[004] Anisimova [12345,55] [12346,25] {January - 04.01.21 | February - 04.02.21 | Martch - 04.03.21}
+[001] Semenov   [00123,55] [00125,25] <January - 01.01.21 | February - 01.02.21 | Martch - 01.03.21>
+[002] Bogdanov  [00129,55] [00155,35] #January - 02.01.21 | February - 02.02.21 | Martch - 02.03.21#
+[003] Kerimov   [00955,55] [01033,25] $January - 03.01.21 | February - 03.02.21 | Martch - 03.03.21$
+[004] Anisimova [12345,55] [12346,25] %January - 04.01.21 | February - 04.02.21 | Martch - 04.03.21^
 [005] Tin       [95565,55] [99999,99] {January - 05.01.21 | February - 05.02.21 | Martch - 05.03.21}

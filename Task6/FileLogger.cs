@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.RegularExpressions;
 using Task6.Enums;
 
@@ -33,18 +34,6 @@ namespace Task6
 
             return resultTempArr;
         }
-
-        private bool IsHat(string text)
-        {
-            if (text[0].Equals('['))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        } // доделать
 
         public void ParseHat(string text, out int roomNumber, out int countConsumers)
         {
@@ -86,12 +75,13 @@ namespace Task6
             List<Consumer> consumers = new List<Consumer>();
             string target;
 
-            SplitArray(text, ' ', '{', '}', '[', ']', '-', '|', '-', '|');
+            SplitArray(text, ' ', '{', '}', '[', ']', '-', '|', '-', '|'
+                , '>', '<', '$', '@', '#', '%', '^', '&', '*', '(', ')', '_');
 
             for (int i = 0; i < resultTempArr.Length; i++)
             {
                 target = resultTempArr[i];
-                if (target != null && !IsHat(target))
+                if (target != null)
                 {
                     consumers.Add(CreateConsumer(target));
                 }
@@ -146,7 +136,7 @@ namespace Task6
                         {
                             startMetrData = double.Parse(words[i]);
                         }
-                        else if(startMetrData > 0.0 & endMetrData == 0.0)
+                        else if (startMetrData > 0.0 & endMetrData == 0.0)
                         {
                             endMetrData = double.Parse(words[i]);
                         }
@@ -157,7 +147,7 @@ namespace Task6
                     }
                     else if (DefineType(words[i]).Equals(typeof(DateTime)))
                     {
-                        if(withdrawalDateFirst.Equals(default) & withdrawalDateSecon.Equals(default) &
+                        if (withdrawalDateFirst.Equals(default) & withdrawalDateSecon.Equals(default) &
                             withdrawalDateThrid.Equals(default))
                         {
                             withdrawalDateFirst = DateTime.Parse(words[i]);
@@ -171,7 +161,7 @@ namespace Task6
                             (withdrawalDateThrid == default))
                         {
                             withdrawalDateThrid = DateTime.Parse(words[i]);
-                        }                     
+                        }
                         else
                         {
                             throw new Exception("split or parse string to DateTime failed");
@@ -197,12 +187,11 @@ namespace Task6
                 Console.WriteLine("Count NaN define type: " + countNaNDefineType);
             }
 
-                return  new Consumer(roomNumber, name, startMetrData, endMetrData, withdrawalDateFirst
-                    , withdrawalDateSecon, withdrawalDateThrid);
-            
+            return new Consumer(roomNumber, name, startMetrData, endMetrData, withdrawalDateFirst
+                , withdrawalDateSecon, withdrawalDateThrid);
+
         }
 
-        // метод определения типа данных
         public Type DefineType(string findType)
         {
             DateTime date = default;
@@ -214,17 +203,17 @@ namespace Task6
                 throw new TypeAccessException("Parse string failed");
             }
 
-            if (findType.Contains(".") &&  DateTime.TryParse(findType, out date))
+            if (findType.Contains(".") && DateTime.TryParse(findType, out date))
             {
                 return date.GetType();
             }
-            
-            if(findType.Contains(",") && double.TryParse(findType, out doubleNumber))
+
+            if (findType.Contains(",") && double.TryParse(findType, out doubleNumber))
             {
                 return doubleNumber.GetType();
             }
-            
-            if(int.TryParse(findType, out intNumber))
+
+            if (int.TryParse(findType, out intNumber))
             {
                 return intNumber.GetType();
             }
@@ -235,86 +224,172 @@ namespace Task6
 
         }
 
-
-
-        // метод печати отчета табличкой
-        public void PrintToResult()
+        public List<string> DivideStringToProposal(string text, bool isHat = true)
         {
+            string buffer = default;
+            int start = default;
+            int end = default;
+            List<string> proposals = new List<string>();
+            List<int> starts = new List<int>();
+            List<int> ends = new List<int>();
 
+            if (text == null | text.Equals(""))
+            {
+                return proposals = default;
+            }
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (char.IsLetter(text[i]))
+                {
+                    if (char.IsUpper(text[i]))
+                    {
+                        starts.Add(i);
+                    }
+                }
+
+                if (('.') == text[i])
+                {
+                    ends.Add(i);
+                }
+            }
+
+            if (isHat)
+            {
+                buffer = (text.Substring(starts[0], starts[1]));
+                buffer = Regex.Replace(buffer, @"\s+", " ");
+                proposals.Add(buffer);
+
+                for (int i = 0; i < starts.Count - 1; i++)
+                {
+                    start = starts[i + 1];
+                    end = ends[i];
+                    buffer = text.Substring(start, (end - start) + 1);
+                    buffer = Regex.Replace(buffer, @"\s+", " ");
+                    buffer = ParseTextToPropsal(buffer);
+                    proposals.Add(buffer);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < starts.Count - 1; i++)
+                {
+                    start = starts[i];
+                    end = ends[i];
+                    buffer = text.Substring(start, (end - start) + 1);
+                    buffer = Regex.Replace(buffer, @"\s+", " ");
+                    buffer = ParseTextToPropsal(buffer);
+                    proposals.Add(buffer);
+                }
+            }
+
+            return proposals;
         }
 
-        // метод печати отчета по выбранному номеру квартиры
-        public void PrintToResultByRoomNumber(int roomNumber)
+        private string ParseTextToPropsal(string text, int countWordsInLine = 10)
         {
+            string temp = "\t" + text;
+            string[] words = temp.Split(' ');
+            StringBuilder sb = new StringBuilder();
+            string result = default;
+            int index = default;
 
+            if(words.Length > 10)
+            {
+                for (int i = 0; i < words.Length; i++)
+                {
+                    if(index < countWordsInLine)
+                    {
+                        sb.Append(words[i] + " ");
+                        index++;
+                    }
+                    else
+                    {
+                        sb.Append("\r\n");
+                        index = default;
+                    }
+                    
+                }
+            }
+
+            result = sb.ToString();
+
+            return result;
         }
 
-        // метод нахождения самого должника
-        public void DisplayBiggestDebtor()
+        public List<string> EditProposal(List<string> proposals, int numberLine, string text)
         {
-
+            proposals[numberLine - 1] = text;
+            return proposals;
         }
 
-        // метод определения кто не пользовался ел енергией
-        public void DisplayWhoNotUseService()
+        private string FindLongWord(string proposal)
         {
+            string result = default;
+            int counter = default;
 
+            string[] words = proposal.Split(' ', ',', ',', '-','*','/','r','n');
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i].Length > counter)
+                {
+                    result = words[i];
+                    counter = words[i].Length;
+                }
+            }
+            return result;
         }
 
-        // метод подсчета по квт кто сколько должен итого
-
-        // метод определения сколько дней прошло с момента крайней оплаты
-
-        // метод деления текста на предложения
-        public void DivideStringToProposal()
+        private string FindShortWord(string proposal)
         {
+            string result = default;
+            int counter = int.MaxValue;
 
+            string[] words = proposal.Split(' ', ',', ',', '-', '*', '/', 'r', 'n');
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if(words[i] == null | words[i] == "")
+                {
+                    continue;
+                }
+                if (words[i].Length < counter)
+                {
+                    result = words[i];
+                    counter = words[i].Length;
+                }
+            }
+            return result;
+        }
+
+        public List<string> GetShortOrLongWords(List<String> proposals, bool IsLongest)
+        {
+            List<string> temp = new List<String>();                     
+            int counter = 1;
+            string text = default;
+
+            if (IsLongest)
+            {
+                foreach (var item in proposals)
+                {
+                    text = string.Format("{0,-3:d3} ", (counter++)) + "string have longest word [";
+                    temp.Add(text + FindLongWord(item) + "]");
+                }
+            }
+            else
+            {
+                foreach (var item in proposals)
+                {
+                    text = string.Format("{0,-3:d3} ", (counter++)) + "string have shortest word [";
+                    temp.Add(text + FindShortWord(item) + "]");
+                }
+            }
+
+           
+
+            return temp;
         }
     }
 }
 
-
-
-/*
- * Завдання 1.
-
-Потрібно створити програму, яка дозволяє вести облік спожитої електроенергії 
-користувачами для заданого кварталу місяця.
-
-З файлу зчитати інформацію, яка міститься в текстовому файлі.
-
-У першій стрічці файлу вказується, скільки квартир є в обліку та номер кварталу.
-
-
-Всі наступні стрічки містять інформацію про номер квартири та прізвище власника, 
-а також про вхідний та вихідний показ електролічильника, а також дату зняття 
-показів для кожного місяця кварталу.
-
-Передбачити наступний функціонал:
-
-Друк звіту в текстовий файл у зручному для користувача форматі, 
-який передбачає, що використовуються повні назви місяців зазначеного кварталу, 
-а також підписи по рядках інформації про номер квартири та власника. 
-Для форматування дати використати стандартний формат(01.12.22).
-Передбачити друк інформації тільки по одній квартирі.
-При відомій вартості кВт енергії знайти прізвище власника з найбільшою заборгованістю.
-Знайти номер квартири, в якій не використовувалась електроенергія.
-Інформація при табуляції повинна бути вирівняна за колонками.
-
-Визначивши вартість одного кіловату, обчислити для кожної квартири суму витрат.
-
-Видрукувати інформацію про те, скільки днів пройшло з моменту останнього зняття 
-показу лічильника до біжучої дати.
-
-
-Завдання 2.
-
-У текстовому файлі задано текст, між словами якого може бути довільна кількість пропусків. 
-Знаки пунктуації використані правильно і є прив’язані до слів. Створити клас для роботи з текстом,
-який вміє читати інформацію з потоку та видрукувати інформацію, 
-а також матиме методи для редагування та обробки інформації Поділити текст на речення 
-та видрукувати кожне речення з абзацу у вихідний файл “Result.txt”, 
-який обов’язково додати до репозиторію. Вважати, що речення можуть бути в кількох стрічках.
-
-На екран видрукувати найдовші та найкоротші слова у кожному реченні.
-*/

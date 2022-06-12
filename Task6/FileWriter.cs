@@ -93,6 +93,18 @@ namespace Task6
             }
         }
 
+        public void WriteToFile(List<string> someText)
+        {
+            ClearFile();
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
+            {
+                foreach (var item in someText)
+                {
+                    sw.WriteLine(item);
+                }        
+            }
+        }
+
         public void WriteToFile(string file)
         {
             using (StreamWriter sw = new StreamWriter(fullPath, true))

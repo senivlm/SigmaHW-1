@@ -1,1 +1,51 @@
-﻿
+					***I edited this line through the method***
+	Dictum elit conubia dictumst nulla himenaeos dis libero, tellus mauris 
+aptent aliquet non, adipiscing diam maecenas cras morbi quisque. 
+	Tortor tempus posuere dis natoque fringilla habitant hendrerit quisque, metus 
+imperdiet dictum hac vehicula vivamus, tincidunt lacus lobortis potenti facilisis 
+mauris. 
+	Consectetur ullamcorper tempor quisque dui sed iaculis praesent, vivamus tortor 
+senectus malesuada auctor parturient, justo efficitur euismod sollicitudin etiam consequat. 
+	Torquent sociosqu maecenas suscipit etiam curae est pulvinar nulla a 
+mattis diam, mollis turpis class vestibulum ligula volutpat facilisis fringilla 
+tempus lobortis, suspendisse risus leo condimentum accumsan lacinia imperdiet egestas 
+himenaeos neque. 
+	Finibus urna posuere ligula sagittis vulputate risus erat odio elementum, 
+bibendum in interdum maecenas eleifend cursus ullamcorper facilisi, ex ultricies 
+condimentum fusce pulvinar auctor mus. 
+	Tempus torquent amet dui curae taciti bibendum elit pulvinar enim 
+fringilla ultrices urna fermentum mollis conubia nam dictum parturient duis, 
+morbi blandit nascetur fusce hac sociosqu dignissim potenti. 
+	Lectus volutpat accumsan rutrum cubilia aliquet, porttitor ultricies sagittis posuere 
+eros, nisi praesent enim porta. 
+	Porttitor id dolor turpis habitasse fermentum sed senectus, potenti felis 
+himenaeos nunc faucibus, purus penatibus augue sodales ligula elementum. 
+	Varius nostra etiam volutpat egestas vulputate finibus aptent consequat semper 
+conubia, tortor posuere litora inceptos adipiscing consectetur pretium sapien mattis 
+urna rhoncus ante neque lectus nisi et sociosqu efficitur tempus. 
+	Quam praesent tempor fermentum neque feugiat class pretium tristique aliquam 
+orci, amet tortor diam etiam ultricies gravida dictumst volutpat urna. 
+List longest words
+001 string have longest word [edited]
+002 string have longest word [dictumst]
+003 string have longest word [facilisis]
+004 string have longest word [sollicitudi]
+005 string have longest word [vestibulum]
+006 string have longest word [vulputate]
+007 string have longest word [sociosqu]
+008 string have longest word [volutpat]
+009 string have longest word [habitasse]
+010 string have longest word [vulputate]
+011 string have longest word [dictumst]
+List shortest words
+001 string have longest word [edited]
+002 string have longest word [dictumst]
+003 string have longest word [facilisis]
+004 string have longest word [sollicitudi]
+005 string have longest word [vestibulum]
+006 string have longest word [vulputate]
+007 string have longest word [sociosqu]
+008 string have longest word [volutpat]
+009 string have longest word [habitasse]
+010 string have longest word [vulputate]
+011 string have longest word [dictumst]

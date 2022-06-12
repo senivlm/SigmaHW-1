@@ -6,13 +6,14 @@ namespace Task6
 {
     internal class Program
     {
-        
+
         static void Main(string[] args)
         {
-            Start6_1();
+            //Start6_1();
+            Start6_2();
 
             ////Tests();
-            //Console.ReadKey();
+            Console.ReadKey();
         }
 
         private static void Start6_1()
@@ -35,6 +36,33 @@ namespace Task6
 
 
             } while (true);
+        }
+
+        private static void Start6_2()
+        {
+            FileReader fr = new FileReader("\\Task6.2\\DifficultTextTask.txt");
+            FileWriter fw = new FileWriter("\\Task6.2\\Result.txt");
+            FileLogger fl = new FileLogger();
+            List<string> proposals = new List<string>();
+            List<string> words = new List<string>();
+
+
+            string text = fr.ReadFileToEnd();
+
+            proposals = fl.DivideStringToProposal(text);
+
+            proposals = fl.EditProposal(proposals, 1,
+                "\t\t\t\t\t***I edited this line through the method***");
+
+            words.Add("List longest words");
+            words.AddRange(fl.GetShortOrLongWords(proposals, true));
+            words.Add("List shortest words");
+            words.AddRange(fl.GetShortOrLongWords(proposals, true));
+
+            proposals.AddRange(words);
+
+            // записать в файл
+            fw.WriteToFile(proposals);
         }
 
         public void Tests()
