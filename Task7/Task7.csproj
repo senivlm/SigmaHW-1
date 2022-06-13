@@ -43,6 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buy.cs" />
+    <Compile Include="Check.cs" />
+    <Compile Include="Enums\Category.cs" />
+    <Compile Include="Enums\TypeMeat.cs" />
+    <Compile Include="Products\DairyProduct.cs" />
+    <Compile Include="Products\Logging.cs" />
+    <Compile Include="Products\Meat.cs" />
+    <Compile Include="Products\Product.cs" />
+    <Compile Include="Products\Storage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,6 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Description\Task7Info.txt" />
+    <Content Include="Files\ProductsErrorLog\AddErrorLog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\Products.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
