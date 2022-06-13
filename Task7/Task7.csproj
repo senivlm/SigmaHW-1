@@ -46,7 +46,12 @@
     <Compile Include="Buy.cs" />
     <Compile Include="Check.cs" />
     <Compile Include="Enums\Category.cs" />
+    <Compile Include="Enums\Mounts.cs" />
+    <Compile Include="Enums\Quarter.cs" />
     <Compile Include="Enums\TypeMeat.cs" />
+    <Compile Include="FileOperation\FileLogger.cs" />
+    <Compile Include="FileOperation\FileReader.cs" />
+    <Compile Include="FileOperation\FileWriter.cs" />
     <Compile Include="Products\DairyProduct.cs" />
     <Compile Include="Products\Logging.cs" />
     <Compile Include="Products\Meat.cs" />

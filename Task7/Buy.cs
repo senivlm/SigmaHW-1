@@ -14,6 +14,11 @@ namespace Products.Task7
 
         public Buy(Product product, int count)
         {
+            if (count < 0)
+                throw new ArgumentException("Count cannot be less than zero");
+            if (product == null)
+                throw new NullReferenceException("incorrect product in Buy class");
+
             products.Add(product);
             Count += count;
             TotalPrice += (product.Price * count);

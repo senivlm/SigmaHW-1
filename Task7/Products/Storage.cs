@@ -1,4 +1,5 @@
 ﻿using Products.Task7.Enums;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -10,26 +11,42 @@ namespace Products.Task7.Products
 
         public void AddProducts(List<Product> prod)
         {
+            if(prod == null)
+                throw new NullReferenceException("incorrect prod in Storrage AddProd method"); 
+
             products.AddRange(prod);
         }
 
         public void AddProduct(Product prod)
         {
+            if (prod == null)
+                throw new NullReferenceException("incorrect prod in Storrage AddProd method");
             products.Add(prod);
         }
 
         public void AddByDialogProduct(string name, decimal price, int weight)
         {
+            if (price < 0 | weight < 0)
+                throw new ArgumentException("Price or weight cannot be less than zero");
+            if (name == null)
+                throw new NullReferenceException("incorrect name");
             products.Add(new Product(name, price, weight));
         }
 
         public void AddByDialogMeat(Category category, MeatType meatType, decimal price, int weight)
         {
+            if (price < 0 | weight < 0)
+                throw new ArgumentException("Price or weight cannot be less than zero");
+
             products.Add(new Meat(category, meatType, price, weight));
         }
 
         public void AddByDialogDiary(string name, decimal price, int weight, int appurtenanceTerm = 3)
         {
+            if (price < 0 | weight < 0)
+                throw new ArgumentException("Price or weight cannot be less than zero");
+            if (name == null)
+                throw new NullReferenceException("incorrect name");
             products.Add(new DairyProducts(name, price, weight, appurtenanceTerm));
         }
 

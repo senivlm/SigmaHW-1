@@ -9,17 +9,26 @@ namespace Products.Task7.Products
 
         public Meat(Category category, MeatType meatType, decimal price, int weight) : base($"Meat_{category}_{meatType}", price, weight)
         {
+            if(price < 0 || weight < 0)
+            {
+                price = 0;
+                weight = 0;
+            }
             this.category = category;
             this.meatType = meatType;
         }
         public Meat() : base(string.Empty, default, default)
         {
             category = Category.NaN;
-            meatType = MeatType.Nan;
+            meatType = MeatType.NaN;
         }
 
         public void ChangePriceByCategory(int percent)
         {
+            if(percent < 0)
+            {
+                return;
+            }
             if (category == Category.TopGrade)
                 base.ChangePrice(percent + (percent * 25 / 100));
 
@@ -29,6 +38,10 @@ namespace Products.Task7.Products
 
         public void ChangePriceByType(int percent)
         {
+            if (percent < 0)
+            {
+                return;
+            }
             if (meatType == MeatType.Lamb)
                 base.ChangePrice(percent - (percent * 2 / 100));
 

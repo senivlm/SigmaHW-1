@@ -20,10 +20,11 @@ namespace Products.Task7.Products
                 }
                 else
                 {
-                    throw new ArgumentException();
+                    throw new NullReferenceException("incorrect name");
                 }
             }
         }
+
         public decimal Price
         {
             get { return price; }
@@ -35,10 +36,11 @@ namespace Products.Task7.Products
                 }
                 else
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("incorrect price");
                 }
             }
         }
+
         public int Weight
         {
             get { return weight; }
@@ -50,15 +52,17 @@ namespace Products.Task7.Products
                 }
                 else
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("incorrect weight");
                 }
             }
         }
 
         public Product(string name, decimal price, int weight)
         {
-            if (price < 0 || weight < 0)
+            if (price < 0 | weight < 0)
                 throw new ArgumentException("Price or weight cannot be less than zero");
+            if(name == null )
+                throw new NullReferenceException("incorrect name");
 
             Guid id = Guid.NewGuid();
             Name = name;
@@ -69,13 +73,15 @@ namespace Products.Task7.Products
         public Product()
         {
             Guid id = Guid.NewGuid();
-            Name = string.Empty;
+            Name = "NaN";
             Price = default;
             Weight = default;
         }
 
         public virtual void ChangePrice(int percent)
         {
+            if (percent < 0)
+                throw new ArgumentException("Persent or weight cannot be less than zero");
             Price += (Price * percent) / 100;
         }
 

@@ -8,6 +8,10 @@ namespace Products.Task7.Products
         public DairyProducts(string name, decimal price, int weight, int appurtenanceTerm = 3)
             : base($"Daily_{name}", price, weight)
         {
+            if (name == null)
+            {
+                name = "null";
+            }
             this.appurtenanceTerm = appurtenanceTerm;
         }
 

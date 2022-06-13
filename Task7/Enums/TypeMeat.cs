@@ -1,5 +1,5 @@
 ﻿
 namespace Products.Task7.Enums
 {
-    enum MeatType { Nan, Lamb, Veal, Pork, Chicken }
+    enum MeatType { NaN, Lamb, Veal, Pork, Chicken }
 }
