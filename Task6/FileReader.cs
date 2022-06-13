@@ -147,7 +147,8 @@ namespace Task6
             if (isDisposed) return;
             if (disposing)
             {
-                //
+                Dispose(true);
+                GC.SuppressFinalize(this);
             }
             isDisposed = true;
         }       

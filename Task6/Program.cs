@@ -29,9 +29,25 @@ namespace Task6
                 {
                     isExit = bll.StartApp();
                 }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                catch (NullReferenceException ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                catch (ArithmeticException ex)
+                {
+                    Console.WriteLine(ex);
+                }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
+                }
+                finally
+                {
+                    bll.Dispose();
                 }
 
 

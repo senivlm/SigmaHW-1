@@ -6,7 +6,7 @@ using Task6.Enums;
 
 namespace Task6
 {
-    internal class FileLogger
+    internal class FileLogger : IDisposable
     {
         private string resultTemp;
         private string[] resultTempArr;
@@ -15,6 +15,11 @@ namespace Task6
         {
 
         }
+
+        ~ FileLogger()
+        {
+
+        }  
 
         public string ReadHat(string path)
         {
@@ -248,7 +253,7 @@ namespace Task6
                     }
                 }
 
-                if (('.') == text[i])
+                if (('.') == text[i] | ('!') == text[i] | ('?') == text[i])
                 {
                     ends.Add(i);
                 }
@@ -389,6 +394,11 @@ namespace Task6
            
 
             return temp;
+        }
+
+        public void Dispose()
+        {
+            this.Dispose();
         }
     }
 }

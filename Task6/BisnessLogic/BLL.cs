@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Task6.BisnessLogic
 {
-    internal class BLL
+    internal class BLL : IDisposable
     {
         private FileLogger FileOne;
         private ConsumerRepository repository;
@@ -527,6 +527,11 @@ namespace Task6.BisnessLogic
                 return "Unkrown command";
             }
 
+        }
+
+        public void Dispose()
+        {
+            FileOne.Dispose();
         }
     }
 }
