@@ -96,83 +96,228 @@ namespace Task7
             Dispose(false);
         }
 
-        public string ReadFileToEnd()  // Modify try catch
+        public string ReadFileToEnd()
         {
-            using (StreamReader sr = new StreamReader(pathToFile))
+            try
             {
-                lineRead = sr.ReadToEnd();
+                using (StreamReader sr = new StreamReader(pathToFile))
+                {
+                    lineRead = sr.ReadToEnd();
+                }
             }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileToEnd");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileToEnd");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileToEnd");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method ReadFileToEnd");
+            }
+
             return lineRead;
         }
 
-        public string ReadFileLine()  // Modify try catch
+        public string ReadFileLine()
         {
-            using (StreamReader sr = new StreamReader(pathToFile))
+            try
             {
-                lineRead = sr.ReadLine();
+                using (StreamReader sr = new StreamReader(pathToFile))
+                {
+                    lineRead = sr.ReadLine();
+                }
             }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileLine");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileLine");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileLine");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method ReadFileLine");
+            }
+
             return lineRead;
         }
 
-        public string ReadFileLine(string fileName)  // Modify try catch
+        public string ReadFileLine(string fileName)
         {
             if(FileName == null | FileName == "")
             {
                 return default;
             }
-
             pathToFile = rootPath + fileName;
-            using (StreamReader sr = new StreamReader(pathToFile))
+
+            try
             {
-                lineRead = sr.ReadLine();
+                using (StreamReader sr = new StreamReader(pathToFile))
+                {
+                    lineRead = sr.ReadLine();
+                }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileLine");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileLine");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileLine");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method ReadFileLine");
             }
 
             return lineRead;
         }
 
-        public string ReadFileToEnd(string fileName)  // Modify try catch
+        public string[] ReadFileLine(string fileName, int startLine = 0)
         {
             if (FileName == null | FileName == "")
             {
                 return default;
             }
             pathToFile = rootPath + fileName;
-            using (StreamReader sr = new StreamReader(pathToFile))
+
+            List<string> lines = new List<string>();
+            try
             {
-                lineRead = sr.ReadToEnd();
+                using (StreamReader sr = new StreamReader(pathToFile))
+                {
+                    while(!sr.EndOfStream)
+                    {
+                        if (startLine > 0)
+                        {
+                            sr.ReadLine();
+                            startLine--;
+                        }
+                        else
+                        {
+                            lines.Add(sr.ReadLine());
+                        }                                         
+                    }
+                }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileLine");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileLine");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileLine");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method ReadFileLine");
+            }
+
+            return lines.ToArray();
+        }
+
+        public string ReadFileToEnd(string fileName)
+        {
+            if (FileName == null | FileName == "")
+            {
+                return default;
+            }
+            pathToFile = rootPath + fileName;
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(pathToFile))
+                {
+                    lineRead = sr.ReadToEnd();
+                }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileToEnd");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileToEnd");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileToEnd");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method ReadFileToEnd");
             }
 
             return lineRead;
         }
 
-        public string[] ReadFileToEnd(string fileName, int startWith = 0)  // Modify try catch
+        public string[] ReadFileToEnd(string fileName, int startWith = 0)
         {
             if (FileName == null | FileName == "" | startWith < 0)
             {
                 return default;
             }
             pathToFile = rootPath + fileName;
-
             List<string> lines = new List<string>();
-            using (StreamReader reader = new StreamReader(pathToFile))
-            {
-                int counter = 1;
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    if (counter <= startWith)
-                    {
-                        counter++;
-                        continue;
-                    }
-                    else
-                    {
-                        lines.Add(line);
-                        line = "";
-                        counter++;
-                    }
 
+            try
+            {              
+                using (StreamReader reader = new StreamReader(pathToFile))
+                {
+                    int counter = 1;
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        if (counter <= startWith)
+                        {
+                            counter++;
+                            continue;
+                        }
+                        else
+                        {
+                            lines.Add(line);
+                            line = "";
+                            counter++;
+                        }
+
+                    }
                 }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileToEnd");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileToEnd");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method ReadFileToEnd");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method ReadFileToEnd");
             }
 
             return lines.ToArray();

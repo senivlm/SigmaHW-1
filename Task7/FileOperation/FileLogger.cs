@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Products.Task7.Enums;
+using Products.Task7.Products;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Globalization;
+using System.IO;
 using System.Text.RegularExpressions;
-using Task7.Enums;
+using System.Threading;
 
 namespace Task7
 {
@@ -10,21 +13,139 @@ namespace Task7
     {
         private string resultTemp;
         private string[] resultTempArr;
+        private FileReader fReader;
+        private FileWriter fWriter;
+        private Product product = default;
+        private DairyProducts dairy = default;
+        private Meat meat = default;
 
         public FileLogger()
         {
-            resultTemp = default; 
+            resultTemp = default;
             resultTempArr = new string[10];
+            fReader = new FileReader();
+            fWriter = new FileWriter();
         }
 
-        ~ FileLogger()
+        ~FileLogger()
+        {
+            fWriter.Dispose();
+            fWriter.Dispose();
+            Dispose();
+        }
+
+        public void Dispose()
+        {
+            fWriter.Dispose();
+            fWriter.Dispose();
+            this.Dispose();
+        }
+
+        //У випадку не існування файлу надати кілька спроб користувачу змінити файл завантаження.
+        public void SetCorrectPathToDirectoryNotFound()
         {
 
-        }  
+        }
 
-        public string ReadHat(string path) // Change
+        //У випадку не існування файлу надати кілька спроб користувачу змінити файл завантаження.
+        public void SetCorrectPathToFileNotFound()
         {
-            if(path == null | path == "")
+
+        }
+
+        // При неправильному форматі даних для зчитування 
+        //вивести інформацію в файл-журнал реєстрації помилок з фіксацією дату та часу перевірки.
+        //Некоректні дані не вносити до колекції.
+        //Вважати, що всі назви товарів мають бути з великої літери.
+        public void WriteErrorToLogFile(string ErrorMessage)
+        {
+
+        }
+
+        //зчитування  даних
+        private List<Product> ParseProducts(string[] lines)
+        {
+            if (lines == null)
+            {
+                throw new ArgumentException("incorrect text");
+            }
+            List<Product> products = new List<Product>();
+            string[] separate = lines;
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                try
+                {
+                    string temp = Regex.Replace(lines[i], @"\s+", " ");
+                    products.Add(DefineProductType(temp));
+                }
+                catch(ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
+            }
+
+            return products;
+        }
+
+        //зчитування  даних
+        public void WriteProducts()
+        {
+
+        }
+
+        public List<Product> ReadProducts(string path = "Products.txt")
+        {
+            try
+            {
+                string[] text = fReader.ReadFileLine(path, 5);
+
+
+                return ParseProducts(text);
+
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                SetCorrectPathToDirectoryNotFound();
+                Console.WriteLine(ex.Message);
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (FileNotFoundException ex)
+            {
+                SetCorrectPathToFileNotFound();
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return new List<Product>();
+        }
+
+        //Створити метод, який надає можливість аналізувати журнал реєстрації та змінювати дані,
+        //які попали в журнал пізніше за задану користувачем дату.
+        public void AnalizeLog()
+        {
+
+        }
+
+        public void SetLog()
+        {
+
+        }
+
+
+
+        // убрать по непригодности к данному дз!!!!
+        public string ReadHat(string path) // Change and modify try catch
+        {
+            if (path == null | path == "")
             {
                 throw new ArgumentException("incorrect path in ReadHat method");
             }
@@ -34,76 +155,292 @@ namespace Task7
             return resultTemp;
         }
 
-        public string[] ReadBody(string path) //Change
+        public Product DefineProductType(string findType)
         {
-            if (path == null | path == "")
-            {
-                throw new ArgumentException("incorrect path in ReadBody method");
-            }
-            FileReader reader = new FileReader();
-            resultTempArr = reader.ReadFileToEnd(path, 1);
 
-            return resultTempArr;
-        }
-
-        private void SplitArray(string[] text, params char[] separate)
-        {
-            separate[0] = ' ';
-            if (text == null | text.Length < 0)
-            {
-                throw new ArgumentException("incorrect data in Split method");
-            }
-            for (int i = 0; i < text.Length; i++)
-            {
-                string[] hh = text[i].Split(separate);
-                for (int j = 0; j < hh.Length; j++)
-                {
-                    resultTempArr[i] += hh[j] + " ";
-                }
-            }
-        }
-
-        public Type DefineType(string findType) //Change
-        {
             if (findType == null | findType == "")
             {
                 throw new ArgumentException("incorrect path in DefineType method");
             }
 
-            DateTime date = default;
-            double doubleNumber = default;
-            int intNumber = default;
-
-            if (findType == null)
+            if (FindIsMeat(findType))
             {
-                throw new TypeAccessException("Parse string failed");
+                return meat;
             }
-
-            if (findType.Contains(".") && DateTime.TryParse(findType, out date))
+            if (FindIsDairy(findType))
             {
-                return date.GetType();
+                return dairy;
             }
-
-            if (findType.Contains(",") && double.TryParse(findType, out doubleNumber))
+            if (FindIsProduct(findType))
             {
-                return doubleNumber.GetType();
-            }
-
-            if (int.TryParse(findType, out intNumber))
-            {
-                return intNumber.GetType();
+                return product;
             }
             else
             {
-                return findType.GetType();
+                WriteErrorToLogFile($"{DateTime.Now.ToString("dd.MM.yy")} incorrect product {findType}");
+                throw new ArgumentException($"incorrect product {findType}");
+            }
+        }
+
+        private bool FindIsProduct(string find)
+        {
+            char[] separator = { '-', ' ', '?', '_', '/', '*', '(', ')' };
+            string[] fields = find.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            string name = default;
+            decimal price = default;
+            int weight = default;
+            var culture1 = new CultureInfo("de-DE", false);
+            var culture2 = new CultureInfo("en-US", false);
+
+            string buffer = default;
+
+            for (int i = 0; i < fields.Length; i++)
+            {
+                if (name == default | price == default | weight == default)
+                {
+                    buffer = fields[i].ToLower();
+
+                    if (buffer.Contains(".") & price == default)
+                    {
+                        Thread.CurrentThread.CurrentCulture = culture2;
+                        if (decimal.TryParse(buffer, out price))
+                        {
+                            continue;
+                        }
+
+                    }
+                    if (buffer.Contains(",") & price == default)
+                    {
+                        Thread.CurrentThread.CurrentCulture = culture1;
+                        if (decimal.TryParse(buffer, out price))
+                        {
+                            Thread.CurrentThread.CurrentCulture = culture2;
+                            continue;
+                        }
+
+                    }
+                    if (int.TryParse(buffer, out weight))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        char firsBigLetter = buffer[0];
+                        firsBigLetter = char.ToUpper(firsBigLetter);
+                        name = (firsBigLetter + buffer.Substring(1, buffer.Length - 1));
+                    }
+                }
+                if (i < fields.Length - 1 & name != default
+                    & price != default & weight != default)
+                {
+                    product = new Product(name, price, weight);
+                    return true;
+                }
             }
 
+            if (name != default & price != default & weight != default)
+            {
+                product = new Product(name, price, weight);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
         }
 
-        public void Dispose()
+        private bool FindIsMeat(string find)
         {
-            this.Dispose();
+            char[] separator = { '-', ' ', '?', '_', '/', '*', '(', ')' };
+            string[] fields = find.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            Category? category = null;
+            MeatType? meatType = null;
+            string name = default;
+            decimal price = default;
+            int weight = default;
+
+            var culture1 = new CultureInfo("de-DE", false);
+            var culture2 = new CultureInfo("en-US", false);
+
+            string buffer = default;
+
+            for (int i = 0; i < fields.Length; i++)
+            {
+                if (category == null | meatType == null | price == default | weight == default)
+                {
+                    buffer = fields[i].ToLower();
+
+                    if (buffer.Contains(".") & price == default)
+                    {
+                        Thread.CurrentThread.CurrentCulture = culture2;
+                        if (decimal.TryParse(buffer, out price))
+                        {
+                            continue;
+                        }
+
+                    }
+                    if (buffer.Contains(",") & price == default)
+                    {
+                        Thread.CurrentThread.CurrentCulture = culture1;
+                        if (decimal.TryParse(buffer, out price))
+                        {
+                            Thread.CurrentThread.CurrentCulture = culture2;
+                            continue;
+                        }
+
+                    }
+                    if (int.TryParse(buffer, out weight))
+                    {
+                        continue;
+                    }
+                    if (meatType == null & category != null & buffer.Contains("nan") | buffer.Contains("lamb")
+                        | buffer.Contains("veal") | buffer.Contains("pork") | buffer.Contains("chicken"))
+                    {
+                        switch (buffer)
+                        {
+                            case "nan":
+                                meatType = MeatType.NaN;
+                                continue;
+                            case "lamb":
+                                meatType = MeatType.NaN;
+                                continue;
+                            case "veal":
+                                meatType = MeatType.NaN;
+                                continue;
+                            case "pork":
+                                meatType = MeatType.NaN;
+                                continue;
+                            case "chicken":
+                                meatType = MeatType.NaN;
+                                continue;
+                            default:
+                                break;
+                        }
+                    }
+                    if (category == null & meatType == null &
+                        buffer.Contains("nan") | buffer.Contains("topgrade") | buffer.Contains("secondgrade"))
+                    {
+                        switch (buffer)
+                        {
+                            case "nan":
+                                category = Category.NaN;
+                                continue;
+                            case "topgrade":
+                                category = Category.TopGrade;
+                                continue;
+                            case "secondgrade":
+                                category = Category.SecondGrade;
+                                continue;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        char firsBigLetter = buffer[0];
+                        firsBigLetter = char.ToUpper(firsBigLetter);
+                        name = (firsBigLetter + buffer.Substring(1, buffer.Length - 1));
+                    }
+                }
+
+                if (i == fields.Length & category != null & meatType != null
+                    & price != default & weight != default)
+                {
+                    meat = new Meat(category, meatType, price, weight);
+                    return true;
+                }
+            }
+
+            if (category != null & meatType != null
+                    & price != default & weight != default)
+            {
+                meat = new Meat(category, meatType, price, weight);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+
+        private bool FindIsDairy(string find)
+        {       
+            char[] separator = { '-', ' ', '?', '_', '/', '*', '(', ')' };
+            string[] fields = find.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            DateTime appurTerm = default;
+            string name = default;
+            decimal price = default;
+            int weight = default;
+
+            var culture1 = new CultureInfo("de-DE", false);
+            var culture2 = new CultureInfo("en-US", false);
+
+            string buffer = default;
+
+            for (int i = 0; i < fields.Length; i++)
+            {
+                if (appurTerm == default | price == default | weight == default)
+                {
+                    buffer = fields[i].ToLower();
+
+                    if (buffer.Contains(".") & price == default)
+                    {
+                        Thread.CurrentThread.CurrentCulture = culture2;
+                        if (decimal.TryParse(buffer, out price))
+                        {
+                            continue;
+                        }
+
+                    }
+                    if (buffer.Contains(",") & price == default)
+                    {
+                        Thread.CurrentThread.CurrentCulture = culture1;
+                        if (decimal.TryParse(buffer, out price))
+                        {
+                            Thread.CurrentThread.CurrentCulture = culture2;
+                            continue;
+                        }
+
+                    }
+                    if (int.TryParse(buffer, out weight))
+                    {
+                        continue;
+                    }
+                    if (buffer.Contains(".") && DateTime.TryParse(buffer, out appurTerm))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        char firsBigLetter = buffer[0];
+                        firsBigLetter = char.ToUpper(firsBigLetter);
+                        name = (firsBigLetter + buffer.Substring(1, buffer.Length - 1));
+                    }
+                }
+
+                if (i == fields.Length & appurTerm != default
+                    & price != default & weight != default)
+                {
+                    dairy = new DairyProducts(name, price, weight, appurTerm);
+                    return true;
+                }
+            }
+            if (appurTerm != default
+                & price != default & weight != default)
+            {
+                dairy = new DairyProducts(name, price, weight, appurTerm);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
     }
 }
 

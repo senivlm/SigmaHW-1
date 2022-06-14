@@ -125,20 +125,40 @@ namespace Task7
             fullPath = rootPath + fileName; ;
         }
 
-        public void WriteToFile(bool IsApend = false) // Modify try catch
+        public void WriteToFile(bool IsApend = false)
         {
             if (!IsApend)
             {
                 ClearFile();
             }
 
-            using (StreamWriter sw = new StreamWriter(fullPath, true))
+            try
             {
-                sw.WriteLine(someText);
+                using (StreamWriter sw = new StreamWriter(fullPath, true))
+                {
+                    sw.WriteLine(someText);
+                }
             }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method WriteToFile");
+            }
+
         }
 
-        public void WriteToFile(List<string> someText, bool IsApend = false) // Modify try catch
+        public void WriteToFile(List<string> someText, bool IsApend = false)
         {
             if (!IsApend)
             {
@@ -149,42 +169,104 @@ namespace Task7
             {
                 return;
             }
-            
-            using (StreamWriter sw = new StreamWriter(fullPath, true))
+
+            try
             {
-                foreach (var item in someText)
+                using (StreamWriter sw = new StreamWriter(fullPath, true))
                 {
-                    sw.WriteLine(item);
-                }        
+                    foreach (var item in someText)
+                    {
+                        sw.WriteLine(item);
+                    }
+                }
             }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method WriteToFile");
+            }
+
         }
 
-        public void WriteToFile(string file, bool IsApend = false) // Modify try catch
+        public void WriteToFile(string file, bool IsApend = false)
         {
             if (!IsApend)
             {
                 ClearFile();
             }
-            using (StreamWriter sw = new StreamWriter(fullPath, true))
+
+            try
             {
-                sw.WriteLine(file);
+                using (StreamWriter sw = new StreamWriter(fullPath, true))
+                {
+                    sw.WriteLine(file);
+                }
             }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method WriteToFile");
+            }
+
         }
 
-        public void WriteToFile(string file, string fileName) // Modify try catch
+        public void WriteToFile(string file, string fileName)
         {
             if (fileName == null | fileName == "" | file == null | file == "")
             {
                 return;
             }
             fullPath = rootPath + fileName;
-            using (StreamWriter sw = new StreamWriter(fullPath, true))
+
+            try
             {
-                sw.WriteLine(file);
+                using (StreamWriter sw = new StreamWriter(fullPath, true))
+                {
+                    sw.WriteLine(file);
+                }
             }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method WriteToFile");
+            }
+
         }
 
-        public void WriteToFile(int[] someText, bool IsApend = false) // Modify try catch
+        public void WriteToFile(int[] someText, bool IsApend = false)
         {
             if (!IsApend)
             {
@@ -195,37 +277,90 @@ namespace Task7
             {
                 return;
             }
-            using (StreamWriter sw = new StreamWriter(fullPath, true))
-            {
-                for (int i = 0; i < someText.Length; i++)
-                {
-                    sw.WriteLine(someText[i] + " ");
-                }
 
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(fullPath, true))
+                {
+                    for (int i = 0; i < someText.Length; i++)
+                    {
+                        sw.WriteLine(someText[i] + " ");
+                    }
+
+                }
             }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method WriteToFile");
+            }
+
         }
 
-        public void ClearFile(string fullPath) // Modify try catch
+        public void ClearFile(string fullPath)
         {
             if(fullPath == null)
             {
                 return;
             }
-            using (StreamWriter sw = new StreamWriter(fullPath))
+
+            try
             {
-                sw.Close();
+                using (StreamWriter sw = new StreamWriter(fullPath))
+                {
+                    sw.Close();
+                }
             }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method WriteToFile");
+            }
+
         }
 
-        public void ClearFile() // Modify try catch
+        public void ClearFile()
         {
             if (fullPath == null)
             {
                 return;
             }
-            using (StreamWriter sw = new StreamWriter(fullPath))
+            try
             {
-                sw.Close();
+                using (StreamWriter sw = new StreamWriter(fullPath))
+                {
+                    sw.Close();
+                }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex + "in method WriteToFile");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("exeption in method WriteToFile");
             }
         }
 

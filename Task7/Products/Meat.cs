@@ -1,26 +1,29 @@
 ﻿using Products.Task7.Enums;
+using System;
 
 namespace Products.Task7.Products
 {
     internal class Meat : Product
     {
-        readonly Category category;
-        readonly MeatType meatType;
+        public readonly Category? category;
+        public readonly MeatType? meatType;
 
-        public Meat(Category category, MeatType meatType, decimal price, int weight) : base($"Meat_{category}_{meatType}", price, weight)
-        {
-            if(price < 0 || weight < 0)
-            {
-                price = 0;
-                weight = 0;
-            }
-            this.category = category;
-            this.meatType = meatType;
-        }
         public Meat() : base(string.Empty, default, default)
         {
             category = Category.NaN;
             meatType = MeatType.NaN;
+        }
+
+        public Meat(Category? category1, MeatType? meatType1, decimal price, int weight)
+            : base($"{category1}-{meatType1}", price, weight)
+        {
+            if(category1 == null | meatType1 == null)
+            {
+                return;
+            }
+            category = category1;
+            meatType = meatType1;
+
         }
 
         public void ChangePriceByCategory(int percent)

@@ -64,30 +64,30 @@ namespace Products.Task7.Products
             if(name == null )
                 throw new NullReferenceException("incorrect name");
 
-            Guid id = Guid.NewGuid();
-            Name = name;
-            Price = price;
-            Weight = weight;
+            Id = Guid.NewGuid();
+            this.name = name;
+            this.price = price;
+            this.weight = weight;
         }
 
         public Product()
         {
-            Guid id = Guid.NewGuid();
-            Name = "NaN";
-            Price = default;
-            Weight = default;
+            Id = Guid.NewGuid();
+            name = "NaN";
+            price = default;
+            weight = default;
         }
 
         public virtual void ChangePrice(int percent)
         {
             if (percent < 0)
                 throw new ArgumentException("Persent or weight cannot be less than zero");
-            Price += (Price * percent) / 100;
+            price += (price * percent) / 100;
         }
 
         public override string ToString()
         {
-            return string.Format($"Product  Name: {Name}, Price: {Price}, Weight: {Weight}");
+            return string.Format($"Product  Name: {name}, Price: {price}, Weight: {weight}");
         }
 
         public override bool Equals(object obj)

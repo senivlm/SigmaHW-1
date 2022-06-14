@@ -1,38 +1,52 @@
-﻿
+﻿using System;
+
 namespace Products.Task7.Products
 {
     internal class DairyProducts : Product
     {
-        public int appurtenanceTerm { get; private set; }
+        public DateTime storagePeriod { get; private set; }
+        public bool isDied { get; private set; } = false;
 
-        public DairyProducts(string name, decimal price, int weight, int appurtenanceTerm = 3)
-            : base($"Daily_{name}", price, weight)
+        public DairyProducts(string name, decimal price, int weight,
+            DateTime storagePeriod)
+            : base(name, price, weight)
         {
             if (name == null)
             {
                 name = "null";
             }
-            this.appurtenanceTerm = appurtenanceTerm;
+            this.storagePeriod = storagePeriod;
         }
 
         public DairyProducts() : base(string.Empty, default, default)
         {
-            appurtenanceTerm = default;
+            storagePeriod = default;
         }
 
         public void ChangePriceByAppurTerm(int percent)
         {
-            if (appurtenanceTerm < 0)
+            int result = default;
+            if (DateTime.Now.Month == storagePeriod.Month && DateTime.Now.Year == storagePeriod.Year)
+            {
+                result = DateTime.Now.Day - storagePeriod.Day;
+            }
+            else
+            {
+                isDied = true;
+                base.ChangePrice(0);
+            }
+            
+            if (result < 0)
             {
                 base.ChangePrice(percent - (percent * 50 / 100));
             }
 
-            if (appurtenanceTerm > 0 && appurtenanceTerm < 3)
+            if (result > 0 && result < 7)
             {
                 base.ChangePrice(percent - (percent * 5 / 100));
             }
 
-            if (appurtenanceTerm > 3)
+            if (result > 7)
             {
                 base.ChangePrice(percent);
             }
@@ -40,7 +54,7 @@ namespace Products.Task7.Products
 
         public override string ToString()
         {
-            return string.Format($"Product  Name: {Name} {appurtenanceTerm}, Price: {Price}, Weight: {Weight}");
+            return string.Format($"Product  Name: {Name} {storagePeriod.ToString("dd.MM.yy")}, Price: {Price}, Weight: {Weight}");
         }
 
         public override bool Equals(object obj)

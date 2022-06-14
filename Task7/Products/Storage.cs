@@ -41,7 +41,7 @@ namespace Products.Task7.Products
             products.Add(new Meat(category, meatType, price, weight));
         }
 
-        public void AddByDialogDiary(string name, decimal price, int weight, int appurtenanceTerm = 3)
+        public void AddByDialogDiary(string name, decimal price, int weight, DateTime appurtenanceTerm)
         {
             if (price < 0 | weight < 0)
                 throw new ArgumentException("Price or weight cannot be less than zero");
@@ -77,3 +77,4 @@ namespace Products.Task7.Products
         }
     }
 }
+
