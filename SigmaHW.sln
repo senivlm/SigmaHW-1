@@ -17,11 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6", "Task6\Task6.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task5", "Task5\Task5.csproj", "{2EF0570E-05EB-4ACC-A4D8-4DFDD0447760}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task7", "Task7\Task7.csproj", "{ECDC05FD-48BF-4498-A923-9900E27F5218}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task7_notEnded", "Task7\Task7_notEnded.csproj", "{ECDC05FD-48BF-4498-A923-9900E27F5218}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task8", "Task8\Task8.csproj", "{205EE8B4-5ED7-4422-A33E-068151647C61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task8_notEnded", "Task8\Task8_notEnded.csproj", "{205EE8B4-5ED7-4422-A33E-068151647C61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task9", "Task9\Task9.csproj", "{E4E53E62-19B5-4765-B1CE-F74C58BC1A98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task9_notEnded", "Task9\Task9_notEnded.csproj", "{E4E53E62-19B5-4765-B1CE-F74C58BC1A98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
