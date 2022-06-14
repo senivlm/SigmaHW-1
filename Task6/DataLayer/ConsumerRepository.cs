@@ -23,18 +23,22 @@ namespace Task6
                 kWattPrice = value; 
             }
         }
+
         public int CountRoomOne
         {
             get { return _consumers[0].Count; }
         }
+
         public int CountRoomTwo
         {
             get { return _consumers[1].Count; }
         }
+
         public int CountRoomThree
         {
             get { return _consumers[2].Count; }
         }
+
         public int CountRoomFour
         {
             get { return _consumers[3].Count; }

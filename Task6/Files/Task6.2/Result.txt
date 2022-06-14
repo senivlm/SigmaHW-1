@@ -13,7 +13,7 @@ himenaeos neque.
 	Finibus urna posuere ligula sagittis vulputate risus erat odio elementum, 
 bibendum in interdum maecenas eleifend cursus ullamcorper facilisi, ex ultricies 
 condimentum fusce pulvinar auctor mus. 
-	Tempus torquent amet dui curae taciti bibendum elit pulvinar enim 
+	Tempus torquent amet dui urae taciti bibendum elit pulvinar enim 
 fringilla ultrices urna fermentum mollis conubia nam dictum parturient duis, 
 morbi blandit nascetur fusce hac sociosqu dignissim potenti. 
 	Lectus volutpat accumsan rutrum cubilia aliquet, porttitor ultricies sagittis posuere 
@@ -24,7 +24,8 @@ himenaeos nunc faucibus, purus penatibus augue sodales ligula elementum.
 conubia, tortor posuere litora inceptos adipiscing consectetur pretium sapien mattis 
 urna rhoncus ante neque lectus nisi et sociosqu efficitur tempus. 
 	Quam praesent tempor fermentum neque feugiat class pretium tristique aliquam 
-orci, amet tortor diam etiam ultricies gravida dictumst volutpat urna. 
+orci, amet tortor. 
+
 List longest words
 001 string have longest word [edited]
 002 string have longest word [dictumst]
@@ -36,7 +37,8 @@ List longest words
 008 string have longest word [volutpat]
 009 string have longest word [habitasse]
 010 string have longest word [vulputate]
-011 string have longest word [dictumst]
+011 string have longest word [feugiat]
+012 string have longest word []
 List shortest words
 001 string have longest word [edited]
 002 string have longest word [dictumst]
@@ -48,4 +50,5 @@ List shortest words
 008 string have longest word [volutpat]
 009 string have longest word [habitasse]
 010 string have longest word [vulputate]
-011 string have longest word [dictumst]
+011 string have longest word [feugiat]
+012 string have longest word []

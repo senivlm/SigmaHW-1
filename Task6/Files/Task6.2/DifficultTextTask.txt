@@ -12,7 +12,7 @@ odio elementum,      adipiscing bibendum in interdum maecenas    eleifend cursus
 ullamcorper facilisi, ex ultricies 
 velit condimentum fusce pulvinar auctor mus.
 
-Tempus torquent amet dui curae taciti bibendum elit pulvinar enim vivamus, 
+Tempus torquent amet dui urae taciti bibendum elit pulvinar enim vivamus, 
 fringilla ultrices urna fermentum mollis        conubia nam dictum parturient duis, diam morbi blandit nascetur 
 fusce hac sociosqu dignissim potenti.
 Lectus volutpat       accumsan rutrum cubilia aliquet, porttitor ultricies sagittis posuere 
@@ -21,5 +21,5 @@ Porttitor id dolor turpis habitasse fermentum sed senectus, potenti felis congue
 Varius nostra etiam volutpat egestas vulputate finibus aptent consequat semper ligula conubia, tortor 
 posuere litora        inceptos adipiscing consectetur     pretium sapien mattis commodo, urna rhoncus ante neque 
 lectus nisi et sociosqu efficitur tempus.
-Quam praesent tempor fermentum neque feugiat class pretium tristique aliquam lobortis orci, amet tortor 
+Quam praesent tempor fermentum neque feugiat class pretium tristique aliquam lobortis orci, amet tortor
 diam etiam ultricies gravida dictumst volutpat urna.
