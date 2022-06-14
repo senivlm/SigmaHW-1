@@ -43,14 +43,14 @@ namespace Task9
 
             foreach (var item in map)
             {
-                if (map2.Contains(item.Value))
-                {
-                    map2[item.Value].Add(item.Key);
-                }
-                else
-                {
+                //if (map2.Contains(item.Value))
+                //{
+                //    map2[item.Value].Add(item.Key);
+                //}
+                //else
+                //{
 
-                }
+                //}
             }
 
 

@@ -9,7 +9,7 @@ namespace Products.Task7.Products
 
         public DairyProducts(string name, decimal price, int weight,
             DateTime storagePeriod)
-            : base(name, price, weight)
+            : base($"Dairy_{name}", price, weight)
         {
             if (name == null)
             {

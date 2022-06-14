@@ -358,7 +358,7 @@ namespace Task7
         // перевiрка чи молочний продукт
         private bool FindIsDairy(string find)
         {       
-            char[] separator = { '-', ' ', '?', '_', '/', '*', '(', ')' };
+            char[] separator = { '-', ' ', '?', '_','*', '(', ')' };
             string[] fields = find.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             DateTime appurTerm = default;
             string name = default;
@@ -366,7 +366,7 @@ namespace Task7
             int weight = default;
 
             var culture1 = new CultureInfo("de-DE", false);
-            var culture2 = new CultureInfo("en-US", false);
+            var culture2 = new CultureInfo("en-US", true);
 
             string buffer = default;
 
@@ -376,7 +376,7 @@ namespace Task7
                 {
                     buffer = fields[i].ToLower();
 
-                    if (buffer.Contains(".") & price == default)
+                    if (buffer.Contains(".") && price == default)
                     {
                         Thread.CurrentThread.CurrentCulture = culture2;
                         if (decimal.TryParse(buffer, out price))
@@ -385,7 +385,7 @@ namespace Task7
                         }
 
                     }
-                    if (buffer.Contains(",") & price == default)
+                    if (buffer.Contains(",") && price == default)
                     {
                         Thread.CurrentThread.CurrentCulture = culture1;
                         if (decimal.TryParse(buffer, out price))
@@ -411,15 +411,15 @@ namespace Task7
                     }
                 }
 
-                if (i == fields.Length & appurTerm != default
-                    & price != default & weight != default)
+                if (i == fields.Length && appurTerm != default
+                    & price != default && weight != default)
                 {
                     dairy = new DairyProducts(name, price, weight, appurTerm);
                     return true;
                 }
             }
             if (appurTerm != default
-                & price != default & weight != default)
+                & price != default && weight != default)
             {
                 dairy = new DairyProducts(name, price, weight, appurTerm);
                 return true;
