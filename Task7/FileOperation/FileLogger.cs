@@ -13,8 +13,8 @@ namespace Task7
     {
         private string resultTemp;
         private string[] resultTempArr;
-        private FileReader fReader;
-        private FileWriter fWriter;
+        private readonly FileReader fReader;
+        private readonly FileWriter fWriter;
         private Product product = default;
         private DairyProducts dairy = default;
         private Meat meat = default;
@@ -42,24 +42,22 @@ namespace Task7
         }
 
         //У випадку не існування файлу надати кілька спроб користувачу змінити файл завантаження.
-        public void SetCorrectPathToDirectoryNotFound()
+        public void SetCorrectPathToDirectoryNotFound(string updatePath)
         {
-
+            fWriter.ChangeFileNametoFullPath(updatePath);
         }
 
         //У випадку не існування файлу надати кілька спроб користувачу змінити файл завантаження.
-        public void SetCorrectPathToFileNotFound()
+        public void SetCorrectPathToFileNotFound(string updateFilePath)
         {
-
+            fWriter.ChangeFullPath(updateFilePath);
         }
 
         // При неправильному форматі даних для зчитування 
         //вивести інформацію в файл-журнал реєстрації помилок з фіксацією дату та часу перевірки.
-        //Некоректні дані не вносити до колекції.
-        //Вважати, що всі назви товарів мають бути з великої літери.
         public void WriteErrorToLogFile(string ErrorMessage)
         {
-
+            fWriter.WriteToFile(ErrorMessage, true);
         }
 
         //парсинг  даних
@@ -79,7 +77,7 @@ namespace Task7
                     string temp = Regex.Replace(lines[i], @"\s+", " ");
                     products.Add(DefineProductType(temp));
                 }
-                catch(ArgumentException ex)
+                catch (ArgumentException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
@@ -88,12 +86,6 @@ namespace Task7
             }
 
             return products;
-        }
-
-        //запис  даних у файл лог
-        public void WriteProducts()
-        {
-
         }
 
         // зчитування данних
@@ -109,21 +101,57 @@ namespace Task7
             }
             catch (DirectoryNotFoundException ex)
             {
-                SetCorrectPathToDirectoryNotFound();
-                Console.WriteLine(ex.Message);
+                while (ex.InnerException != null)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(@"enter new file path:  [C:\\filename.txt]");
+                    string str = Console.ReadLine();
+
+                    try
+                    {
+                        SetCorrectPathToFileNotFound(str);
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        continue;
+                    }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
+                }
             }
             catch (ArgumentNullException ex)
             {
                 Console.WriteLine(ex.Message);
+                throw;
             }
             catch (FileNotFoundException ex)
             {
-                SetCorrectPathToFileNotFound();
-                Console.WriteLine(ex.Message);
+                while (ex.InnerException != null)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(@"enter new file name:  [filename.txt]");
+                    string str = Console.ReadLine();
+
+                    try
+                    {
+                        SetCorrectPathToFileNotFound(str);
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        continue;
+                    }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                throw;
             }
 
             return new List<Product>();
@@ -131,13 +159,36 @@ namespace Task7
 
         //Створити метод, який надає можливість аналізувати журнал реєстрації та змінювати дані,
         //які попали в журнал пізніше за задану користувачем дату.
-        public void AnalizeLog()
+        public List<string> AnalizeLog(DateTime startList)
         {
+            try
+            {
+                List<string> list = new List<string>();
+                string[] logBuffer = fReader.ReadFileLine("ProductsErrorLog\\AddErrorLog.txt", 2);
+
+                if (logBuffer != null)
+                {
+                    list.AddRange(logBuffer);
+                    return list;
+                }
+                else
+                {
+                    throw new NullReferenceException("in method analizing log");
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
 
         //змінювати дані в фай лог
-        public void SetLog()
+        private void SetLog()
         {
 
         }
@@ -165,7 +216,7 @@ namespace Task7
             }
             else
             {
-                WriteErrorToLogFile($"{DateTime.Now.ToString("dd.MM.yy")} incorrect product {findType}");
+                WriteErrorToLogFile($"[{DateTime.Now.ToString("G")}] Incorrect product:\t[{findType}]");
                 throw new ArgumentException($"incorrect product {findType}");
             }
         }
@@ -357,8 +408,8 @@ namespace Task7
 
         // перевiрка чи молочний продукт
         private bool FindIsDairy(string find)
-        {       
-            char[] separator = { '-', ' ', '?', '_','*', '(', ')' };
+        {
+            char[] separator = { '-', ' ', '?', '_', '*', '(', ')' };
             string[] fields = find.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             DateTime appurTerm = default;
             string name = default;
@@ -400,10 +451,6 @@ namespace Task7
                         continue;
                     }
                     if (buffer.Contains(".") && DateTime.TryParse(buffer, out appurTerm))
-                    {
-                        continue;
-                    }
-                    if (DateTime.TryParseExact(buffer,,out appurTerm))
                     {
                         continue;
                     }

@@ -107,7 +107,7 @@ namespace Task7
             someText = "Ups....info didn't come";
             rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task7\
                 Files\ProductsErrorLog\AddErrorLog.txt";
-            this.fileName = "Result.txt";
+            this.fileName = "ProductsErrorLog\\AddErrorLog.txt";
             fullPath = rootPath + fileName;
         }
 
@@ -116,7 +116,16 @@ namespace Task7
             Dispose(false);
         }
 
-        public void ChangeFullPath(string fileName)
+        public void ChangeFullPath(string updateFullPath)
+        {
+            if (updateFullPath == null | updateFullPath == "")
+            {
+                return;
+            }
+            fullPath = updateFullPath;
+        }
+
+        public void ChangeFileNametoFullPath(string fileName)
         {
             if (fileName == null | fileName == "")
             {

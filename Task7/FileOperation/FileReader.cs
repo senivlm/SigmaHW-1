@@ -219,18 +219,22 @@ namespace Task7
             catch (DirectoryNotFoundException ex)
             {
                 Console.WriteLine(ex + "in method ReadFileLine");
+                throw;
             }
             catch (ArgumentNullException ex)
             {
                 Console.WriteLine(ex + "in method ReadFileLine");
+                throw;
             }
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine(ex + "in method ReadFileLine");
+                throw;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("exeption in method ReadFileLine");
+                throw;
             }
 
             return lines.ToArray();
