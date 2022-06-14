@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E4E53E62-19B5-4765-B1CE-F74C58BC1A98}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task9</RootNamespace>
-    <AssemblyName>Task9</AssemblyName>
+    <RootNamespace>Task9_notEnded</RootNamespace>
+    <AssemblyName>Task9_notEnded</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

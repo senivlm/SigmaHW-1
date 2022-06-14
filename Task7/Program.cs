@@ -26,14 +26,12 @@ namespace Task7
                 List<Product> products = fLog.ReadProducts();
                 stor.AddProducts(products);
 
-
                 Console.WriteLine("\nAll products");
                 stor.GetAll();
                 Console.WriteLine("\nonly all meat");
                 stor.GetAllMeat();
                 Console.WriteLine("\nonly all dairy");
                 stor.GetAllDaily();
-
 
             }
             catch (Exception ex)
