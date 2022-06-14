@@ -9,7 +9,7 @@ namespace Task6
 
         static void Main(string[] args)
         {
-            //Start6_1();
+            Start6_1();
             Start6_2();
 
             ////Tests();
@@ -56,29 +56,48 @@ namespace Task6
 
         private static void Start6_2()
         {
-            FileReader fr = new FileReader("\\Task6.2\\DifficultTextTask.txt");
-            FileWriter fw = new FileWriter("\\Task6.2\\Result.txt");
-            FileLogger fl = new FileLogger();
-            List<string> proposals = new List<string>();
-            List<string> words = new List<string>();
+            try
+            {
+                FileReader fr = new FileReader("\\Task6.2\\DifficultTextTask.txt");
+                FileWriter fw = new FileWriter("\\Task6.2\\Result.txt");
+                FileLogger fl = new FileLogger();
+                List<string> proposals = new List<string>();
+                List<string> words = new List<string>();
 
 
-            string text = fr.ReadFileToEnd();
+                string text = fr.ReadFileToEnd();
 
-            proposals = fl.DivideStringToProposal(text);
+                proposals = fl.DivideStringToProposal(text);
 
-            proposals = fl.EditProposal(proposals, 1,
-                "\t\t\t\t\t***I edited this line through the method***");
+                proposals = fl.EditProposal(proposals, 1,
+                    "\t\t\t\t\t***I edited this line through the method***");
 
-            words.Add("List longest words");
-            words.AddRange(fl.GetShortOrLongWords(proposals, true));
-            words.Add("List shortest words");
-            words.AddRange(fl.GetShortOrLongWords(proposals, true));
+                words.Add("List longest words");
+                words.AddRange(fl.GetShortOrLongWords(proposals, true));
+                words.Add("List shortest words");
+                words.AddRange(fl.GetShortOrLongWords(proposals, true));
 
-            proposals.AddRange(words);
+                proposals.AddRange(words);
 
-            // записать в файл
-            fw.WriteToFile(proposals);
+                fw.WriteToFile(proposals);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            catch (ArithmeticException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
         }
 
         public void Tests()

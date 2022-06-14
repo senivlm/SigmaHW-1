@@ -62,7 +62,7 @@ namespace Task7
 
         }
 
-        //зчитування  даних
+        //парсинг  даних
         private List<Product> ParseProducts(string[] lines)
         {
             if (lines == null)
@@ -90,12 +90,13 @@ namespace Task7
             return products;
         }
 
-        //зчитування  даних
+        //запис  даних у файл лог
         public void WriteProducts()
         {
 
         }
 
+        // зчитування данних
         public List<Product> ReadProducts(string path = "Products.txt")
         {
             try
@@ -135,26 +136,13 @@ namespace Task7
 
         }
 
+        //змінювати дані в фай лог
         public void SetLog()
         {
 
         }
 
-
-
-        // убрать по непригодности к данному дз!!!!
-        public string ReadHat(string path) // Change and modify try catch
-        {
-            if (path == null | path == "")
-            {
-                throw new ArgumentException("incorrect path in ReadHat method");
-            }
-            FileReader reader = new FileReader();
-            resultTemp = reader.ReadFileLine(path);
-
-            return resultTemp;
-        }
-
+        // розродiл на типи кпродуктiв
         public Product DefineProductType(string findType)
         {
 
@@ -182,6 +170,7 @@ namespace Task7
             }
         }
 
+        // перевiрка чи продукт
         private bool FindIsProduct(string find)
         {
             char[] separator = { '-', ' ', '?', '_', '/', '*', '(', ')' };
@@ -251,6 +240,7 @@ namespace Task7
 
         }
 
+        // перевiрка чи м`ясо
         private bool FindIsMeat(string find)
         {
             char[] separator = { '-', ' ', '?', '_', '/', '*', '(', ')' };
@@ -365,6 +355,7 @@ namespace Task7
             }
         }
 
+        // перевiрка чи молочний продукт
         private bool FindIsDairy(string find)
         {       
             char[] separator = { '-', ' ', '?', '_', '/', '*', '(', ')' };
@@ -438,8 +429,6 @@ namespace Task7
                 return false;
             }
         }
-
-
 
     }
 }

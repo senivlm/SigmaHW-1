@@ -149,11 +149,6 @@ namespace Task6
 
         public override string ToString()
         {
-            //return ($"[{string.Format("{0:d3}", roomNumber)}]\t" +
-            //    $"{string.Format("{0,-10}", Name)}\t[{startMetrData}]\t" +
-            //    $"[{endMetrData}]\t[{withdrawalDateFirst.ToString("dd.MM.yy")} | " +
-            //    $"{withdrawalDateSecond.ToString("dd.MM.yy")} | " +
-            //    $"{withdrawalDateThrid.ToString("dd.MM.yy")}]");
 
             return ($"[{string.Format("{0,-6:d3} ", roomNumber+"]")}" +
                 $"{string.Format("{0,-16}", Name)}" +

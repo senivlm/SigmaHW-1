@@ -21,6 +21,7 @@ namespace Task6
 
         }  
 
+        // зчитування шапки
         public string ReadHat(string path)
         {
             FileReader reader = new FileReader();
@@ -29,6 +30,7 @@ namespace Task6
             return resultTemp;
         }
 
+        //зчитування тiла
         public string[] ReadBody(string path)
         {
             FileReader reader = new FileReader();
@@ -40,6 +42,7 @@ namespace Task6
             return resultTempArr;
         }
 
+        // парсинг шапки
         public void ParseHat(string text, out int roomNumber, out int countConsumers)
         {
             roomNumber = 0;
@@ -74,6 +77,7 @@ namespace Task6
 
         }
 
+        // парсинг тiла
         public List<Consumer> ParseBody(string[] text)
         {
             resultTempArr = new string[text.Length];
@@ -106,6 +110,7 @@ namespace Task6
             }
         }
 
+        // перетворення тексту у класс
         private Consumer CreateConsumer(string parseString)
         {
             int countNaNDefineType = 0;
@@ -197,6 +202,7 @@ namespace Task6
 
         }
 
+        // метод пошуку типу
         public Type DefineType(string findType)
         {
             DateTime date = default;
@@ -229,6 +235,7 @@ namespace Task6
 
         }
 
+        //дiлення стрiчки на речення
         public List<string> DivideStringToProposal(string text, bool isHat = true)
         {
             string buffer = default;
@@ -291,6 +298,7 @@ namespace Task6
             return proposals;
         }
 
+        //дiлення стрiчки на речення
         private string ParseTextToPropsal(string text, int countWordsInLine = 10)
         {
             string temp = "\t" + text;
@@ -322,12 +330,14 @@ namespace Task6
             return result;
         }
 
+        // редагування реченнь
         public List<string> EditProposal(List<string> proposals, int numberLine, string text)
         {
             proposals[numberLine - 1] = text;
             return proposals;
         }
 
+        // пошук найдовшого слова у реченнi
         private string FindLongWord(string proposal)
         {
             string result = default;
@@ -346,6 +356,7 @@ namespace Task6
             return result;
         }
 
+        // пошук найкоротшого слова у реченнi
         private string FindShortWord(string proposal)
         {
             string result = default;
@@ -368,9 +379,10 @@ namespace Task6
             return result;
         }
 
-        public List<string> GetShortOrLongWords(List<String> proposals, bool IsLongest)
+        // метод пошуку найкоротших чи найдовших слiв
+        public List<string> GetShortOrLongWords(List<string> proposals, bool IsLongest)
         {
-            List<string> temp = new List<String>();                     
+            List<string> temp = new List<string>();                     
             int counter = 1;
             string text = default;
 
@@ -395,7 +407,7 @@ namespace Task6
 
             return temp;
         }
-
+       
         public void Dispose()
         {
             this.Dispose();
