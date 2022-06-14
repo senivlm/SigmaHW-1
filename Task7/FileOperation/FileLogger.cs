@@ -403,6 +403,10 @@ namespace Task7
                     {
                         continue;
                     }
+                    if (DateTime.TryParseExact(buffer,,out appurTerm))
+                    {
+                        continue;
+                    }
                     else
                     {
                         char firsBigLetter = buffer[0];

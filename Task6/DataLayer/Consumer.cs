@@ -121,19 +121,19 @@ namespace Task6
         {
             if(quarter == 1)
             {
-                return $"Rooms\tLastName	Start		End\t\tJanuary     February   Marth\r\n";
+                return $"Rooms\tLastName	\tStart		\tEnd\t\t\t\tJanuary     February   Marth\r\n";
             }
             if (quarter == 2)
             {
-                return $"Rooms\tLastName	Start		End\t\tApril       May        June\r\n";
+                return $"Rooms\tLastName	\tStart		\tEnd\t\t\t\tApril       May        June\r\n";
             }
             if (quarter == 3)
             {
-                return $"Rooms\tLastName	Start		End\t\tJuly        August     September\r\n";
+                return $"Rooms\tLastName	\tStart		\tEnd\t\t\t\tJuly        August     September\r\n";
             }
             if (quarter == 4)
             {
-                return $"Rooms\tLastName	Start		End\t\tOctober     November   December\r\n";
+                return $"Rooms\tLastName	\tStart		\tEnd\t\t\t\tOctober     November   December\r\n";
             }
             else
             {
@@ -154,9 +154,9 @@ namespace Task6
                 $"{string.Format("{0,-16}", Name)}" +
                 $"[{string.Format("{0,-15}", startMetrData+"]")}" +
                 $"[{string.Format("{0,-15}", endMetrData + "]")}" +
-                $"[{withdrawalDateFirst.ToString("dd.MM.yy")} | " +
-                $"{withdrawalDateSecond.ToString("dd.MM.yy")} | " +
-                $"{withdrawalDateThrid.ToString("dd.MM.yy")}]");
+                $"[{withdrawalDateFirst.Date.ToString("M")} | " +
+                $"{withdrawalDateSecond.ToString("M")} | " +
+                $"{withdrawalDateThrid.Date.ToString("M")}]");
 
         }
 
