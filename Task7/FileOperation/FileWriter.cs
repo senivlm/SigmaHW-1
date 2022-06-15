@@ -374,9 +374,9 @@ namespace Task7
         }
 
         public void Dispose()
-        {
-            Dispose(true);
+        {          
             GC.SuppressFinalize(this);
+            Dispose(false);
         }
 
         protected virtual void Dispose(bool disposing)
@@ -384,7 +384,7 @@ namespace Task7
             if (isDisposed) return;
             if (disposing)
             {
-                Dispose(true);
+                //Dispose(true);
                 GC.SuppressFinalize(this);
             }
             isDisposed = true;

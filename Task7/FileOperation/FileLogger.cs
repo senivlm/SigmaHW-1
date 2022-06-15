@@ -18,6 +18,7 @@ namespace Task7
         private Product product = default;
         private DairyProducts dairy = default;
         private Meat meat = default;
+        private Dictionary<int, string> bufferLog;
 
         public FileLogger()
         {
@@ -38,7 +39,6 @@ namespace Task7
         {
             fWriter.Dispose();
             fWriter.Dispose();
-            this.Dispose();
         }
 
         //У випадку не існування файлу надати кілька спроб користувачу змінити файл завантаження.
@@ -159,22 +159,46 @@ namespace Task7
 
         //Створити метод, який надає можливість аналізувати журнал реєстрації та змінювати дані,
         //які попали в журнал пізніше за задану користувачем дату.
-        public List<string> AnalizeLog(DateTime startList)
+        public Dictionary<int, string> AnalizeLog(DateTime startList)
         {
+            DateTime currentDate = default;
+            bufferLog = new Dictionary<int, string>();
+
             try
             {
-                List<string> list = new List<string>();
                 string[] logBuffer = fReader.ReadFileLine("ProductsErrorLog\\AddErrorLog.txt", 2);
+                for (int i = 0; i < logBuffer.Length; i++)
+                {
+                    if (logBuffer != null)
+                    {
+                        string[] resultLine = logBuffer[i].Split('[', ']',
+                            (char)StringSplitOptions.RemoveEmptyEntries);
 
-                if (logBuffer != null)
-                {
-                    list.AddRange(logBuffer);
-                    return list;
+                        for (int j = 0; j < resultLine.Length; j++)
+                        {
+                            CultureInfo provider = new CultureInfo("en-US");
+                            string format = "G";
+                            string word = resultLine[j];
+
+                            if (DateTime.TryParse(word, provider, DateTimeStyles.AssumeLocal,
+                                out currentDate)) /// 
+                            {
+                                currentDate = DateTime.Parse(word, provider);
+                                if (currentDate > startList)
+                                {
+                                    bufferLog.Add(i, DivideLogLine(logBuffer[i]));
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        throw new NullReferenceException("failed to read log File");
+                    }
                 }
-                else
-                {
-                    throw new NullReferenceException("in method analizing log");
-                }
+
+                return bufferLog;
             }
             catch (FileNotFoundException ex)
             {
@@ -184,12 +208,76 @@ namespace Task7
             {
                 throw;
             }
+        }
 
+        public Dictionary<int, string> AnalizeLog()
+        {
+            bufferLog = new Dictionary<int, string>();
+            try
+            {
+                string[] logBuffer = fReader.ReadFileLine("ProductsErrorLog\\AddErrorLog.txt", 2);
+                for (int i = 0; i < logBuffer.Length; i++)
+                {
+                    if (logBuffer != null)
+                    {
+                        string[] resultLine = logBuffer[i].Split('[', ']',
+                            (char)StringSplitOptions.RemoveEmptyEntries);
+
+                            bufferLog.Add(i, DivideLogLine(logBuffer[i]));
+                            continue;
+                    }
+                    else
+                    {
+                        throw new NullReferenceException("failed to read log File");
+                    }
+                }
+
+                return bufferLog;
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private string DivideLogLine(string line)
+        {
+            string[] separator = { "[" };
+            int count = 3;
+            string[] parts = line.Split(separator, count, StringSplitOptions.RemoveEmptyEntries);
+
+            return parts[2];
         }
 
         //змінювати дані в фай лог
-        private void SetLog()
-        {
+        public void SetLog(string updateText, int index)
+        {      
+            if(updateText != null)
+            {
+                try
+                {
+                    bufferLog = AnalizeLog();
+                    bufferLog[index] = updateText;
+
+                    fWriter.ClearFile();
+                    WriteErrorToLogFile(AddLogHat());
+
+                    foreach (var item in bufferLog)
+                    {
+                        WriteErrorToLogFile($"[{DateTime.Now.ToString("G")}] [Incorrect product]:\t[{item.Value}]");
+                    }
+                    
+                }
+                catch(Exception)
+                {
+                    throw;
+                }
+
+            }
 
         }
 
@@ -216,7 +304,7 @@ namespace Task7
             }
             else
             {
-                WriteErrorToLogFile($"[{DateTime.Now.ToString("G")}] Incorrect product:\t[{findType}]");
+                WriteErrorToLogFile($"[{DateTime.Now.ToString("G")}] [Incorrect product]:\t[{findType}]");
                 throw new ArgumentException($"incorrect product {findType}");
             }
         }
@@ -479,6 +567,11 @@ namespace Task7
             {
                 return false;
             }
+        }
+
+        private string AddLogHat()
+        {
+            return $"Data/Time\t\t\t\tMessage \t\t\tLine\r\n";
         }
 
     }

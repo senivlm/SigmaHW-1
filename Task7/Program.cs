@@ -1,5 +1,4 @@
-﻿using Products.Task7.Enums;
-using Products.Task7.Products;
+﻿using Products.Task7.Products;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,21 +10,21 @@ namespace Task7
         static void Main(string[] args)
         {
 
-            Test();
-
+            //Test();
             TestLog();
 
 
+            Console.WriteLine("Programm correct ended=)");
             Console.ReadLine();
         }
 
         public static void Test()
         {
+            FileLogger fLog = new FileLogger();
+            var stor = new Storage();
             try
             {
-                FileLogger fLog = new FileLogger();
-                var stor = new Storage();
-
+              
                 List<Product> products = fLog.ReadProducts();
                 stor.AddProducts(products);
 
@@ -41,25 +40,29 @@ namespace Task7
             {
                 Console.WriteLine(ex.Message);
             }
+            finally
+            {
+                fLog.Dispose();
+            }
         }
 
         public static void TestLog()
         {
             try
             {
-                string dateString = "03/01/2009 10:00 AM";
-
-                DateTime dt;
-                DateTime.TryParse(dateString, out dt);
+                DateTime interval = new DateTime(2022, 06, 15, 1, 30, 0);
                 FileLogger fLog = new FileLogger();
 
-                List<string> logs = fLog.AnalizeLog(dt);
+                Dictionary<int, string> logs = fLog.AnalizeLog(interval);
 
                 foreach (var item in logs)
                 {
                     Console.WriteLine(item);
                 }
 
+                string updateData = "TopGrade Lamb Meat 0055.00 <<<Change Text for method>>>";
+
+                fLog.SetLog(updateData, 22);
             }
             catch (DirectoryNotFoundException ex)
             {
