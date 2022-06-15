@@ -1,5 +1,3 @@
-###the repository has a separate branch ready for checkout!!!!!!###
-
 ###how tasks has been completed###
 
     #Task_1
@@ -10,4 +8,4 @@
     #Task_6
     #Task_7
 
-### SigmaHW
+                        ### SigmaHW
