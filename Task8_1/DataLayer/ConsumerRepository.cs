@@ -31,6 +31,7 @@ namespace Task8_1
 
         public ConsumerRepository(Consumer consumer, int quarter)
         {
+            _consumers = new List<Consumer>[4];
             if (consumer == null | quarter < 0 | quarter > 4)
             {
                 return;
@@ -60,11 +61,20 @@ namespace Task8_1
                 {
                     int r = temp.RoomNumber;
                     string name = temp.Name;
-                    double start = temp.StartMetrData;
-                    double end = temp.EndMetrData;
-                    DateTime first = temp.WithdrawalDateFirst;
-                    DateTime second = temp.WithdrawalDateSecond;
-                    DateTime three = temp.WithdrawalDateThrid;
+                    double start = temp.StartMetrData + item.StartMetrData;
+                    double end = temp.EndMetrData + item.EndMetrData;
+                    DateTime first = new DateTime
+                        (temp.WithdrawalDateFirst.Year,
+                        temp.WithdrawalDateFirst.Month,
+                        temp.WithdrawalDateFirst.Day + item.WithdrawalDateFirst.Day);
+                    DateTime second = new DateTime
+                        (temp.WithdrawalDateSecond.Year,
+                        temp.WithdrawalDateSecond.Month,
+                        temp.WithdrawalDateSecond.Day + item.WithdrawalDateSecond.Day);
+                    DateTime three = new DateTime
+                        (temp.WithdrawalDateThrid.Year ,
+                        temp.WithdrawalDateThrid.Month ,
+                        temp.WithdrawalDateThrid.Day + item.WithdrawalDateThrid.Day);
                     result.Add(new Consumer()
                     {
                         RoomNumber = r,
@@ -86,21 +96,27 @@ namespace Task8_1
         //      Інформацію про квартири вважати однаковою, якщо збігається номер квартири та власник.
         public static List<Consumer> operator -(ConsumerRepository one, ConsumerRepository two)
         {
-            Consumer temp = default;
+            Consumer temp = null;
             List<Consumer> allConsumers1 = one.GetAllConsumers();
             List<Consumer> allConsumers2 = two.GetAllConsumers();
+            List<Consumer> result = new List<Consumer>();
 
 
             foreach (var item in allConsumers1)
             {
                 temp = allConsumers2.Find(p => p.Name == item.Name);
 
-                if (temp != default)
+                if (temp != null)
                 {
-                    allConsumers1.Remove(item);
+                    continue;
                 }
-                temp = default;
+                else
+                {
+                    result.Add(item);
+                    temp = null;
+                }
             }
+            allConsumers1 = result;
 
             return allConsumers1;
 
@@ -136,6 +152,8 @@ namespace Task8_1
 
         public void AddConsumer(Consumer consumer , int quarter)
         {
+            List<Consumer> consumers = new List<Consumer>();
+            consumers.Add(consumer);
 
             if (consumer == null | quarter < 0 | quarter > 4)
             {
@@ -144,22 +162,22 @@ namespace Task8_1
 
             if (quarter == 1)
             {
-                _consumers[0].Add(consumer);
+                _consumers[0] = consumers;
             }
 
             if(quarter == 2)
             {
-                _consumers[1].Add(consumer);
+                _consumers[1] = consumers;
             }
 
             if(quarter == 3)
             {
-                _consumers[2].Add(consumer);
+                _consumers[2] = consumers;
             }
 
             if(quarter == 4)
             {
-                _consumers[4].Add(consumer);
+                _consumers[3] = consumers;
             }
 
         }

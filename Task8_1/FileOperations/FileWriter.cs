@@ -6,7 +6,7 @@ namespace Task8_1
 {
     internal class FileWriter : IDisposable
     {
-        private string rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task6\Files\";
+        private string rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task8_1\Files\";
         private string fileName;
         private string fullPath;
         private string someText = "Ups....info didn't come";

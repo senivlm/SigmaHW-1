@@ -6,7 +6,7 @@ namespace Task8_1
 {
     internal class FileReader : IDisposable
     {
-        private string rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task6\Files";
+        private string rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task8_1\Files";
         private string readLine;
         private string fileName;
         private string fullPath;
