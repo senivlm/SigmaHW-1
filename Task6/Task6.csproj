@@ -46,6 +46,7 @@
     <Compile Include="BisnessLogic\BLL.cs" />
     <Compile Include="DataLayer\Consumer.cs" />
     <Compile Include="DataLayer\ConsumerRepository.cs" />
+    <Compile Include="DataLayer\ConsumptionСalculator.cs" />
     <Compile Include="Enums\Mounts.cs" />
     <Compile Include="Enums\Quarter.cs" />
     <Compile Include="FileLogger.cs" />

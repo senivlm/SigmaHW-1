@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Task6.DataLayer;
 
 namespace Task6.BisnessLogic
 {
@@ -10,6 +11,7 @@ namespace Task6.BisnessLogic
         private List<Consumer> consumers;
         private Consumer temp;
         private FileWriter fileWriter;
+        private ConsumptionСalculator cCalculator;
         private int quarter;
         private int room;
 
@@ -19,6 +21,7 @@ namespace Task6.BisnessLogic
             temp = new Consumer();
             fileWriter = new FileWriter("Task6.1\\Report.txt");
             consumers = new List<Consumer>();
+            cCalculator = new ConsumptionСalculator();
 
             string[] body1 = FileOne.ReadBody("/Task6.1/First.txt");
             string[] body2 = FileOne.ReadBody("/Task6.1/Second.txt");
@@ -468,13 +471,12 @@ namespace Task6.BisnessLogic
             {
                 Console.WriteLine("the strongest debtor is :");
 
-
-                string buffer = repository.GetStrongestDebtor();
+                string buffer = cCalculator.GetMostDebtor(repository);
                 if (buffer != null)
                 {
                     Console.WriteLine(temp.WriteHat(quarter));
                     Console.WriteLine(buffer);
-                    PrintToFile(buffer); //
+                    PrintToFile(buffer);
                     return s;
                 }
                 else
@@ -494,7 +496,8 @@ namespace Task6.BisnessLogic
                 if (int.TryParse(s, out room))
                 {
                     room = int.Parse(s);
-                    string buffer = repository.GetDifferenceData(room);
+                    //string buffer = repository.GetDifferenceData(room);
+                    string buffer = cCalculator.GetDaysAfterLastVerificationToString(room, repository);
                     Console.WriteLine(temp.WriteHat(quarter));
                     Console.WriteLine(buffer);
                     PrintToFile(buffer); //
@@ -511,7 +514,7 @@ namespace Task6.BisnessLogic
             {
                 Console.WriteLine("press number room");
                 room = int.Parse(Console.ReadLine());
-                string buffer = repository.GetPaymentsToString(room);
+                string buffer = cCalculator.TotalPaymentAmountToString(room, repository);
                 Console.WriteLine(temp.WriteHat(quarter));
                 Console.WriteLine(buffer);
                 PrintToFile(buffer); //

@@ -115,7 +115,26 @@ namespace Task6
 
         public double GetPay() => endMetrData - startMetrData;
 
-        public int GetDifferenceDay() => DateTime.Now.Day - WithdrawalDateThrid.Day;
+        public int GetDifferenceDay()
+        {
+            if(withdrawalDateThrid.Day > 0)
+            {
+                return int.Parse(WithdrawalDateThrid.Day.ToString());
+            }
+            if (withdrawalDateSecond.Day > 0)
+            {
+                return int.Parse(WithdrawalDateSecond.Day.ToString());
+            }
+            if (withdrawalDateFirst.Day > 0)
+            {
+                return int.Parse(withdrawalDateThrid.Day.ToString());
+            }
+            else
+            {
+                return 0;
+            }
+
+        } 
 
         public string WriteHat(int quarter)
         {
