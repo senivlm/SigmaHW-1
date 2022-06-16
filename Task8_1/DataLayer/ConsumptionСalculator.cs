@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Task6.DataLayer
+namespace Task8_1.DataLayer
 {
     internal class ConsumptionСalculator
     {
@@ -14,6 +14,24 @@ namespace Task6.DataLayer
         public ConsumptionСalculator(int kWattPrice)
         {
             this.kWattPrice = kWattPrice;
+        }
+
+        public double KWattPrice
+        {
+            get => kWattPrice;
+
+            set
+            {
+                if (value < 0)
+                {
+                    return;
+                }
+                else
+                {
+                    kWattPrice = value;
+                }
+            }
+
         }
 
         public double TotalPaymentAmount(int room, ConsumerRepository cRepo)

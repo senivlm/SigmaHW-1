@@ -1,0 +1,6 @@
+﻿5 4
+[001] Semenov   [00123,55] [00125,25] {October - 01.10.21 | November - 01.11.21 | December - 01.12.21}
+[002] Bogdanov  [00129,55] [00155,35] {October - 02.10.21 | November - 02.11.21 | December - 02.12.21}
+[003] Kerimov   [00955,55] [01033,25] {October - 03.10.21 | November - 03.11.21 | December - 03.12.21}
+[004] Anisimova [12345,55] [12346,25] {October - 04.10.21 | November - 04.11.21 | December - 04.12.21}
+[005] Tin       [95565,55] [99999,99] {October - 05.10.21 | November - 05.11.21 | December - 05.12.21}
