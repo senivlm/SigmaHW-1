@@ -49,9 +49,9 @@
     <Compile Include="DataLayer\ConsumptionСalculator.cs" />
     <Compile Include="Enums\Mounts.cs" />
     <Compile Include="Enums\Quarter.cs" />
-    <Compile Include="FileLogger.cs" />
-    <Compile Include="FileReader.cs" />
-    <Compile Include="FileWriter.cs" />
+    <Compile Include="FileOperations\FileLogger.cs" />
+    <Compile Include="FileOperations\FileReader.cs" />
+    <Compile Include="FileOperations\FileWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

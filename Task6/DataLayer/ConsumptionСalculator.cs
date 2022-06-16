@@ -75,19 +75,33 @@ namespace Task6.DataLayer
         public string GetMostDebtor(ConsumerRepository cRepo)
         {
             double result = default;
-            Consumer storageResult = default;
-            List<Consumer> consumers = cRepo.GetAllConsumers();           
+            int storageResultRoomNumber = default;
+            List<Consumer> consumers = cRepo.GetAllConsumers();
 
-            foreach (var item in consumers)
+            Dictionary<int, double> roomTatalAmounts = new Dictionary<int, double>();
+
+            for (int i = 0; i < consumers.Count - 1; i++)
             {
-                if (item.GetPay() > result)
+                if (roomTatalAmounts.ContainsKey(consumers[i].RoomNumber))
                 {
-                    result = item.GetPay();
-                    storageResult = item;
+                    roomTatalAmounts[consumers[i].RoomNumber] += consumers[i].GetPay();
+                }
+                else
+                {
+                    roomTatalAmounts[consumers[i].RoomNumber] = consumers[i].GetPay();
                 }
             }
 
-            return $"{storageResult} \nhas a most debtor";
+            foreach (var item in roomTatalAmounts)
+            {
+                if (item.Value > result)
+                {
+                    result = item.Value;
+                    storageResultRoomNumber = item.Key;
+                }
+            }
+
+            return $"Room [{storageResultRoomNumber}] = [{result}]\thas a most debtor";
         }
     }
 }
