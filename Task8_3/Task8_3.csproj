@@ -43,11 +43,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buy.cs" />
+    <Compile Include="Check.cs" />
+    <Compile Include="Enums\Category.cs" />
+    <Compile Include="Enums\Mounts.cs" />
+    <Compile Include="Enums\Quarter.cs" />
+    <Compile Include="Enums\TypeMeat.cs" />
+    <Compile Include="FileOperation\FileLogger.cs" />
+    <Compile Include="FileOperation\FileReader.cs" />
+    <Compile Include="FileOperation\FileWriter.cs" />
+    <Compile Include="Products\DairyProduct.cs" />
+    <Compile Include="Products\Logging.cs" />
+    <Compile Include="Products\Meat.cs" />
+    <Compile Include="Products\Product.cs" />
+    <Compile Include="Products\Storage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Description\Task8_3Info.txt" />
+    <Content Include="Files\Products.txt" />
+    <Content Include="Files\ProductsErrorLog\AddErrorLog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
