@@ -1,5 +1,4 @@
 ﻿using Products.Task1_Task2.Products;
-using System;
 using System.Collections.Generic;
 
 namespace Products.Task1_Task2

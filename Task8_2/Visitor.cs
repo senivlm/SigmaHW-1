@@ -101,7 +101,7 @@ namespace Task8_2
                     sb.Append("\t\t" + i + "\n");
                 }
 
-            }         
+            }
             string result = sb.ToString();
             return result;
         }

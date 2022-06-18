@@ -7,7 +7,7 @@ namespace Products.Task7.Products
     {
         public static void DisplayArray(List<Product> obj)
         {
-            if(obj == null)
+            if (obj == null)
             {
                 throw new ArgumentNullException("Logging method Display Array");
             }

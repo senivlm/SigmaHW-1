@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Task8_1
 {
@@ -100,8 +99,8 @@ namespace Task8_1
             name = FullName;
         }
 
-        public Consumer(int roomNumber, string FullName, double startMetrData, 
-            double endMetrData, DateTime withdrawalDateFirst, DateTime withdrawalDateSecond, 
+        public Consumer(int roomNumber, string FullName, double startMetrData,
+            double endMetrData, DateTime withdrawalDateFirst, DateTime withdrawalDateSecond,
             DateTime withdrawalDateThird)
         {
             this.roomNumber = roomNumber;
@@ -117,7 +116,7 @@ namespace Task8_1
 
         public int GetDifferenceDay()
         {
-            if(withdrawalDateThrid.Day > 0)
+            if (withdrawalDateThrid.Day > 0)
             {
                 return int.Parse(WithdrawalDateThrid.Day.ToString());
             }
@@ -134,11 +133,11 @@ namespace Task8_1
                 return 0;
             }
 
-        } 
+        }
 
         public string WriteHat(int quarter)
         {
-            if(quarter == 1)
+            if (quarter == 1)
             {
                 return $"Rooms\tLastName	\tStart		\tEnd\t\t\t\tJanuary     February   Marth\r\n";
             }
@@ -169,9 +168,9 @@ namespace Task8_1
         public override string ToString()
         {
 
-            return ($"[{string.Format("{0,-6:d3} ", roomNumber+"]")}" +
+            return ($"[{string.Format("{0,-6:d3} ", roomNumber + "]")}" +
                 $"{string.Format("{0,-16}", Name)}" +
-                $"[{string.Format("{0,-15}", startMetrData+"]")}" +
+                $"[{string.Format("{0,-15}", startMetrData + "]")}" +
                 $"[{string.Format("{0,-15}", endMetrData + "]")}" +
                 $"[{withdrawalDateFirst.Date.ToString("M")} | " +
                 $"{withdrawalDateSecond.ToString("M")} | " +

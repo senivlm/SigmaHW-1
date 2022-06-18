@@ -71,7 +71,7 @@ namespace Task7
 
         public FileReader(string fileName)
         {
-            if(fileName == null | fileName == "")
+            if (fileName == null | fileName == "")
             {
                 fileName = "Products.txt";
             }
@@ -156,7 +156,7 @@ namespace Task7
 
         public string ReadFileLine(string fileName)
         {
-            if(FileName == null | FileName == "")
+            if (FileName == null | FileName == "")
             {
                 return default;
             }
@@ -202,7 +202,7 @@ namespace Task7
             {
                 using (StreamReader sr = new StreamReader(pathToFile))
                 {
-                    while(!sr.EndOfStream)
+                    while (!sr.EndOfStream)
                     {
                         if (startLine > 0)
                         {
@@ -212,7 +212,7 @@ namespace Task7
                         else
                         {
                             lines.Add(sr.ReadLine());
-                        }                                         
+                        }
                     }
                 }
             }
@@ -285,7 +285,7 @@ namespace Task7
             List<string> lines = new List<string>();
 
             try
-            {              
+            {
                 using (StreamReader reader = new StreamReader(pathToFile))
                 {
                     int counter = 1;

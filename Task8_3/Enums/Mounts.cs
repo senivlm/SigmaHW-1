@@ -10,10 +10,10 @@ namespace Task8_3.Enums
         May,
         June,
         July,
-        August,                      
+        August,
         September,
         October,
-        November,           
+        November,
         December,
     }
 }

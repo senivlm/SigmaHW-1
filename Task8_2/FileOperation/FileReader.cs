@@ -71,7 +71,7 @@ namespace Task8_2
 
         public FileReader(string fileName)
         {
-            if(fileName == null | fileName == "")
+            if (fileName == null | fileName == "")
             {
                 fileName = "LogVisitrs.txt";
             }
@@ -155,7 +155,7 @@ namespace Task8_2
 
         public string ReadFileLine(string fileName)
         {
-            if(FileName == null | FileName == "")
+            if (FileName == null | FileName == "")
             {
                 return default;
             }
@@ -201,7 +201,7 @@ namespace Task8_2
             {
                 using (StreamReader sr = new StreamReader(pathToFile))
                 {
-                    while(!sr.EndOfStream)
+                    while (!sr.EndOfStream)
                     {
                         if (startLine > 0)
                         {
@@ -211,7 +211,7 @@ namespace Task8_2
                         else
                         {
                             lines.Add(sr.ReadLine());
-                        }                                         
+                        }
                     }
                 }
             }
@@ -284,7 +284,7 @@ namespace Task8_2
             List<string> lines = new List<string>();
 
             try
-            {              
+            {
                 using (StreamReader reader = new StreamReader(pathToFile))
                 {
                     int counter = 1;

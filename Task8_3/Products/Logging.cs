@@ -7,7 +7,7 @@ namespace Products.Task8_3.Products
     {
         public static void DisplayArray(List<Product> obj)
         {
-            if(obj == null)
+            if (obj == null)
             {
                 throw new ArgumentNullException("Logging method Display Array");
             }
@@ -88,7 +88,7 @@ namespace Products.Task8_3.Products
                     product = null;
                 }
             }
-           
+
             return new List<Product>(result);
         }
 

@@ -223,8 +223,8 @@ namespace Task7
                         string[] resultLine = logBuffer[i].Split('[', ']',
                             (char)StringSplitOptions.RemoveEmptyEntries);
 
-                            bufferLog.Add(i, DivideLogLine(logBuffer[i]));
-                            continue;
+                        bufferLog.Add(i, DivideLogLine(logBuffer[i]));
+                        continue;
                     }
                     else
                     {
@@ -255,8 +255,8 @@ namespace Task7
 
         //змінювати дані в фай лог
         public void SetLog(string updateText, int index)
-        {      
-            if(updateText != null)
+        {
+            if (updateText != null)
             {
                 try
                 {
@@ -270,9 +270,9 @@ namespace Task7
                     {
                         WriteErrorToLogFile($"[{DateTime.Now.ToString("G")}] [Incorrect product]:\t[{item.Value}]");
                     }
-                    
+
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     throw;
                 }

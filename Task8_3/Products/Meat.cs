@@ -1,5 +1,4 @@
 ﻿using Products.Task8_3.Enums;
-using System;
 
 namespace Products.Task8_3.Products
 {
@@ -17,7 +16,7 @@ namespace Products.Task8_3.Products
         public Meat(Category? category1, MeatType? meatType1, decimal price, int weight)
             : base($"{category1}-{meatType1}", price, weight)
         {
-            if(category1 == null | meatType1 == null)
+            if (category1 == null | meatType1 == null)
             {
                 return;
             }
@@ -28,7 +27,7 @@ namespace Products.Task8_3.Products
 
         public void ChangePriceByCategory(int percent)
         {
-            if(percent < 0)
+            if (percent < 0)
             {
                 return;
             }

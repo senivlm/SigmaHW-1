@@ -72,8 +72,8 @@ namespace Task8_1
                         temp.WithdrawalDateSecond.Month,
                         temp.WithdrawalDateSecond.Day + item.WithdrawalDateSecond.Day);
                     DateTime three = new DateTime
-                        (temp.WithdrawalDateThrid.Year ,
-                        temp.WithdrawalDateThrid.Month ,
+                        (temp.WithdrawalDateThrid.Year,
+                        temp.WithdrawalDateThrid.Month,
                         temp.WithdrawalDateThrid.Day + item.WithdrawalDateThrid.Day);
                     result.Add(new Consumer()
                     {
@@ -148,9 +148,9 @@ namespace Task8_1
             {
                 _consumers[3] = consumers;
             }
-        }      
+        }
 
-        public void AddConsumer(Consumer consumer , int quarter)
+        public void AddConsumer(Consumer consumer, int quarter)
         {
             List<Consumer> consumers = new List<Consumer>();
             consumers.Add(consumer);
@@ -165,17 +165,17 @@ namespace Task8_1
                 _consumers[0] = consumers;
             }
 
-            if(quarter == 2)
+            if (quarter == 2)
             {
                 _consumers[1] = consumers;
             }
 
-            if(quarter == 3)
+            if (quarter == 3)
             {
                 _consumers[2] = consumers;
             }
 
-            if(quarter == 4)
+            if (quarter == 4)
             {
                 _consumers[3] = consumers;
             }
@@ -209,14 +209,14 @@ namespace Task8_1
                 throw new ArgumentException();
             }
 
-           
+
         }
 
         public List<Consumer> GetConsumers(int quarter)
         {
             if (quarter < 0 | quarter > 4)
             {
-                
+
             }
             if (quarter == 1)
             {
@@ -242,11 +242,11 @@ namespace Task8_1
                 throw new ArgumentException();
             }
 
-            
+
         }
 
         public Consumer GetConsumer(int quarter, int room)
-        { 
+        {
             if (quarter < 0 | quarter > 4)
             {
                 throw new ArgumentException();
@@ -255,7 +255,7 @@ namespace Task8_1
             List<Consumer> consumers = GetConsumers(quarter);
 
             return consumers?.Find(p => p.RoomNumber == room);
-           
+
         }
 
         public int GetConsumerCount(Quarter quarter)

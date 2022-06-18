@@ -69,9 +69,9 @@ namespace Task6
             {
                 _consumers[3] = consumers;
             }
-        }      
+        }
 
-        public void AddConsumer(Consumer consumer , int quarter)
+        public void AddConsumer(Consumer consumer, int quarter)
         {
 
             if (consumer == null | quarter < 0 | quarter > 4)
@@ -84,17 +84,17 @@ namespace Task6
                 _consumers[0].Add(consumer);
             }
 
-            if(quarter == 2)
+            if (quarter == 2)
             {
                 _consumers[1].Add(consumer);
             }
 
-            if(quarter == 3)
+            if (quarter == 3)
             {
                 _consumers[2].Add(consumer);
             }
 
-            if(quarter == 4)
+            if (quarter == 4)
             {
                 _consumers[4].Add(consumer);
             }
@@ -128,14 +128,14 @@ namespace Task6
                 throw new ArgumentException();
             }
 
-           
+
         }
 
         public List<Consumer> GetConsumers(int quarter)
         {
             if (quarter < 0 | quarter > 4)
             {
-                
+
             }
             if (quarter == 1)
             {
@@ -161,11 +161,11 @@ namespace Task6
                 throw new ArgumentException();
             }
 
-            
+
         }
 
         public Consumer GetConsumer(int quarter, int room)
-        { 
+        {
             if (quarter < 0 | quarter > 4)
             {
                 throw new ArgumentException();
@@ -174,7 +174,7 @@ namespace Task6
             List<Consumer> consumers = GetConsumers(quarter);
 
             return consumers?.Find(p => p.RoomNumber == room);
-           
+
         }
 
         public int GetConsumerCount(Quarter quarter)

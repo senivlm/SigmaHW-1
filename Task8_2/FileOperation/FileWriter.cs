@@ -171,7 +171,7 @@ namespace Task8_2
                 ClearFile();
             }
 
-            if(someText == null | someText.Count < 1)
+            if (someText == null | someText.Count < 1)
             {
                 return;
             }
@@ -316,7 +316,7 @@ namespace Task8_2
 
         public void ClearFile(string fullPath)
         {
-            if(fullPath == null)
+            if (fullPath == null)
             {
                 return;
             }
@@ -371,7 +371,7 @@ namespace Task8_2
         }
 
         public void Dispose()
-        {          
+        {
             GC.SuppressFinalize(this);
             Dispose(false);
         }

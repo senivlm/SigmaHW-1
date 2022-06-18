@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task3
+﻿namespace Task3
 {
     internal class Pair
     {
@@ -34,18 +28,18 @@ namespace Task3
 
         public override bool Equals(object obj)
         {
-            if(obj == null)
+            if (obj == null)
             {
                 return false;
             }
 
-            if(!(obj is Pair))
+            if (!(obj is Pair))
             {
                 return false;
             }
 
             return this.Number == ((Pair)obj).Number;
-      
+
         }
 
         public override int GetHashCode()

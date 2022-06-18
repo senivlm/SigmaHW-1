@@ -124,7 +124,7 @@ namespace Task6
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if( counter <= startWith)
+                    if (counter <= startWith)
                     {
                         counter++;
                         continue;
@@ -135,7 +135,7 @@ namespace Task6
                         line = "";
                         counter++;
                     }
-                   
+
                 }
             }
 
@@ -151,7 +151,7 @@ namespace Task6
                 GC.SuppressFinalize(this);
             }
             isDisposed = true;
-        }       
+        }
 
         public override string ToString()
         {

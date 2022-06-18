@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Products.Task8_3.Products
 {
@@ -62,7 +61,7 @@ namespace Products.Task8_3.Products
         {
             if (price < 0 | weight < 0)
                 throw new ArgumentException("Price or weight cannot be less than zero");
-            if(name == null )
+            if (name == null)
                 throw new NullReferenceException("incorrect name");
 
             Id = Guid.NewGuid();

@@ -16,10 +16,10 @@ namespace Task6
 
         }
 
-        ~ FileLogger()
+        ~FileLogger()
         {
 
-        }  
+        }
 
         // зчитування шапки
         public string ReadHat(string path)
@@ -307,11 +307,11 @@ namespace Task6
             string result = default;
             int index = default;
 
-            if(words.Length > 10)
+            if (words.Length > 10)
             {
                 for (int i = 0; i < words.Length; i++)
                 {
-                    if(index < countWordsInLine)
+                    if (index < countWordsInLine)
                     {
                         sb.Append(words[i] + " ");
                         index++;
@@ -321,7 +321,7 @@ namespace Task6
                         sb.Append("\r\n");
                         index = default;
                     }
-                    
+
                 }
             }
 
@@ -343,7 +343,7 @@ namespace Task6
             string result = default;
             int counter = default;
 
-            string[] words = proposal.Split(' ', ',', ',', '-','*','/','r','n');
+            string[] words = proposal.Split(' ', ',', ',', '-', '*', '/', 'r', 'n');
 
             for (int i = 0; i < words.Length; i++)
             {
@@ -366,7 +366,7 @@ namespace Task6
 
             for (int i = 0; i < words.Length; i++)
             {
-                if(words[i] == null | words[i] == "")
+                if (words[i] == null | words[i] == "")
                 {
                     continue;
                 }
@@ -382,7 +382,7 @@ namespace Task6
         // метод пошуку найкоротших чи найдовших слiв
         public List<string> GetShortOrLongWords(List<string> proposals, bool IsLongest)
         {
-            List<string> temp = new List<string>();                     
+            List<string> temp = new List<string>();
             int counter = 1;
             string text = default;
 
@@ -403,11 +403,11 @@ namespace Task6
                 }
             }
 
-           
+
 
             return temp;
         }
-       
+
         public void Dispose()
         {
             this.Dispose();

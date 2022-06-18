@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task7.Enums
+﻿namespace Task7.Enums
 {
     enum Mounts
     {
@@ -15,10 +9,10 @@ namespace Task7.Enums
         May,
         June,
         July,
-        August,                      
+        August,
         September,
         October,
-        November,           
+        November,
         December,
     }
 }

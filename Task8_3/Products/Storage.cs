@@ -11,8 +11,8 @@ namespace Products.Task8_3.Products
 
         public void AddProducts(List<Product> prod)
         {
-            if(prod == null)
-                throw new NullReferenceException("incorrect prod in Storrage AddProd method"); 
+            if (prod == null)
+                throw new NullReferenceException("incorrect prod in Storrage AddProd method");
 
             products.AddRange(prod);
         }

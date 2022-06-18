@@ -28,8 +28,8 @@ namespace Task4
             vector2.InitRand(10, 99);
             vector3.InitRand(10, 99);
 
-            Console.WriteLine(vector1 + "before QuickSort First Item\n" + 
-                vector2 + "before QuickSort Last Item\n" + 
+            Console.WriteLine(vector1 + "before QuickSort First Item\n" +
+                vector2 + "before QuickSort Last Item\n" +
                 vector3 + "before QuickSort Mid Item\n");
 
             vector1.QuickSortFirstItem();

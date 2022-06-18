@@ -101,7 +101,7 @@ namespace Task6
                 foreach (var item in someText)
                 {
                     sw.WriteLine(item);
-                }        
+                }
             }
         }
 

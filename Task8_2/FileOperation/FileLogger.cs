@@ -57,7 +57,7 @@ namespace Task8_2
             {
                 return buffer;
             }
-            
+
             string[] temp = default;
             for (int i = 0; i < resultTempArr.Length; i++)
             {
@@ -103,7 +103,7 @@ namespace Task8_2
         // получить ип
         private bool IsIp(string text)
         {
-            if(text == null)
+            if (text == null)
             {
                 return false;
             }
@@ -118,7 +118,7 @@ namespace Task8_2
             else
             {
                 return false;
-            }          
+            }
         }
 
         // получить дату
@@ -132,7 +132,7 @@ namespace Task8_2
             string result;
 
             TimeSpan t = TimeSpan.MinValue;
-            if (text.Contains(":") & TimeSpan.TryParse(text,out t))
+            if (text.Contains(":") & TimeSpan.TryParse(text, out t))
             {
                 return true;
             }
@@ -145,7 +145,7 @@ namespace Task8_2
         private bool IsDayOwWeek(string text)
         {
 
-            if(text.Equals(DayOfWeek.Monday.ToString())) return true;
+            if (text.Equals(DayOfWeek.Monday.ToString())) return true;
 
             if (text.Equals(DayOfWeek.Tuesday.ToString())) return true;
 

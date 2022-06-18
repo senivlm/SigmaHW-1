@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 
 namespace Task10
@@ -15,7 +14,7 @@ namespace Task10
         {
             List<string> result = new List<string>();
 
-            using(StreamReader sr = new StreamReader(filePath))
+            using (StreamReader sr = new StreamReader(filePath))
             {
                 while (!sr.EndOfStream)
                 {
@@ -41,7 +40,7 @@ namespace Task10
                         if (str.Length != 2) throw new ArgumentException("incorrect pair key or value ");
                         result.Add(str[0], str[1]);
                     }
-                    catch(FileNotFoundException ex)
+                    catch (FileNotFoundException ex)
                     {
                         throw;
                     }

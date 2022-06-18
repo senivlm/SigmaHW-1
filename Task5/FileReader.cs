@@ -32,7 +32,7 @@ namespace Task5
 
         public void ChangePath(string newPath)
         {
-            path = newPath; 
+            path = newPath;
         }
 
         public string ReadFile()

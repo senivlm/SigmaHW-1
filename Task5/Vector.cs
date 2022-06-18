@@ -602,23 +602,23 @@ namespace Task5
                     Swop(index, parentIndex);
 
                     index = parentIndex;
-                }               
+                }
             }
-            
+
         }
 
         private void DeleteFirst()
         {
             List<int> temp = array.Skip(1).ToList();
             array = temp.ToArray();
-            
+
         }
 
         public void PiramidSort()
         {
-           
+
             var startLenght = array.Length;
-            int[] temp = new int[startLenght]; 
+            int[] temp = new int[startLenght];
             Structurization();
 
             for (int i = startLenght - 1; i >= 0; i--)
@@ -628,11 +628,11 @@ namespace Task5
                     temp[i] = array[0];
                     DeleteFirst();
                     Structurization();
-                    
+
                 }
             }
 
-            array = temp;            
+            array = temp;
 
         }
 

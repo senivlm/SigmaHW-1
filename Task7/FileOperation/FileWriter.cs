@@ -174,7 +174,7 @@ namespace Task7
                 ClearFile();
             }
 
-            if(someText == null | someText.Count < 1)
+            if (someText == null | someText.Count < 1)
             {
                 return;
             }
@@ -319,7 +319,7 @@ namespace Task7
 
         public void ClearFile(string fullPath)
         {
-            if(fullPath == null)
+            if (fullPath == null)
             {
                 return;
             }
@@ -374,7 +374,7 @@ namespace Task7
         }
 
         public void Dispose()
-        {          
+        {
             GC.SuppressFinalize(this);
             Dispose(false);
         }

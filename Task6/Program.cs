@@ -52,7 +52,7 @@ namespace Task6
 
             } while (true);
         }
-        
+
         private static void Start6_2()
         {
             try

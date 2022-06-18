@@ -128,11 +128,11 @@ namespace Task8_1.BisnessLogic
                     Console.WriteLine(item);
                 }
 
-                    Console.WriteLine("Print To File Report??? [Y/y] [N/n]");
+                Console.WriteLine("Print To File Report??? [Y/y] [N/n]");
                 Console.WriteLine(">>");
                 s = Console.ReadLine();
                 s.ToLower();
-                if(s == "y")
+                if (s == "y")
                 {
                     fileWriter.ClearFile();
                     fileWriter.WriteHat(quarter);
@@ -146,7 +146,7 @@ namespace Task8_1.BisnessLogic
                 {
                     return s;
                 }
-                       
+
                 return s;
             }
             if (s == "w")
@@ -159,7 +159,7 @@ namespace Task8_1.BisnessLogic
                 {
                     Console.WriteLine("input room number");
                     Console.WriteLine(">>");
-                    
+
                     if (int.TryParse(s, out quarter))
                     {
                         s = Console.ReadLine();
@@ -181,7 +181,7 @@ namespace Task8_1.BisnessLogic
                             {
                                 return s;
                             }
-                            
+
                         }
                         else
                         {
@@ -324,7 +324,7 @@ namespace Task8_1.BisnessLogic
                     Console.WriteLine("this quarter is not in the database");
                     return s;
                 }
-                
+
                 consumers = repository.GetConsumers(x);
                 foreach (var item in consumers)
                 {
@@ -343,7 +343,7 @@ namespace Task8_1.BisnessLogic
                 {
                     if (int.TryParse(s, out quarter))
                     {
-                        
+
                         if (int.TryParse(s, out quarter))
                         {
                             Console.WriteLine(temp.WriteHat(quarter));
@@ -352,8 +352,8 @@ namespace Task8_1.BisnessLogic
                             foreach (var item in consumers)
                             {
                                 Console.WriteLine(item);
-                            }              
-                            
+                            }
+
                             PrintToFile(s, consumers, quarter);
                             return s;
 
@@ -492,7 +492,7 @@ namespace Task8_1.BisnessLogic
                 s = Console.ReadLine();
                 Console.WriteLine(">>");
 
-                
+
                 if (int.TryParse(s, out room))
                 {
                     room = int.Parse(s);
@@ -508,7 +508,7 @@ namespace Task8_1.BisnessLogic
                 {
                     Console.WriteLine("this room is not in the database");
                     return s;
-                }             
+                }
             }
             if (s == "y")
             {

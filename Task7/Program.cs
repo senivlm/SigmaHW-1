@@ -24,7 +24,7 @@ namespace Task7
             var stor = new Storage();
             try
             {
-              
+
                 List<Product> products = fLog.ReadProducts();
                 stor.AddProducts(products);
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Task10
 {
@@ -35,7 +34,7 @@ namespace Task10
         //    {
         //        if (char.IsPunctuation(word[word.Length - 1]))
         //        {
-                    
+
         //            //if (!vocabluary.ContainsKey(word[0..^1))
         //            //{
         //            //    temp = word[word.Length - 1];

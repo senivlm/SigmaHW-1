@@ -35,7 +35,7 @@ namespace Products.Task8_3.Products
                 isDied = true;
                 base.ChangePrice(0);
             }
-            
+
             if (result < 0)
             {
                 base.ChangePrice(percent - (percent * 50 / 100));

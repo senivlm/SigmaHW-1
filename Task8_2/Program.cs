@@ -15,7 +15,7 @@ namespace Task8_2
                 Console.WriteLine("vsit list");
                 vAnalize.DispalayAllVizitors();
                 Console.WriteLine();
-               
+
                 int allLikeHor = vAnalize.GetPopularHourPerWeekVisitsForAllSite();
                 Console.WriteLine($"Most popular hour Visits for all is:\t[{allLikeHor}:00:00]");
             }

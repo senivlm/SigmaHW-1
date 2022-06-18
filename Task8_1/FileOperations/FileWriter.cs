@@ -101,7 +101,7 @@ namespace Task8_1
                 foreach (var item in someText)
                 {
                     sw.WriteLine(item);
-                }        
+                }
             }
         }
 
