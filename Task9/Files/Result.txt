@@ -1,0 +1,15 @@
+Need count products and total money:
+*********************************************************
+Ingridient Carrot    : total sum = 67,5  total weight = 225     
+Ingridient Buryak    : total sum = 33,75 total weight = 75      
+Ingridient Potatoes  : total sum = 304,5 total weight = 1050    
+Ingridient Bow       : total sum = 33    total weight = 100     
+Ingridient Smalets   : total sum = 1200  total weight = 600     
+Ingridient Pork      : total sum = 750   total weight = 300     
+Ingridient Beef      : total sum = 450   total weight = 150     
+Ingridient Cheese    : total sum = 330   total weight = 150     
+Ingridient Chicken   : total sum = 540   total weight = 300     
+Ingridient Spagetti  : total sum = 61    total weight = 250     
+*********************************************************
+Total sum: [376975/UAH] 		Total weight[3200/gramm]
+

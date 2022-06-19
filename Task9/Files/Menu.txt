@@ -1,0 +1,35 @@
+﻿	<<<Menu>>>
+Borsch
+Carrot......075,00 grams
+Buryak......075,00 grams
+Potatoes....150,0 grams
+Bow.........020,00 grams
+Smalets.....100,0 grams
+Pork........150,0 grams
+Beef........150,0 grams
+
+CheeseSoup
+Carrot......075,00 grams
+Cheese......075,00 grams
+Potatoes....150,0 grams
+Bow.........020,00 grams
+Chicken.....150,0 grams
+
+СountryStylePotatoes
+Cheese......075,00 grams
+Potatoes....300,0 grams
+Bow.........020,00 grams
+Pork........150,0 grams
+Smalets.....250,0 grams
+
+Potatoes
+Potatoes....300,0 grams
+Bow.........020,00 grams
+Smalets.....250,0 grams
+
+Soup
+Carrot......075,00 grams
+Spagetti....250,00 grams
+Potatoes....150,0 grams
+Bow.........020,00 grams
+Chicken.....150,0 grams

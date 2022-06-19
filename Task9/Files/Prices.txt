@@ -1,0 +1,12 @@
+﻿	<<<Prices>>>
+
+Carrot......030,00 UAH/kg
+Buryak......045,00 UAH/kg
+Potatoes....029,00 UAH/kg
+Bow.........033,00 UAH/kg
+Smalets.....200,00 UAH/kg
+Pork........250,00 UAH/kg
+Beef........300,00 UAH/kg
+Cheese......220,00 UAH/kg
+Chicken.....180,00 UAH/kg
+Spagetti......24,4 UAH/kg
