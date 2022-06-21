@@ -8,7 +8,7 @@ namespace Task7
     internal class Program
     {
         static void Main(string[] args)
-        {
+        {// чудово!
 
             //Test();
             TestLog();
