@@ -37,7 +37,7 @@ namespace Task8_2
                 foreach (var visit in visitor.GetDays())
                 {
                     switch (visit)
-                    {
+                    {// можна простіше. Використати властивість Enum
                         case DayOfWeek.Sunday:
                             day[0]++;
                             break;
