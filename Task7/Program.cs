@@ -78,7 +78,7 @@ namespace Task7
                         fLog.SetCorrectPathToFileNotFound(str);
                     }
                     catch (FileNotFoundException)
-                    {
+                    {// краще винести обробку на рівень вверх
                         continue;
                     }
                     catch (Exception)
