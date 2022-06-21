@@ -115,7 +115,7 @@ namespace Task8_1.BisnessLogic
                 "!press>> y = Print to file <Report> the Total payments\n" +
                 "!press>> c = Print to Display Comands\n");
         }
-
+//валідацію краще винести окремо!
         public string Parse(string s)
         {
             s.ToLower();
