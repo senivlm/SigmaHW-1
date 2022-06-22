@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{061AD795-09B4-4ED1-9409-5592C22ABC58}</ProjectGuid>
+    <ProjectGuid>{DE3AE342-FCC5-45FD-9828-1E86255A3BE4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task9_Additional</RootNamespace>
-    <AssemblyName>Task9_Additional</AssemblyName>
+    <RootNamespace>Task10_1</RootNamespace>
+    <AssemblyName>Task10_1</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>Files\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -43,19 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileOperation\FileLogger.cs" />
-    <Compile Include="FileOperation\FileReader.cs" />
-    <Compile Include="FileOperation\FileWriter.cs" />
+    <Compile Include="DataOperations\GroupReader.cs" />
+    <Compile Include="Interfaces\IConsoleHelper.cs" />
+    <Compile Include="Interfaces\ITranslationService.cs" />
+    <Compile Include="Interfaces\IWorkerWithTranslationGroup.cs" />
+    <Compile Include="MyExceptions\EmptyDictionaryPairValue.cs" />
+    <Compile Include="Orkestrator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataOperations\Translator.cs" />
+    <Compile Include="PLL\ValueCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Description\TaskInfo.txt" />
-    <Content Include="Files\ListIp.txt" />
+    <Content Include="Files\Dictionary.txt" />
     <Content Include="Files\Result.txt" />
+    <Content Include="Files\Text.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

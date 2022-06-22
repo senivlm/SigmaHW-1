@@ -119,6 +119,7 @@ namespace Task8_1.BisnessLogic
         public string Parse(string s)
         {
             s.ToLower();
+            //TODO: валідацію краще винести окремо!
             if (s == "q")
             {
                 consumers = repository.GetAllConsumers();
@@ -335,7 +336,6 @@ namespace Task8_1.BisnessLogic
             }
             if (s == "e")
             {
-                int x;
                 Console.WriteLine("input [1] [2] [3] [4]");
                 Console.WriteLine(">>");
                 s = Console.ReadLine();

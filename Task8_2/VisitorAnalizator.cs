@@ -36,6 +36,7 @@ namespace Task8_2
 
                 foreach (var visit in visitor.GetDays())
                 {
+                    //  TODO: можна простіше. Використати властивість Enum
                     switch (visit)
                     {
                         case DayOfWeek.Sunday:

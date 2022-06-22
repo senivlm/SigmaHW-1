@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 
 namespace Task9{
     internal static class MenuService
@@ -108,7 +107,7 @@ namespace Task9{
         // метод просчёта по весам всего меню итог сумма веса каждого товара
         public static string TryGetMenuTotalWeight(Menu menu, PriceList priceList)
         {
-            Dictionary<string, (double, double)> temp = new Dictionary<string, (double ,double)>();
+            Dictionary<string, (double, double)> temp = new Dictionary<string, (double, double)>();
             string result = default;
             for (int i = 0; i < menu.Length; i++)
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Task9_Additional
 {
@@ -7,6 +8,7 @@ namespace Task9_Additional
     {
         public string keyValid { get; private set; } = "Valid";
         public string keyInvalid { get; private set; } = "Invalid";
+        public string keyMaybe { get; private set; } = "Maybe";
         public Dictionary<string, List<string>> result { get; private set; }
         private readonly FileReader fReader;
         private readonly FileWriter fWriter;
@@ -53,6 +55,11 @@ namespace Task9_Additional
             }
         }
 
+        public void WriteToFile(string text)
+        {
+            fWriter.WriteToFile(text, true);
+        }
+
         public List<string> ReadIp()
         {
             string[] lines = fReader.ReadFileLine("ListIp.txt", 0);
@@ -73,14 +80,17 @@ namespace Task9_Additional
             {
                 if (IsValidEmail(item))
                 {
-
                     Add(keyValid, item);
-
+                    continue;
+                }
+                if (ValidateEmailMaybe(item))
+                {
+                    Add(keyMaybe, item);
+                    continue;
                 }
                 else
                 {
                     Add(keyInvalid, item);
-
                 }
             }
 
@@ -99,6 +109,16 @@ namespace Task9_Additional
             {
                 return false;
             }
+        }
+
+        private bool ValidateEmailMaybe(string email)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(email);
+            if (match.Success)
+                return true;
+            else
+                return false;
         }
     }
 }

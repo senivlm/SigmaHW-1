@@ -17,6 +17,7 @@ namespace Task9_Additional
                     foreach (var ip in item.Value)
                     {
                         Console.WriteLine($"{ip,-20} \tis: [{item.Key}]");
+                        logger.WriteToFile($"{ip,-20} \tis: [{item.Key}]");
                     }
                 }
             }

@@ -60,7 +60,7 @@ namespace Task9_Additional
         {
             if (fileName == null | fileName == "")
             {
-                fileName = @"ListIp.txt";
+                fileName = @"Result.txt";
             }
             rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task9_Additional\Files\";
             someText = "Ups....info didn't come";
@@ -72,7 +72,7 @@ namespace Task9_Additional
         {
             rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task9_Additional\Files\";
             someText = "Ups....info didn't come";
-            this.fileName = "ListIp.txt";
+            this.fileName = "Result.txt";
             fullPath = rootPath + fileName;
         }
 
@@ -127,7 +127,7 @@ namespace Task9_Additional
             }
             catch (Exception ex)
             {
-                Console.WriteLine("exeption in method WriteToFile");
+                Console.WriteLine(ex + "exeption in method WriteToFile");
             }
 
         }
@@ -168,7 +168,7 @@ namespace Task9_Additional
             }
             catch (Exception ex)
             {
-                Console.WriteLine("exeption in method WriteToFile");
+                Console.WriteLine(ex + "exeption in method WriteToFile");
             }
 
         }
@@ -201,7 +201,7 @@ namespace Task9_Additional
             }
             catch (Exception ex)
             {
-                Console.WriteLine("exeption in method WriteToFile");
+                Console.WriteLine(ex + "exeption in method WriteToFile");
             }
 
         }
@@ -241,7 +241,7 @@ namespace Task9_Additional
             }
             catch (Exception ex)
             {
-                Console.WriteLine("exeption in method WriteToFile");
+                Console.WriteLine(ex + "exeption in method WriteToFile");
             }
 
         }
@@ -283,7 +283,7 @@ namespace Task9_Additional
             }
             catch (Exception ex)
             {
-                Console.WriteLine("exeption in method WriteToFile");
+                Console.WriteLine(ex + "exeption in method WriteToFile");
             }
 
         }
@@ -312,7 +312,7 @@ namespace Task9_Additional
             }
             catch (Exception ex)
             {
-                Console.WriteLine("exeption in method WriteToFile");
+                Console.WriteLine(ex + "exeption in method WriteToFile");
             }
 
         }
@@ -340,7 +340,7 @@ namespace Task9_Additional
             }
             catch (Exception ex)
             {
-                Console.WriteLine("exeption in method WriteToFile");
+                Console.WriteLine(ex + "exeption in method WriteToFile");
             }
         }
 

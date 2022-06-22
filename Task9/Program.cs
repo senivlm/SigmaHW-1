@@ -11,8 +11,8 @@ namespace Task9
             bool isExit = false;
 
             while (!isExit)
-            {               
-                 isExit = run.Run();
+            {
+                isExit = run.Run();
             }
 
             Console.ReadKey();

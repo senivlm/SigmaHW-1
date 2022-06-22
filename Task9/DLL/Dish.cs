@@ -38,7 +38,7 @@ namespace Task9
             {
                 _ingridients.Add(item.Key, item.Value);
             }
-            
+
         }
 
         public void AddIngridient(string name, double weight)

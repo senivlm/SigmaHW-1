@@ -15,8 +15,6 @@ namespace Task9.BLL
             menu = new Menu(logger.ReadMenu());
             priceList = new PriceList(logger.ReadPriceList());
 
-
-
         }
 
         public bool Run()
@@ -42,10 +40,6 @@ namespace Task9.BLL
 
                 logger.WriteToResultinUAH(fullInfo, totalSum, totalWeight);
 
-                //При опрацюванні винятку надайте можливість користувачу доповнити інформацію в прйскуранті. 
-                //При другій невдалій спробі щодо одного продукту, повідомте користувача та заверште програму.
-                // метод обработки
-
                 Console.WriteLine("for reload click all button");
                 Console.ReadKey();
                 return false;
@@ -67,7 +61,7 @@ namespace Task9.BLL
                         continue;
                     }
                 }
-                Console.WriteLine("Фttempts ended..adding ingredient failed...program ended");
+                Console.WriteLine("Attempts ended..adding ingredient failed...program ended");
                 return true;
             }
             catch (Exception)

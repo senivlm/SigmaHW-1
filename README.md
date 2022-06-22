@@ -7,5 +7,7 @@
     #Task_5
     #Task_6
     #Task_7
+    #Task_8
+    #Task_9 поки що без Тензора=(
 
                         ### SigmaHW
