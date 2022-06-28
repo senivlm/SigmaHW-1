@@ -1,38 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Task9{
     internal static class MenuService
     {
-        public static double courseUAHToUSD { get; private set; } = default;
-        public static double courseUAHToEUR { get; private set; } = default;
+        public static double CourseUAHToUSD { get; private set; } = default;
+        public static double CourseUAHToEUR { get; private set; } = default;
 
         public static void SetCourseUAHToUSD(double value)
         {
             if (value > 0)
             {
-                courseUAHToUSD = value;
+                CourseUAHToUSD = value;
             }
-            else
-            {
-                return;
-            }
-
         }
 
         public static void SetCourseUAHToEUR(double value)
         {
             if (value > 0)
             {
-                courseUAHToEUR = value;
+                CourseUAHToEUR = value;
             }
-            else
-            {
-                return;
-            }
-
         }
 
-        // общая сумма всего меню
+        // Total sum all menu
         public static bool TryGetMenuTotalSum(Menu menu, PriceList priceList, out double menuTotalSum)
         {
             menuTotalSum = default;
@@ -47,7 +37,7 @@ namespace Task9{
             return true;
         }
 
-        // общая сумма каждого блюда
+        // total sum other dishes
         public static bool TryGetDishPrice(Dish dish, PriceList priceList, out double sumPrice)
         {
             sumPrice = default;
@@ -63,7 +53,7 @@ namespace Task9{
 
         }
 
-        //вес каждого ингридиента
+        // total weight other ingridient
         public static bool TryGetMenuIngrOneIdientSumWeight(Menu menu, string ingridientName, out double weight)
         {
             if (menu == null || ingridientName == "")
@@ -85,7 +75,7 @@ namespace Task9{
             return true;
         }
 
-        // общий вес всего меню
+        // total weight all menu
         public static bool TryGetMenuTotalWeight(Menu menu, out double menuTotalWeight)
         {
             double totalWeight = default;
@@ -105,6 +95,7 @@ namespace Task9{
         }
 
         // метод просчёта по весам всего меню итог сумма веса каждого товара
+
         public static string TryGetMenuTotalWeight(Menu menu, PriceList priceList)
         {
             Dictionary<string, (double, double)> temp = new Dictionary<string, (double, double)>();
@@ -144,8 +135,7 @@ namespace Task9{
 
         private static double CountPrice(double cost, double weight)
         {
-            return (cost * weight) / 100;
+            return (cost * weight) / PriceList.translateToGramm;
         }
     }
-
 }

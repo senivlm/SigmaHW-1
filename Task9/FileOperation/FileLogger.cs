@@ -72,7 +72,7 @@ namespace Task9
                 else
                 {
                     string[] words = lines[i].Split(' ', '>', '<', '.', (char)StringSplitOptions.RemoveEmptyEntries);
-
+                    // TODO: Не дуже добра організація. Можу прокоментувати...
                     for (int j = 0; j < words.Length; j++)
                     {
                         if (words[j].Equals("")) continue;
@@ -243,7 +243,7 @@ namespace Task9
 
         public void WriteToResultinUSD(string text, double totalWeight, double totalSum, string filename = "Result.txt")
         {
-            string foot2 = $"Total sum: [{totalSum * MenuService.courseUAHToUSD}/USD] \tTotal weight[{totalWeight}/gramm]\r\n";
+            string foot2 = $"Total sum: [{totalSum * MenuService.CourseUAHToUSD}/USD] \tTotal weight[{totalWeight}/gramm]\r\n";
             string hat = "Need count products and total money:\r\n";
             string foot1 = "*********************************************************\r\n";
             string result = hat + foot1 + text + foot1 + foot2;
@@ -252,7 +252,7 @@ namespace Task9
 
         public void WriteToResultinEUR(string text, double totalWeight, double totalSum, string filename = "Result.txt")
         {
-            string foot2 = $"Total sum: [{totalSum * MenuService.courseUAHToEUR}/EUR] \tTotal weight[{totalWeight}/gramm]\r\n";
+            string foot2 = $"Total sum: [{totalSum * MenuService.CourseUAHToEUR}/EUR] \tTotal weight[{totalWeight}/gramm]\r\n";
             string hat = "Need count products and total money:\r\n";
             string foot1 = "*********************************************************\r\n";
             string result = hat + foot1 + text + foot1 + foot2;

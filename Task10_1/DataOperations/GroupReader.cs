@@ -68,7 +68,8 @@ namespace Task10_1
             return result;
         }
 
-        public Dictionary<string, string> ReadDictionary(IConsoleHelper iHelper, string filePath = @"../../../Files/Dictionary.txt")
+        public Dictionary<string, string> ReadDictionary(IConsoleHelper iHelper, 
+            string filePath = @"../../../Files/Dictionary.txt")
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
             if (!File.Exists(filePath)) throw new FileNotFoundException("Not found dictionary");
@@ -95,7 +96,8 @@ namespace Task10_1
             return result;
         }
 
-        private Dictionary<string, string> CorrectDictionary(Dictionary<string, string> vocabulary, IConsoleHelper iHelper)
+        private Dictionary<string, string> CorrectDictionary(Dictionary<string, 
+            string> vocabulary, IConsoleHelper iHelper)
         {
             List<string> keySever = new List<string>();
 
@@ -115,7 +117,8 @@ namespace Task10_1
             return vocabulary;
         }
 
-        public void WriteToDictionary(string key, string value, string filePath = @"../../../Files/Dictionary.txt")
+        public void WriteToDictionary(string key, string value, 
+            string filePath = @"../../../Files/Dictionary.txt")
         {
             using (StreamWriter writer = File.AppendText(filePath))
             {
