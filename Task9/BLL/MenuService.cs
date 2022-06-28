@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
-namespace Task9{
+namespace Task9
+{
     internal static class MenuService
     {
         public static double courseUAHToUSD { get; private set; } = default;
@@ -24,7 +26,7 @@ namespace Task9{
             if (value > 0)
             {
                 courseUAHToEUR = value;
-            }
+            }// навіщо ця вітка?
             else
             {
                 return;
@@ -148,4 +150,4 @@ namespace Task9{
         }
     }
 
-}
+}
