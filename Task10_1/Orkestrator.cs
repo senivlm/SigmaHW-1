@@ -50,6 +50,7 @@ namespace Task10_1
             if (isClearText) Text.Clear();
 
             Text = ReadText(filePath);
+            // не прийнято об'єкти, які реалізовують інтерфейс називати через i(iTransGroupWorker)
             Dictionary<string, string> vocabluary = iTransGroupWorker.ReadDictionary();
             Text = iTransService.ChangeWords(Text, vocabluary);
             return Text;
