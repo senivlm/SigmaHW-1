@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
-namespace Task9{
+namespace Task9
+{
     internal static class MenuService
     {
         public static double courseUAHToUSD { get; private set; } = default;
@@ -105,6 +107,7 @@ namespace Task9{
         }
 
         // метод просчёта по весам всего меню итог сумма веса каждого товара
+        // краще розділяти на 2 різні методи прорахунок окремих величин та перетворення в текстовий формат. Це дає можливість при потребі використовувати числові значення в інших розрахунках і т.ін.
         public static string TryGetMenuTotalWeight(Menu menu, PriceList priceList)
         {
             Dictionary<string, (double, double)> temp = new Dictionary<string, (double, double)>();
@@ -148,4 +151,4 @@ namespace Task9{
         }
     }
 
-}
+}
