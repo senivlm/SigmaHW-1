@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
-namespace Task9{
+namespace Task9
+{
     internal static class MenuService
-    {
+    {// Властивості іменують, як правило, з великої літери
         public static double courseUAHToUSD { get; private set; } = default;
         public static double courseUAHToEUR { get; private set; } = default;
-
+// Як 10 стрічка корелюється з цим методом?
         public static void SetCourseUAHToUSD(double value)
         {
             if (value > 0)
@@ -148,4 +150,4 @@ namespace Task9{
         }
     }
 
-}
+}
