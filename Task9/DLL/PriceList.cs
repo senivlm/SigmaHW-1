@@ -5,7 +5,6 @@ namespace Task9
     internal class PriceList
     {
         private Dictionary<string, double> _productPrice;
-        public const double translateToGramm = 100;
 
         public PriceList() => _productPrice = new Dictionary<string, double>();
 

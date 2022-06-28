@@ -4,7 +4,7 @@ namespace Task10_1.MyExceptions
 {
     internal class EmptyDictionaryPairValueException : Exception
     {
-        public string Message { get; set; }
+        public string message { get; set; }
         private int countAttempt;
 
         public int CountAttempt
@@ -20,14 +20,15 @@ namespace Task10_1.MyExceptions
             }
         }
 
+
         public EmptyDictionaryPairValueException()
         {
-            Message = "";
+            message = "";
         }
 
         public EmptyDictionaryPairValueException(string message)
         {
-            this.Message = message;
+            this.message = message;
         }
     }
 }

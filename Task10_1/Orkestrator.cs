@@ -36,33 +36,33 @@ namespace Task10_1
             }
         }
 
-        public List<string> TranslateText(List<string> text, IWorkerWithTranslationGroup transGroupWorker,
+        public List<string> TranslateText(List<string> text, IWorkerWithTranslationGroup iTransGroupWorker,
             ITranslationService iTransService)
         {
-            Dictionary<string, string> vocabluary = transGroupWorker.ReadDictionary();
+            Dictionary<string, string> vocabluary = iTransGroupWorker.ReadDictionary();
             text = iTransService.ChangeWords(text, vocabluary);
             return text;
         }
 
-        public List<string> TranslateTextFromFile(string filePath, IWorkerWithTranslationGroup transGroupWorker,
+        public List<string> TranslateTextFromFile(string filePath, IWorkerWithTranslationGroup iTransGroupWorker,
             ITranslationService iTransService, bool isClearText = true)
         {
             if (isClearText) Text.Clear();
 
             Text = ReadText(filePath);
-            Dictionary<string, string> vocabluary = transGroupWorker.ReadDictionary();
+            Dictionary<string, string> vocabluary = iTransGroupWorker.ReadDictionary();
             Text = iTransService.ChangeWords(Text, vocabluary);
             return Text;
         }
 
-        public List<string> TranslateTextFromFileToFile(string fileReadPath, IWorkerWithTranslationGroup transGroupWorker,
-            ITranslationService transService, string fileWritePath = @"Result.txt", bool isClearText = true)
+        public List<string> TranslateTextFromFileToFile(string fileReadPath, IWorkerWithTranslationGroup iTransGroupWorker,
+            ITranslationService iTransService, string fileWritePath = @"Result.txt", bool isClearText = true)
         {
             if (isClearText) Text.Clear();
 
             Text = ReadText(fileReadPath);
-            Dictionary<string, string> vocabluary = transGroupWorker.ReadDictionary();
-            Text = transService.ChangeWords(Text, vocabluary);
+            Dictionary<string, string> vocabluary = iTransGroupWorker.ReadDictionary();
+            Text = iTransService.ChangeWords(Text, vocabluary);
             WriteResultToFile(fileWritePath);
             return Text;
         }
