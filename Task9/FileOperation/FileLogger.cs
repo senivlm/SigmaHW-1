@@ -72,7 +72,7 @@ namespace Task9
                 else
                 {
                     string[] words = lines[i].Split(' ', '>', '<', '.', (char)StringSplitOptions.RemoveEmptyEntries);
-
+// Не дуже добра організація. Можу прокоментувати...
                     for (int j = 0; j < words.Length; j++)
                     {
                         if (words[j].Equals("")) continue;
