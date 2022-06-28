@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
-namespace Task9{
+namespace Task9
+{
     internal static class MenuService
     {
         public static double courseUAHToUSD { get; private set; } = default;
@@ -12,6 +14,7 @@ namespace Task9{
             {
                 courseUAHToUSD = value;
             }
+            //Теж лишня вітка
             else
             {
                 return;
@@ -31,7 +34,7 @@ namespace Task9{
             }
 
         }
-
+// Прохання коментувати українською, або англійською.
         // общая сумма всего меню
         public static bool TryGetMenuTotalSum(Menu menu, PriceList priceList, out double menuTotalSum)
         {
@@ -143,9 +146,9 @@ namespace Task9{
         }
 
         private static double CountPrice(double cost, double weight)
-        {
+        {// Константа 100 є залежною від прейскуранта.Бажано її винести з сервісу
             return (cost * weight) / 100;
         }
     }
 
-}
+}
