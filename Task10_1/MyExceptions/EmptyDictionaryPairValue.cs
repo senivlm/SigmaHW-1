@@ -3,7 +3,7 @@
 namespace Task10_1.MyExceptions
 {
     internal class EmptyDictionaryPairValueException : Exception
-    {
+    {// Знову властивість з малої
         public string message { get; set; }
         private int countAttempt;
 
