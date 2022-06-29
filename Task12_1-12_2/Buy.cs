@@ -1,35 +1,30 @@
-﻿using Products.Task1_Task2.Products;
+﻿using Products.Task12.Products;
 using System.Collections.Generic;
 
-namespace Products.Task1_Task2
+namespace Products.Task12
 {
     internal class Buy
     {
-        private List<Product> Products { get; }
+        public List<Product> Products { get; private set; }
 
-        public int Count { get; private set; }
+        public int Count { get; }
 
-        public decimal TotalPrice { get; private set; }
-
+        public decimal TotalPrice { get; }
 
         public Buy(Product product, int count)
         {
-            Products = new List<Product>();
             Products.Add(product);
             Count += count;
             TotalPrice += (product.Price * count);
         }
 
-        public void Add(Product product, int count)
+        public Buy(List<Product> products)
         {
-            Products.Add(product);
-            Count += count;
-            TotalPrice += (product.Price * count);
+            products.AddRange(products);
         }
 
         public Buy()
         {
-            Products = new List<Product>();
             Count = 0;
             TotalPrice = 0;
         }

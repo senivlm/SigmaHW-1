@@ -1,14 +1,12 @@
 ﻿using Products.Task12.Enums;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Task12.Interfaces;
 
 namespace Products.Task12.Products
 {
     internal class Storage : IEnumerable
     {
-        public List<IProduct> Products { get; private set; } = new List<IProduct>();
+        public List<IProduct> products { get; private set; } = new List<IProduct>();
 
         public object this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
@@ -17,14 +15,14 @@ namespace Products.Task12.Products
             if (prod == null)
                 throw new NullReferenceException("incorrect prod in Storrage AddProd method");
 
-            Products.AddRange(prod);
+            products.AddRange(prod);
         }
 
         public void AddProduct(Product prod)
         {
             if (prod == null)
                 throw new NullReferenceException("incorrect prod in Storrage AddProd method");
-            Products.Add(prod);
+            products.Add(prod);
         }
 
         public void AddByDialogProduct(string name, decimal price, int weight)
@@ -33,7 +31,7 @@ namespace Products.Task12.Products
                 throw new ArgumentException("Price or weight cannot be less than zero");
             if (name == null)
                 throw new NullReferenceException("incorrect name");
-            Products.Add(new Product(name, price, weight));
+            products.Add(new Product(name, price, weight));
         }
 
         public void AddByDialogMeat(Category category, MeatType meatType, decimal price, int weight)
@@ -41,7 +39,7 @@ namespace Products.Task12.Products
             if (price < 0 | weight < 0)
                 throw new ArgumentException("Price or weight cannot be less than zero");
 
-            Products.Add(new Meat(category, meatType, price, weight));
+            products.Add(new Meat(category, meatType, price, weight));
         }
 
         public void AddByDialogDiary(string name, decimal price, int weight, DateTime appurtenanceTerm)
@@ -50,50 +48,56 @@ namespace Products.Task12.Products
                 throw new ArgumentException("Price or weight cannot be less than zero");
             if (name == null)
                 throw new NullReferenceException("incorrect name");
-            Products.Add(new Dairy(name, price, weight, appurtenanceTerm));
+            products.Add(new Dairy(name, price, weight, appurtenanceTerm));
         }
 
         public void PrintAll()
         {
-            Logging.DisplayArray(Products);
+            Logging.DisplayArray(products);
         }
 
         public List<IProduct> GetAll()
         {
-            return Products;
+            return products;
         }
 
         public void Delete(Guid id)
         {
-            Products.Remove(Products.Find(x => x.Id == id));
+            if (products.Contains(Find(id)))
+            {
+                products.Remove(products.Find(x => x.Id.Equals(id)));
+            }
+
         }
 
         public IProduct Find<T>(T item)
         {
+            if (item == null) throw new NullReferenceException();
             List<string> temp = new List<string>();
-            foreach (var prod in Products)
+            foreach (var prod in products)
             {
                 temp.Add($"{prod.Id} {prod.Name} {prod.Price} {prod.Weight} {prod.GetType()} {prod}");
-            }    
-            
+            }
+
             int res = temp.FindIndex(p => p.Contains(item.ToString()));
-            return Products[res];
+            if (res == -1) throw new ArgumentNullException();
+            return products[res];
         }
 
         public void PrintAllMeat()
         {
-            Logging.DisplayArray(Products.FindAll(n => n.Name.Contains("Meat")));
+            Logging.DisplayArray(products.FindAll(n => n.Name.Contains("Meat")));
         }
 
         public void PrintAllDaily()
         {
-            Logging.DisplayArray(Products.FindAll(p => p is Dairy));
+            Logging.DisplayArray(products.FindAll(p => p is Dairy));
         }
 
         public IEnumerator GetEnumerator()
         {
             int i = 0;
-            yield return Products[i++];
+            yield return products[i++];
         }
 
         IEnumerator IEnumerable.GetEnumerator()

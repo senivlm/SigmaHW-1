@@ -338,7 +338,7 @@ namespace Task9
             {
                 Console.WriteLine(ex + "in method WriteToFile");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("exeption in method WriteToFile");
             }

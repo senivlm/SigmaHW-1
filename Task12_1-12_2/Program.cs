@@ -26,8 +26,8 @@ namespace Task12
 
                 List<IProduct> products = fLog.ReadProducts();
                 stor.AddProducts(products);
-                
-                if(Logging.TempOnEvents.Count > 0)
+
+                if (Logging.TempOnEvents.Count > 0)
                 {
                     Logging.AskerToExpired(stor);
                 }

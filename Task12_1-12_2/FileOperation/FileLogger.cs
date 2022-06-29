@@ -60,7 +60,7 @@ namespace Task12
         }
 
         public void WriteDropFile(string ErrorMessage, 
-            string path = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\Files\DropProducts.txt")
+            string path = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\Files\DropProducts.txt")
         {
             fWriter.WriteToFile(ErrorMessage, path, true);
         }

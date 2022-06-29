@@ -74,9 +74,9 @@ namespace Task12
             {
                 fileName = @"\ProductsErrorLog\AddErrorLog.txt";
             }
-            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\Files\";
+            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\Files\";
             someText = "Ups....info didn't come";
-            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\
+            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\
                 Files\ProductsErrorLog\AddErrorLog.txt";
             this.fileName = fileName;
             fullPath = rootPath + fileName;
@@ -92,9 +92,9 @@ namespace Task12
             {
                 text = "null";
             }
-            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\Files\";
+            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\Files\";
             someText = "Ups....info didn't come";
-            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\
+            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\
                 Files\ProductsErrorLog\AddErrorLog.txt";
             this.fileName = fileName;
             fullPath = rootPath + fileName;
@@ -103,9 +103,9 @@ namespace Task12
 
         public FileWriter()
         {
-            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\Files\";
+            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\Files\";
             someText = "Ups....info didn't come";
-            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\
+            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\
                 Files\ProductsErrorLog\AddErrorLog.txt";
             this.fileName = "ProductsErrorLog\\AddErrorLog.txt";
             fullPath = rootPath + fileName;
@@ -122,7 +122,7 @@ namespace Task12
             {
                 return;
             }
-            fullPath = updateFullPath;
+            fullPath = updateFullPath ?? throw new ArgumentNullException(nameof(updateFullPath));
         }
 
         public void ChangeFileNametoFullPath(string fileName)
@@ -174,7 +174,7 @@ namespace Task12
                 ClearFile();
             }
 
-            if (someText == null | someText.Count < 1)
+            if (someText == null || someText.Count < 1)
             {
                 return;
             }
@@ -319,7 +319,7 @@ namespace Task12
                 ClearFile();
             }
 
-            if (this.someText == null | this.someText.Length < 1)
+            if (this.someText == null || this.someText.Length < 1)
             {
                 return;
             }

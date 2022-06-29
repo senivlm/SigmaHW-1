@@ -75,18 +75,18 @@ namespace Task12
             {
                 fileName = "Products.txt";
             }
-            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\Files\";
+            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\Files\";
             someText = "Ups....The info has not been read yet";
-            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task7\
+            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\
                 Files\ProductsErrorLog\AddErrorLog.txt";
             pathToFile = rootPath + fileName;
         }
 
         public FileReader()
         {
-            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\Files\";
+            rootPath = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\Files\";
             someText = "Ups....The info has not been read yet";
-            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12\Files\ProductsErrorLog\AddErrorLog.txt";
+            rootPathFileLog = @"D:\OlegLearning\SigmaHW\SigmaHW\Task12_1-12_2\Files\ProductsErrorLog\AddErrorLog.txt";
             fileName = "Products.txt";
             pathToFile = rootPath + fileName;
         }
@@ -282,7 +282,7 @@ namespace Task12
                 return default;
             }
             pathToFile = rootPath + fileName;
-            List<string> lines = new List<string>();
+            List<string> lines = new();
 
             try
             {
