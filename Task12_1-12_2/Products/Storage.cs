@@ -63,7 +63,7 @@ namespace Products.Task12.Products
 
         public void Delete(Guid id)
         {
-            if (products.Contains(Find(id)))
+            if (products.Contains(products.Find(p=> p.Id ==id)))
             {
                 products.Remove(products.Find(x => x.Id.Equals(id)));
             }

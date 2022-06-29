@@ -46,7 +46,7 @@ namespace Task11
             }
             Console.WriteLine();
 
-            Console.WriteLine(testList.FindIndex(32));
+            Console.WriteLine(testList.FindIndex(14));
         }
 
         public static void testClassMylistString()
@@ -66,7 +66,6 @@ namespace Task11
 
             testList.Remove("f");
 
-            testList.Sort();
             testList.CopyTo(new string[] { "sccs", "scscsc" }, 0);
 
             var comparer = Comparer<string>.Create((string x, string y) => x.CompareTo(y));

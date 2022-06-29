@@ -6,62 +6,85 @@ namespace Task11
 {
     internal class MyList<T> : IList<T>, IComparer<T>
     {
-        private List<T> myArrayList;
+        private List<T> _myArrayList;
 
         public MyList()
         {
-            myArrayList = new List<T>();
+            _myArrayList = new List<T>();
         }
 
         public MyList(T[] item)
         {
             if (item == null) throw new NullReferenceException();
-            myArrayList = new List<T>();
+            _myArrayList = new List<T>();
 
             for (int i = 0; i < item.Length; i++)
             {
-                myArrayList.Add(item[i]);
+                _myArrayList.Add(item[i]);
             }
         }
 
         public T this[int index]
         {
-            get => myArrayList[index];
+            get
+            {
+                EnsureList();
+                return _myArrayList[index];
+            }
             set
             {
                 if (value == null || index < 0 || index > Count - 1)
                 {
                     throw new ArgumentException();
                 }
-                myArrayList[index] = value;
+                EnsureList();
+                _myArrayList[index] = value;
             }
         }
 
-        public int Count => myArrayList.Count;
+        public int Count
+        {
+            get { EnsureList(); return _myArrayList.Count; }
+        }
 
         public bool IsReadOnly => false;
 
-        public void Add(T item)
+        private void EnsureList()
         {
-            myArrayList.Add(item);
+            if (_myArrayList == null)
+                _myArrayList = new List<T>(_myArrayList);
         }
 
-        public void Sort()
+        public void Add(T item)
         {
-            myArrayList.Sort();
+            EnsureList();
+            _myArrayList.Add(item);
+        }
+
+        public void Sort(IComparer<T> comparer = null)
+        {
+            EnsureList();
+            ArrayList.Adapter(_myArrayList).Sort();
+
+           // _myArrayList.Sort(comparer);
         }
 
         public void Sort(Comparer<T> comparer, int index = 0)
         {
-            myArrayList.Sort(0, Count, comparer);
+            _myArrayList.Sort(0, Count, comparer);
         }
 
         public void Clear()
         {
-            myArrayList.Clear();
+            EnsureList();
+            _myArrayList.Clear();
         }
 
-        public bool Contains(T item) => myArrayList.Contains(item);
+        public bool Contains(T item)
+        {
+            EnsureList();
+            return _myArrayList.Contains(item);
+        }
 
         public void CopyTo(T[] array, int arrayIndex)
         {
@@ -69,30 +92,34 @@ namespace Task11
 
             if (arrayIndex < 0 & arrayIndex > array.Length) throw new ArgumentOutOfRangeException();
 
+                EnsureList();
             for (int i = arrayIndex; i < array.Length; i++)
             {
-                myArrayList.Add(array[i]);
+                _myArrayList.Add(array[i]);
             }
+
         }
 
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < Count; i++)
             {
-                yield return myArrayList[i];
+                yield return _myArrayList[i];
             }
         }
 
         public int IndexOf(T item)
         {
-            return myArrayList.IndexOf(item);
+            EnsureList();
+            return _myArrayList.IndexOf(item);
         }
 
         public void Insert(int index, T item)
         {
-            if (myArrayList.Count > index & index >= 0)
+            if (_myArrayList.Count > index & index >= 0)
             {
-                myArrayList.Insert(index, item);
+                EnsureList();
+                _myArrayList.Insert(index, item);
             }
             else
             {
@@ -103,9 +130,10 @@ namespace Task11
 
         public bool Remove(T item)
         {
-            if (myArrayList.Contains(item))
+            EnsureList();
+            if (_myArrayList.Contains(item))
             {
-                return myArrayList.Remove(item);
+                return _myArrayList.Remove(item);
             }
             else
             {
@@ -115,9 +143,10 @@ namespace Task11
 
         public void RemoveAt(int index)
         {
-            if (myArrayList.Count > index & index >= 0)
+            if (_myArrayList.Count > index & index >= 0)
             {
-                myArrayList.RemoveAt(index);
+                EnsureList();
+                _myArrayList.RemoveAt(index);
             }
             else
             {
@@ -127,13 +156,14 @@ namespace Task11
 
         IEnumerator IEnumerable.GetEnumerator()
         {
+            EnsureList();
             return this.GetEnumerator();
         }
 
         public override string ToString()
         {
             string result = default;
-            foreach (var item in myArrayList)
+            foreach (var item in _myArrayList)
             {
                 result += item + " ";
             }
@@ -144,17 +174,17 @@ namespace Task11
         {
             if (right - left == 1)
             {
-                return myArrayList[left].Equals(item) ? left : -1;
+                return _myArrayList[left].Equals(item) ? left : -1;
             }
 
             int middle = (left + right) / 2;
 
-            if (Compare(item, myArrayList[middle]) == 0)
+            if (Compare(item, _myArrayList[middle]) == 0)
             {
                 return middle;
             }
 
-            if (Compare(myArrayList[middle], item) < 0)
+            if (Compare(_myArrayList[middle], item) < 0)
             {
                 right = middle;
             }
@@ -169,9 +199,9 @@ namespace Task11
         public int FindIndex(T item)
         {
             int left = 0;
-            int right = myArrayList.Count;
+            int right = _myArrayList.Count;
 
-            myArrayList.Sort();
+            _myArrayList.Sort();
 
             return FindIndex(left, right, item);
         }

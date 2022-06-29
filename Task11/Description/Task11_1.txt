@@ -20,9 +20,86 @@ IProduct, а його вже будуть реалiзувати необхiднi нам продукти:
  - окремих продуктiв
  - збiльшувати/зменшувати кiлькiсть продуктiв на складi
 
+ В планi узагальнення я вважаю що краще буде мати список саме iнтерфейсiв IProduct
+
+ саме в задачi 12_1 - 12_2 я вже це побудував=)
+ проект явно вирiс, але насамперед ми маемо певнi розширення, якi дають нам безлiч можливостей
+ додавання нових продуктiв не змiнюючи при цьому Storage...
+
 на мою думку така структура проекту буде:
  - оптимальною для росширення бази продуктiв
  - зможе покрити безлiч нових утворенних продуктiв
- - Позбавляє клас від прив’язки до конкретних класів продуктів.
+ - Позбавляє клас Storage від прив’язки до конкретних класів продуктів.
  - спростить підтримку коду.
+ - продукти будуть створюватись в одному мicцi
  - Реалізує принцип відкритості/закритості.
+ 
+і навіть, якщо ми захочемо перенести данні до бази данних..клас Storage нам буде потрібен щоб
+підгружати данні/обробляти і загружати назад до бази.
+Тому він буде відігрувати буферну роль i також не втратить свою принадлжнiсть.
+
+
+
+ abstract class AbstactDeveloper : MethodCreateProduct() => IProduct
+			DairyDeveloper		 : AbstractDeveloper	 => new Dairy()
+			ProductDeveloper	 : AbstractDeveloper     => new Product()
+			MeatDeveloper		 : AbstractDeveloper     => new Meat()
+
+
+interface IProduct 
+			Product : IProduct			=> new Product()
+			Dairy : IProduct,Product	=> new Dairy()
+			Meat : IProduct,Product	    => new Meat()
+
+Interface IReadServise // можна буде на основi цього iнтерефейсу створювати безлiч читачiв з рiзних джерел
+			class Reader : IReadServise 
+Interface IWriteServise // можна буде на основi цього iнтерефейсу створювати безлiч писателiв у рiзнi джерела
+			class Writer : IReadServise
+Interface ISerializationTranslateServise  // який буде на основi цього iнтерефейсу оброблювати зчитану iнформацiю 
+			class Translator : IReadServise 
+
+class ProductsServise // для управлiння Storage :
+						- обробляти events
+						- загружати выгружити у БД
+						- регулювати цiни
+						- списувати простроченi товари 
+						- обробляти невiрно зчитанi даннi
+						- записувати помилки у файл лог
+
+Enums Category, Type  // без змiн 
+Class Check			  // без змiн
+
+Class Buy			  // додати клiента (id, name, email, phone) зробивши Dictionary(IPerson<List<Iproduct> buy);
+class BuyRepository   // буде отгорткою Dictionary<Guid, Buy> buys
+class BuyServise      // для управлiння BuyRepository :
+						- обробляти events
+						- загружати выгружити у БД
+						- розсилати повiдомлення про знижки
+						- обробляти невiрно зчитанi даннi
+						- записувати помилки у файл лог
+
+Interface Iperson
+		Class Person : Iperson
+		class PersonRepository   // буде отгорткою Dictionary<Guid, Person> persons
+		class PersonServise      // для управлiння BuyRepository :
+						- обробляти events
+						- загружати выгружити у БД
+						- розсилати повiдомлення про знижки
+						- поздоровлять з днем народження
+						- обробляти невiрно зчитанi даннi
+						- записувати помилки у файл лог
+
+class PLL // Який буде спiлкуватись з клiентами через класи { ProductsServise && PersonServise&& BuyServise }
+						- питати звiдки загружати продукти
+						- куди загружати продукти
+						- по запитам видавати iнформаiю по продуктам
+						- додавати до классу Buy
+						- друкувати чек Check
+						- аналiзувати популярнi продукти
+						- читати LOG
+						- оброьляти LOG
+						- матиме меню з обробки Exceptions
+
+
+
+
