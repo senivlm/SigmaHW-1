@@ -91,23 +91,23 @@ namespace Task12
         {
             Console.WriteLine();
             Console.WriteLine("StringFinder<<<<");
-            //Console.WriteLine("Find for ID:");
-            //Console.WriteLine(stor.Find(stor.GetAll()[5].Id));
+            Console.WriteLine("Find for ID:");
+            Console.WriteLine(stor.Find(stor.GetAll()[5].Id));
 
-            //Console.WriteLine("Find for Name:");
-            //Console.WriteLine(stor.Find(stor.GetAll()[5].Name));
+            Console.WriteLine("Find for Name:");
+            Console.WriteLine(stor.Find(stor.GetAll()[5].Name));
 
-            //Console.WriteLine("Find for Price:");
-            //Console.WriteLine(stor.Find(stor.GetAll()[5].Price));
+            Console.WriteLine("Find for Price:");
+            Console.WriteLine(stor.Find(stor.GetAll()[5].Price));
 
-            //Console.WriteLine("Find for Weight:");
-            //Console.WriteLine(stor.Find(stor.GetAll()[5].Weight));
+            Console.WriteLine("Find for Weight:");
+            Console.WriteLine(stor.Find(stor.GetAll()[5].Weight));
 
-            //Console.WriteLine("Find for Type:");
-            //Console.WriteLine(stor.Find(stor.GetAll()[5].GetType()));
+            Console.WriteLine("Find for Type:");
+            Console.WriteLine(stor.Find(stor.GetAll()[5].GetType()));
 
-            //Console.WriteLine("Find for Obj:");
-            //Console.WriteLine(stor.Find(stor.GetAll()[5]));
+            Console.WriteLine("Find for Obj:");
+            Console.WriteLine(stor.Find(stor.GetAll()[5]));
             int number = 10000;
             do
             {
@@ -119,24 +119,24 @@ namespace Task12
         {
             Console.WriteLine();
             Console.WriteLine("PredicatFinder<<<<");
-            //Console.WriteLine("Find Predicate for ID:");
-            //Console.WriteLine(products.Find(p => p.Id.Equals(products[5].Id)));
+            Console.WriteLine("Find Predicate for ID:");
+            Console.WriteLine(products.Find(p => p.Id.Equals(products[5].Id)));
 
 
-            //Console.WriteLine("Find Predicate for Name:");
-            //Console.WriteLine(products.Find(p => p.Name.Equals(products[5].Name)));
+            Console.WriteLine("Find Predicate for Name:");
+            Console.WriteLine(products.Find(p => p.Name.Equals(products[5].Name)));
 
-            //Console.WriteLine("Find Predicate for Price:");
-            //Console.WriteLine(products.Find(p => p.Weight.Equals(products[5].Weight)));
+            Console.WriteLine("Find Predicate for Price:");
+            Console.WriteLine(products.Find(p => p.Weight.Equals(products[5].Weight)));
 
-            //Console.WriteLine("Find Predicate for Weight:");
-            //Console.WriteLine(products.Find(p => p.Price.Equals(products[5].Price)));
+            Console.WriteLine("Find Predicate for Weight:");
+            Console.WriteLine(products.Find(p => p.Price.Equals(products[5].Price)));
 
-            //Console.WriteLine("Find Predicate for Type:");
-            //Console.WriteLine(products.Find(p => p.GetType().Equals(products[5].GetType())));
+            Console.WriteLine("Find Predicate for Type:");
+            Console.WriteLine(products.Find(p => p.GetType().Equals(products[5].GetType())));
 
-            //Console.WriteLine("Find Predicate for Obj:");
-            //Console.WriteLine(products.Find(p => p.Equals(products[5])));
+            Console.WriteLine("Find Predicate for Obj:");
+            Console.WriteLine(products.Find(p => p.Equals(products[5])));
 
             int number = 10000;
             do
