@@ -24,7 +24,7 @@ namespace Task12
         {
             fReader = new FileReader();
             fWriter = new FileWriter();
-            IncorrectProductInFile += Logging.OnFailRead;
+            IncorrectProductInFile += ProductService.OnFailRead;
         }
 
         ~FileLogger()
@@ -554,21 +554,21 @@ namespace Task12
                 if (i == fields.Length && appurTerm != default
                     & price != default && weight != default)
                 {
-                    DairyDeveloper.StorageTermHandlerEvent += Logging.OnReadDairyProdEvent;
+                    DairyDeveloper.StorageTermHandlerEvent += ProductService.OnReadDairyProdEvent;
                     developer = new DairyDeveloper(name, price, weight, appurTerm);
                     someProduct = developer.CreateProduct();
 
-                    DairyDeveloper.StorageTermHandlerEvent -= Logging.OnReadDairyProdEvent;
+                    DairyDeveloper.StorageTermHandlerEvent -= ProductService.OnReadDairyProdEvent;
                     return true;
                 }
             }
             if (appurTerm != default
                 & price != default && weight != default)
             {
-                DairyDeveloper.StorageTermHandlerEvent += Logging.OnReadDairyProdEvent;
+                DairyDeveloper.StorageTermHandlerEvent += ProductService.OnReadDairyProdEvent;
                 developer = new DairyDeveloper(name, price, weight, appurTerm);
                 someProduct = developer.CreateProduct();
-                DairyDeveloper.StorageTermHandlerEvent -= Logging.OnReadDairyProdEvent;
+                DairyDeveloper.StorageTermHandlerEvent -= ProductService.OnReadDairyProdEvent;
                 return true;
             }
             else

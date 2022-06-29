@@ -27,9 +27,9 @@ namespace Task12
                 List<IProduct> products = fLog.ReadProducts();
                 stor.AddProducts(products);
 
-                if (Logging.TempOnEvents.Count > 0)
+                if (ProductService.TempOnEvents.Count > 0)
                 {
-                    Logging.AskerToExpired(stor);
+                    ProductService.AskerToExpired(stor);
                 }
 
                 Console.WriteLine("\nAll products");
@@ -39,7 +39,7 @@ namespace Task12
                 Console.WriteLine("\nonly all dairy");
                 stor.PrintAllDaily();
 
-                foreach (var item in Logging.TempOnEvents)
+                foreach (var item in ProductService.TempOnEvents)
                 {
                     Console.WriteLine(item);
                 }

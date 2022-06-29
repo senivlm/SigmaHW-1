@@ -10,9 +10,9 @@ namespace Task11
     {
         static void Main(string[] args)
         {
-            //testClassMylistInt();
-            //testClassMylistString();
-            //testClassMylistObj();
+            testClassMylistInt();
+            testClassMylistString();
+            testClassMylistObj();
             testClassMylistMyClass();
 
 

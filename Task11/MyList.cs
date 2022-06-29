@@ -25,11 +25,11 @@ namespace Task11
         }
 
         public T this[int index]
-        { 
+        {
             get => myArrayList[index];
             set
             {
-                if(value == null || index < 0 || index > Count - 1)
+                if (value == null || index < 0 || index > Count - 1)
                 {
                     throw new ArgumentException();
                 }
@@ -47,7 +47,7 @@ namespace Task11
         }
 
         public void Sort()
-        {        
+        {
             myArrayList.Sort();
         }
 
@@ -66,8 +66,8 @@ namespace Task11
         public void CopyTo(T[] array, int arrayIndex)
         {
             if (array == null) throw new ArgumentNullException();
-            
-            if(arrayIndex < 0 & arrayIndex > array.Length) throw new ArgumentOutOfRangeException();
+
+            if (arrayIndex < 0 & arrayIndex > array.Length) throw new ArgumentOutOfRangeException();
 
             for (int i = arrayIndex; i < array.Length; i++)
             {
@@ -142,7 +142,7 @@ namespace Task11
 
         private int FindIndex(int left, int right, T item)
         {
-            if(right - left == 1)
+            if (right - left == 1)
             {
                 return myArrayList[left].Equals(item) ? left : -1;
             }
@@ -161,8 +161,8 @@ namespace Task11
             else
             {
                 left = middle;
-            } 
-            
+            }
+
             return FindIndex(left, right, item);
         }
 
@@ -178,9 +178,7 @@ namespace Task11
 
         public int Compare(T x, T y)
         {
-            List<T> compareList = new List<T>();
-            compareList.Add(x);
-            compareList.Add(y);
+            List<T> compareList = new List<T> { x, y };
             compareList.Sort();
 
             if (x.Equals(y))

@@ -53,7 +53,7 @@ namespace Products.Task12.Products
 
         public void PrintAll()
         {
-            Logging.DisplayArray(products);
+            ProductService.DisplayArray(products);
         }
 
         public List<IProduct> GetAll()
@@ -86,12 +86,12 @@ namespace Products.Task12.Products
 
         public void PrintAllMeat()
         {
-            Logging.DisplayArray(products.FindAll(n => n.Name.Contains("Meat")));
+            ProductService.DisplayArray(products.FindAll(n => n.Name.Contains("Meat")));
         }
 
         public void PrintAllDaily()
         {
-            Logging.DisplayArray(products.FindAll(p => p is Dairy));
+            ProductService.DisplayArray(products.FindAll(p => p is Dairy));
         }
 
         public IEnumerator GetEnumerator()

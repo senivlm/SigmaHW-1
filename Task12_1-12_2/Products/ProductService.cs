@@ -5,7 +5,7 @@ using Task12.Interfaces;
 
 namespace Products.Task12.Products
 {
-    static class Logging
+    static class ProductService
     {
         public static List<IProduct> TempOnEvents { get; private set; } = new List<IProduct>();
 
