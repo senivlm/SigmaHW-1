@@ -28,12 +28,15 @@ namespace Products.Task12.Products
             Console.WriteLine(">> After reading expired items found..."
                 + "dispose of them ? " +
                 "Y/y or N/n");
-            string resultKey = Console.ReadLine();
-            if(resultKey.ToLower() == "n")
+            string? resultKey = Console.ReadLine();
+
+            if(resultKey == null) AskerToExpired(stor);
+
+            if (resultKey?.ToLower() == "n")
             {
                 return;
             }
-            if (resultKey.ToLower() == "y")
+            if (resultKey?.ToLower() == "y")
             {
                 AskHandler(stor);
             }

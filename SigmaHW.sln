@@ -35,12 +35,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task10_2", "Task10_2\Task10
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task11", "Task11\Task11.csproj", "{A30C2F84-5687-46ED-B97A-70AFB639AA82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task12_1-12_2", "Task12_1-12_2\Task12_1-12_2.csproj", "{E5497FB5-16EB-4016-AED1-1192017DA48B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task12_1-12_2", "Task12_1-12_2\Task12_1-12_2.csproj", "{E5497FB5-16EB-4016-AED1-1192017DA48B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F97A4643-A367-421A-9379-FA0F39ED225E}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task12_3", "Task12_3\Task12_3.csproj", "{46945421-CD91-4F92-949D-8210606BEACE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -116,6 +118,10 @@ Global
 		{E5497FB5-16EB-4016-AED1-1192017DA48B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5497FB5-16EB-4016-AED1-1192017DA48B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5497FB5-16EB-4016-AED1-1192017DA48B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46945421-CD91-4F92-949D-8210606BEACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46945421-CD91-4F92-949D-8210606BEACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46945421-CD91-4F92-949D-8210606BEACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46945421-CD91-4F92-949D-8210606BEACE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

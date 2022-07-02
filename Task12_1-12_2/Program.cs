@@ -11,7 +11,7 @@ namespace Task12
     {
         static void Main(string[] args)
         {
-            //TestHandlingExpiredProducts_Task_12_1();
+            TestHandlingExpiredProducts_Task_12_1();
             TestFindProducts_Task_12_2();
 
             Console.ReadLine();
@@ -69,13 +69,19 @@ namespace Task12
                 stopWatch.Start();
                 StringFinder(stor);
                 stopWatch.Stop();
-                Console.WriteLine(">>>>>> " + stopWatch.Elapsed);
+                Console.WriteLine("\t\tTotal spend time: " + stopWatch.Elapsed.Milliseconds);
+                stopWatch.Restart();
+
+                stopWatch.Start();
+                TranslatePredicateFinder(stor);
+                stopWatch.Stop();
+                Console.WriteLine("\t\tTotal spend time: " + stopWatch.Elapsed.Milliseconds);
                 stopWatch.Restart();
 
                 stopWatch.Start();
                 PredicatFinder(products);
                 stopWatch.Stop();
-                Console.WriteLine(">>>>>> " + stopWatch.Elapsed);
+                Console.WriteLine("\t\tTotal spend time: " + stopWatch.Elapsed.Milliseconds);
             }
             catch (Exception ex)
             {
@@ -90,7 +96,7 @@ namespace Task12
         private static void StringFinder(Storage stor)
         {
             Console.WriteLine();
-            Console.WriteLine("StringFinder<<<<");
+            Console.WriteLine(">>>>StringFinder<<<<");
             Console.WriteLine("Find for ID:");
             Console.WriteLine(stor.Find(stor.GetAll()[5].Id));
 
@@ -115,10 +121,38 @@ namespace Task12
             } while (number-- > 0);
         }
 
+        private static void TranslatePredicateFinder(Storage stor)
+        {
+            Console.WriteLine();
+            Console.WriteLine(">>>>TranslatePredicateFinder<<<<");
+            Console.WriteLine("Find for ID:");
+            Console.WriteLine(stor.Find<IProduct>(p => p.Id.Equals(stor.GetAll()[5].Id)));
+
+            Console.WriteLine("Find for Name:");
+            Console.WriteLine(stor.Find<IProduct>(p => p.Name.Equals(stor.GetAll()[5].Name)));
+
+            Console.WriteLine("Find for Price:");
+            Console.WriteLine(stor.Find<IProduct>(p => p.Price.Equals(stor.GetAll()[5].Price)));
+
+            Console.WriteLine("Find for Weight:");
+            Console.WriteLine(stor.Find<IProduct>(p => p.Weight.Equals(stor.GetAll()[5].Weight)));
+
+            Console.WriteLine("Find for Type:");
+            Console.WriteLine(stor.Find<IProduct>(p => p.GetType().Equals(stor.GetAll()[5].GetType())));
+
+            Console.WriteLine("Find for Obj:");
+            Console.WriteLine(stor.Find<IProduct>(p => p == stor.GetAll()[5]));
+            int number = 1000000;
+            do
+            {
+                stor.Find<IProduct>(p => p == stor.GetAll()[5]);
+            } while (number-- > 0);
+        }
+
         private static void PredicatFinder(List<IProduct> products)
         {
             Console.WriteLine();
-            Console.WriteLine("PredicatFinder<<<<");
+            Console.WriteLine(">>>>PredicatFinder<<<<");
             Console.WriteLine("Find Predicate for ID:");
             Console.WriteLine(products.Find(p => p.Id.Equals(products[5].Id)));
 
@@ -138,7 +172,7 @@ namespace Task12
             Console.WriteLine("Find Predicate for Obj:");
             Console.WriteLine(products.Find(p => p.Equals(products[5])));
 
-            int number = 10000;
+            int number = 1000000;
             do
             {
                 products.Find(p => p.Equals(products[5]));

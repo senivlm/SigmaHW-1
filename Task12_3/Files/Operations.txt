@@ -1,0 +1,9 @@
+﻿( 0 Bracket
+sin 1 Sin
+cos 1 Cos
+% 3 Reminder
+* 3 Multiply
+/ 3 Division
++ 2 Plus
+- 2 Subtract
+^ 2 Xor

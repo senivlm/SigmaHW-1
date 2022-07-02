@@ -77,11 +77,21 @@ namespace Products.Task12.Products
             foreach (var prod in products)
             {
                 temp.Add($"{prod.Id} {prod.Name} {prod.Price} {prod.Weight} {prod.GetType()} {prod}");
+                if (prod.Id.GetType().Equals(item.GetType()))
+                {
+
+                }
             }
 
             int res = temp.FindIndex(p => p.Contains(item.ToString()));
             if (res == -1) throw new ArgumentNullException();
             return products[res];
+        }
+
+        public IProduct? Find<T>(Predicate<IProduct> prod)
+        {
+      
+            return products?.Find(prod);
         }
 
         public void PrintAllMeat()
