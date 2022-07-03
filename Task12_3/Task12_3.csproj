@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Новый документ в формате RTF.rtf" />
+    <None Remove="Новый текстовый документ.txt" />
+  </ItemGroup>
+
 </Project>

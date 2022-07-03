@@ -1,6 +1,10 @@
 ﻿( 0 Bracket
 sin 1 Sin
 cos 1 Cos
+log 1 Log
+pow 1 Pow
+sqrt 1 Sqrt
+cbrt 1 Cbrt
 % 3 Reminder
 * 3 Multiply
 / 3 Division

@@ -3,7 +3,7 @@
     internal static class ExampleCalculator
     {
 
-        public static double  CalculatePolandPostfix(string expresion, ProceduresRepository procedures)
+        public static double CalculatePolandPostfix(string expresion, ProceduresRepository procedures)
         {
             Stack<double> operation = new Stack<double>();
             double tempDouble = default;
@@ -18,7 +18,7 @@
                 }
                 else
                 {
-                    if(operation.Count == 1)
+                    if (operation.Count == 1)
                     {
                         //operation.Push(procedures.GetFunction(examples[i]).Invoke(operation.Pop(), default));
                         operation.Push(procedures.GetFunktion(examples[i], operation.Pop(), default));
@@ -70,7 +70,7 @@
                 result += item + " ";
             }
 
-            return $"{result}= {Math.Round(operation.Pop(),4)}";
+            return $"{result}= {Math.Round(operation.Pop(), 4)}";
         }
 
     }

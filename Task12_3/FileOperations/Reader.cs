@@ -6,13 +6,13 @@
         private string pathOperations;
 
         public string FilePAth
-        { 
+        {
             get => pathExpression;
             set
             {
                 if (value != null) pathExpression = value;
             }
-         }
+        }
 
         public Reader(string filePath)
         {
@@ -28,10 +28,10 @@
         public List<string> ReadExpresion()
         {
             if (pathExpression == null || pathExpression == "") throw new FileNotFoundException();
-            if (!File.Exists(pathExpression))  File.Create(pathExpression);
+            if (!File.Exists(pathExpression)) File.Create(pathExpression);
 
             List<string> result = new();
-            using(StreamReader sr = new(pathExpression))
+            using (StreamReader sr = new(pathExpression))
             {
                 while (!sr.EndOfStream)
                 {

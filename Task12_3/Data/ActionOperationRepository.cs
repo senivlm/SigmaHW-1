@@ -20,5 +20,13 @@
 
         public static double Cos(double a, double b = 0) => Math.Cos(a + b);
 
+        public static double Log(double a, double b = 0) => Math.Log(a + b);
+
+        public static double Pow(double a, double b = 0) => Math.Pow(b , a);
+
+        public static double Sqrt(double a, double b = 0) => Math.Sqrt(a + b);
+
+        public static double Cbrt(double a, double b = 0) => Math.Cbrt(a + b);
+
     }
 }

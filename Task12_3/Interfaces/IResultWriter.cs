@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Task12_3
+﻿namespace Task12_3
 {
     internal interface IResultWriter
     {

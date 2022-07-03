@@ -12,7 +12,7 @@ namespace Task12_3.Data
         }
 
         public ExpresionsRepository(List<string> expresions)
-        {           
+        {
             _expresions?.AddRange(expresions);
         }
 
