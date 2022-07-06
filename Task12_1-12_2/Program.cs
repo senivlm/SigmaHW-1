@@ -8,7 +8,7 @@ using Task12.Interfaces;
 namespace Task12
 {
     internal class Program
-    {
+    {// Будь який сервіс може мати в  процесі іншу стратегію. Тому його треба розробляти з абстракцією.
         static void Main(string[] args)
         {
             TestHandlingExpiredProducts_Task_12_1();
