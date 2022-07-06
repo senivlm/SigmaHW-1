@@ -6,14 +6,14 @@
         {
             string[] example = expresion.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             Stack<string> operation = new Stack<string>();
-            int temp = 0;
+            double temp = 0;
             string result = "";
             string startFunk = procedures.GetStartBracket();
             string endFunk = procedures.GetEndtBracket();
 
             for (int i = 0; i < example.Length; i++)
             {
-                if (int.TryParse(example[i], out temp))
+                if (double.TryParse(example[i], out temp))
                 {
                     result += " " + temp;
                 }
