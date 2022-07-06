@@ -4,7 +4,7 @@ using Task12.Interfaces;
 namespace Task12.AbstractFactory
 {
     delegate void StorageTermHandler(string name, IProduct prod);
-
+//Хотілося б почути обгрунтування.
     abstract class AbstactDeveloper
     {
         public abstract string Name { get; set; }
