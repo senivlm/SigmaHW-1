@@ -23,6 +23,21 @@
             filePath = "..\\..\\..\\Files\\Result.txt";
         }
 
+        public void WriteNormalExpresion(string normalExpression, ProceduresRepository procedures)
+        {
+            if (filePath == null || filePath == "") throw new FileNotFoundException();
+            if (!File.Exists(filePath)) File.Create(filePath);
+
+            string result = ExpressionParser.ToNormal(normalExpression, procedures);
+
+            using (StreamWriter sw = new(filePath))
+            { 
+                    sw.WriteLine(result);
+
+                    sw.Close();
+            }
+        }
+
         public void WriteCalculateResult(List<string> calculateExpressions)
         {
             if (filePath == null || filePath == "") throw new FileNotFoundException();

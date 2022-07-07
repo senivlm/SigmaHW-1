@@ -28,7 +28,6 @@
                         //operation.Push(procedures.GetFunction(examples[i]).Invoke(operation.Pop(), operation.Pop()));
                         operation.Push(procedures.GetFunktion(examples[i], operation.Pop(), operation.Pop()));
                     }
-
                 }
             }
 

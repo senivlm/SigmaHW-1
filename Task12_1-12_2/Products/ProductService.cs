@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Task12;
+﻿using Task12;
 using Task12.Interfaces;
 
 namespace Products.Task12.Products

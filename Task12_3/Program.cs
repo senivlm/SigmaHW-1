@@ -16,9 +16,14 @@ namespace Task12_3
             try
             {
                 Reader r = new();
-                List<string> list = r.ReadExpresion();
-                List<string> polandExp = new();
+                Writer write = new();
+                //write.WriteNormalExpresion(); // for Add expres to file
+
                 ProceduresRepository procedures = new(r.ReadOperations(), r.ReadFunktions());
+                List<string> list = r.ReadExpresion();
+                list.Add(ExpressionParser.ToNormal("7+log(4+3)) +2+1+(12,5 + cos(12))", procedures));
+                List<string> polandExp = new();
+
 
                 int index = 0;
                 foreach (var item in list)

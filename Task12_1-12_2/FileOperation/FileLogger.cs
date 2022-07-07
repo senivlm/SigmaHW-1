@@ -550,6 +550,7 @@ namespace Task12
                 if (i == fields.Length && appurTerm != default
                     & price != default && weight != default)
                 {
+                    // пiдписка
                     DairyDeveloper.StorageTermHandlerEvent += ProductService.OnReadDairyProdEvent;
                     developer = new DairyDeveloper(name, price, weight, appurTerm);
                     someProduct = developer.CreateProduct();

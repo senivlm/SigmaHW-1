@@ -66,6 +66,7 @@ namespace Task12.AbstractFactory
             this.weight = weight;
             StoragePeriod = storagePeriod;
             temp = new Dairy(name, price, weight, StoragePeriod);
+
             if (DateTime.Now > StoragePeriod)
             {
                 StorageTermHandlerEvent("[" + DateTime.Now + "] " + temp.Id, temp);

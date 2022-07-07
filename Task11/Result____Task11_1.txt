@@ -38,7 +38,7 @@ IProduct, а його вже будуть реалiзувати необхiднi нам продукти:
 підгружати данні/обробляти і загружати назад до бази.
 Тому він буде відігрувати буферну роль i також не втратить свою принадлжнiсть.
 
-
+Iproduct change price();
 
 abstract class AbstactDeveloper : MethodCreateProduct() => IProduct
 	class DairyDeveloper		 : AbstractDeveloper	 => new Dairy()
