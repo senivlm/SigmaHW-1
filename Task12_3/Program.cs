@@ -21,7 +21,7 @@ namespace Task12_3
 
                 ProceduresRepository procedures = new(r.ReadOperations(), r.ReadFunktions());
                 List<string> list = r.ReadExpresion();
-                list.Add(ExpressionParser.ToNormal("7+log(4+3)) +2+1+(12,5 + cos(12))", procedures));
+                list.Add(ExpressionParser.ToNormal("3 + 4 * 2 / (1 - 5)^2", procedures));
                 List<string> polandExp = new();
 
 
