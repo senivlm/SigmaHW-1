@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Task12_3
 {
@@ -94,7 +95,11 @@ namespace Task12_3
                     }
                 }
             }
-            return sb.ToString().Trim(); ;
+
+            sb.Append(" " + result);
+            result = sb.ToString().Trim();
+            result = Regex.Replace(result, @"\s+", " ");
+            return result;
         }
 
         #region SubOperations

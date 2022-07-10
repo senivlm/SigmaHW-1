@@ -10,4 +10,4 @@ cbrt 1 Cbrt
 / 3 Division
 + 2 Plus
 - 2 Subtract
-^ 2 Xor
+^ 4 Xor
