@@ -1,5 +1,4 @@
-####how tasks has been completed:
-
+#### how tasks has been completed:
 * Task_1
 * Task_2
 * Task_3
