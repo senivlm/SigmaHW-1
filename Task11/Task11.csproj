@@ -56,10 +56,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="UML\Untitled Diagram.drawio.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Result____Task11_1.txt" />
     <Content Include="Description\TaskInfo.txt" />
+    <Content Include="UML\Untitled Diagram.drawio %281%29.png" />
+    <Content Include="UML\Untitled Diagram.drawio.png" />
+    <Content Include="UML\Untitled Diagram.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

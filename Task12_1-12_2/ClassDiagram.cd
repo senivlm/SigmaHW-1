@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Task12.AbstractFactory.AbstactDeveloper" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractFactoryMethod\AbstactDeveloper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task12.AbstractFactory.DairyDeveloper" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABAAAAAQAAAAAAAAAgAAQAACAUAACgAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractFactoryMethod\DairyDeveloper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task12.AbstractFactory.MeatDeveloper" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABAAAAAQAAAAAAAAAAAAQAACAEAAAgAAAIAAIAAAA=</HashCode>
+      <FileName>AbstractFactoryMethod\MeatDeveloper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task12.AbstractFactory.ProductDeveloper" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABAAAAAQAAAAAAAAAAAAQAACAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractFactoryMethod\ProductDeveloper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task12.FileLogger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAgASAEAAkIAAECAACAQ4AAgACgAAAAAAQAAAg=</HashCode>
+      <FileName>FileOperation\FileLogger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Task12.FileReader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAKgAAACAAAgAEEAAEAAAAAAAAAAACAMACAABAAig=</HashCode>
+      <FileName>FileOperation\FileReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Task12.FileWriter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAIgAAACAAQAAAEgAAAAAAAAAAAAAGAEACAIhAAiA=</HashCode>
+      <FileName>FileOperation\FileWriter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Task12.Program" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAEAAAAAAAAAAAAIAAAAAAAAAAAAAEAJAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Task12.Products.Dairy">
+    <Position X="2.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAEgAAAAAAAAAAQAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Products\Dairy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Products.Task12.Products.Meat">
+    <Position X="5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAEgAAAAAAAAAAAAIAAAAAIAAJAAAA=</HashCode>
+      <FileName>Products\Meat.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Products.Task12.Products.Product" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAQAAABAEgAAAAAQAACAEAIAgAAAAAAAAAAA=</HashCode>
+      <FileName>Products\Product.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Products.Task12.Products.ProductService">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAIAAAQAAgAAIAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Products\ProductService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Task12.Products.Storage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAEAAAEAABAADAgIQAAAAAEIAAAEAgAABAIAAAA=</HashCode>
+      <FileName>Products\Storage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Products.Task12.Buy" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAQAAAAAQAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Buy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Task12.Check" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Check.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Task12.Interfaces.IProduct" Collapsed="true">
+    <Position X="6.25" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAABAAAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IProduct.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Products.Task12.Enums.Category" Collapsed="true">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\Category.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Products.Task12.Enums.MeatType" Collapsed="true">
+    <Position X="12.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAIAAAAAAAAIAAAAAAAAAAAGAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\TypeMeat.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Task12.AbstractFactory.StorageTermHandler" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractFactoryMethod\AbstactDeveloper.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="10" />
+</ClassDiagram>
