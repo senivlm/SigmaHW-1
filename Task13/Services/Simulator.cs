@@ -105,11 +105,15 @@ namespace Task13
         private void RebuildClosedCases(string choiseCassName)
         {
 
-            foreach (var item in _casses)             
+            foreach (var cass in _casses)             
             {
-                if (item.IsClosed)
+                if (cass.IsClosed)
                 {
-                    _persons.Add(item.Dequeue());
+                    int count = cass.GetEnqueueCount;
+                    for (int i = 0; i < count; i++)
+                    {
+                        _persons.Add(cass.Dequeue());
+                    }
                 }
             }
         }
