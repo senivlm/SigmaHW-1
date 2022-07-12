@@ -82,7 +82,7 @@ namespace Task13
         }
 
         public static string ChoiseCassName(List<Cassa> casses)
-        {
+        {//Схоже, що перемудрував. Треба обговорити.
             int counter = default;
             Console.WriteLine("\t\t\t Chose need Cass number:");
             foreach (var item in casses)
@@ -118,7 +118,7 @@ namespace Task13
             string? answer = "";
             Console.Write("\t\t\t >>");
             answer = Console.ReadLine()?.ToLower();
-
+            //А хіба може бути null?
             if (answer is null || answer.Equals("n"))
             {
                 return false;
