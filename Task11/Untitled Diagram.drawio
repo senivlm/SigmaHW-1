@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-07-13T16:14:59.555Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="o_EuxpL6KtQ5BBMXq3VS" version="20.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-07-13T16:44:25.613Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="4ND5qitrWvqKuepedy10" version="20.0.4" type="github">
   <diagram id="0ZP30sV3yEi4wlxD2MXa" name="Page-2">
-    <mxGraphModel dx="3474" dy="4150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3158" dy="3985" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -126,13 +126,13 @@
           <mxGeometry x="-1" relative="1" as="geometry" />
         </mxCell>
         <mxCell id="aLRIMD_B_tR9_D7d41h3-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;Category:Enum&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;NaN = value1&lt;br&gt;TopGrade = value2&lt;br&gt;SecondGrade = value3&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="-1770" width="160" height="100" as="geometry" />
+          <mxGeometry x="80" y="-1863" width="160" height="100" as="geometry" />
         </mxCell>
         <mxCell id="aLRIMD_B_tR9_D7d41h3-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;Type:Enum&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;NaN= value1&lt;br&gt;Veal= value2&lt;br&gt;Pork= value3&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Chicken= value4&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Lamb= value4\5&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="320" y="-1770" width="160" height="110" as="geometry" />
+          <mxGeometry x="320" y="-1863" width="160" height="110" as="geometry" />
         </mxCell>
         <mxCell id="aLRIMD_B_tR9_D7d41h3-3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;StorageTermHandler:delegate&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="560" y="-1770" width="280" height="40" as="geometry" />
+          <mxGeometry x="560" y="-1863" width="280" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aLRIMD_B_tR9_D7d41h3-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;FileReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- path: string&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- rootPath: decimal&lt;/p&gt;&amp;nbsp;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ReadLine (): string&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ReadToEnd (): List&amp;lt;string&amp;gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
           <mxGeometry x="950" y="-1770" width="240" height="130" as="geometry" />
@@ -144,7 +144,7 @@
           <mxGeometry x="1241" y="-1770" width="240" height="130" as="geometry" />
         </mxCell>
         <mxCell id="aLRIMD_B_tR9_D7d41h3-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Check&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ DisplayCheck(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1001" y="-1340" width="240" height="60" as="geometry" />
+          <mxGeometry x="1070" y="-1340" width="240" height="60" as="geometry" />
         </mxCell>
         <mxCell id="aLRIMD_B_tR9_D7d41h3-8" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Buy&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- totalPrice: decimal&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- totalWeight: double&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- priducts: Dictionary&amp;lt;IProduct, int&amp;gt;&lt;br&gt;&lt;/p&gt;&amp;nbsp;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Buy (product : IProduct&lt;span style=&quot;background-color: initial;&quot;&gt;): void&lt;/span&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
           <mxGeometry x="640" y="-1570" width="240" height="130" as="geometry" />
@@ -160,7 +160,7 @@
             <mxPoint x="-20" y="40" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="aLRIMD_B_tR9_D7d41h3-11" value="" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=top;rounded=0;fontSize=26;entryX=1.006;entryY=0.464;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="eX-GLuut5h8f43FQClKt-1">
+        <mxCell id="aLRIMD_B_tR9_D7d41h3-11" value="" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=top;rounded=0;fontSize=26;entryX=1.006;entryY=0.464;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="aLRIMD_B_tR9_D7d41h3-7" target="eX-GLuut5h8f43FQClKt-1">
           <mxGeometry x="-1" relative="1" as="geometry">
             <mxPoint x="1000" y="-1310" as="sourcePoint" />
             <mxPoint x="1080" y="-1390" as="targetPoint" />
