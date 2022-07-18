@@ -14,7 +14,7 @@ namespace Task13
         public const int defaultCountCreatePerson = 15;
 
         public const int minServiceTime = 1;
-        public const int minCoordinate = 3;
+        public const int minCoordinate = 0;
 
         public const int maxCoordinate = 4;
         public const int maxAge = 100;

@@ -87,9 +87,11 @@ namespace Task13
             return random.Next(default, Constants.maxAge);
         }
 
-        public double GetRandomCoordinate() =>
-            random.Next(Constants.minCoordinate, Constants.maxCoordinate) +
+        public double GetRandomCoordinate()
+        {
+            return random.Next(Constants.minCoordinate, Constants.maxCoordinate) +
             Math.Round((random.NextDouble() / Math.PI), 1, MidpointRounding.ToPositiveInfinity);
+        }
 
         public int GetRandomTimeService()
         {

@@ -84,7 +84,7 @@ namespace Task13
                     counter = default;
                 }
 
-                //Thread.Sleep(1000);
+                Thread.Sleep(1000);
             }
         }
 
