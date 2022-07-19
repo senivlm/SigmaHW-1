@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-07-19T17:46:52.976Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="uwXNovIwdBIY685tqMlj" version="20.1.1" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-07-19T17:53:53.446Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="eVaGuwCBYRHD5-0EhAEc" version="20.1.1" type="github" pages="2">
   <diagram id="0ZP30sV3yEi4wlxD2MXa" name="AbstractFactory">
-    <mxGraphModel dx="2824" dy="3632" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1130" dy="2856" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -115,6 +115,9 @@
         </mxCell>
         <mxCell id="aLRIMD_B_tR9_D7d41h3-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;FileReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- path: string&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- rootPath: decimal&lt;/p&gt;&amp;nbsp;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ReadLine (): string&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ReadToEnd (): List&amp;lt;string&amp;gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="950" y="-1770" width="240" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="-4B9LhODd-cD6jTbSWe7-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="aLRIMD_B_tR9_D7d41h3-5" target="-4B9LhODd-cD6jTbSWe7-1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="aLRIMD_B_tR9_D7d41h3-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;FileService&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ParseProduct(): IProduct&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ AnalizeLog: string&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ WriteLog: IProduct&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ReadProduct(): IProduct&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ WriteProduct(): IProduct&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="1090" y="-1580" width="240" height="130" as="geometry" />
@@ -413,6 +416,9 @@
         </mxCell>
         <mxCell id="ASOaf0F2FwEh5jXFPKF9-5" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=26;" parent="1" connectable="0" vertex="1">
           <mxGeometry x="920" y="-1270" as="geometry" />
+        </mxCell>
+        <mxCell id="-4B9LhODd-cD6jTbSWe7-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Serializator&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- separeteFields: List&amp;lt;FieldSeparator&amp;gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- dcs: DataContractSerializer&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ SerializeXml(products : Dictionary&amp;lt;Guid, (IProduct, int)&amp;gt;&lt;span style=&quot;background-color: initial;&quot;&gt;): void&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ SerializeJson(products : Dictionary&amp;lt;Guid, (IProduct, int)&amp;gt;): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ DeserializeXml(path: string&lt;span style=&quot;background-color: initial;&quot;&gt;): Dictionary&amp;lt;Duid,(IProduct, int)&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ DeserializeJson(path : string): Dictionary&amp;lt;Guid, (IProduct, int)&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1381" y="-1585" width="359" height="140" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
