@@ -12,8 +12,9 @@ namespace Products.Task14.Products
         private decimal _price;
         private int _weight;
         private string _name;
-        public Guid Id { get; private set; }
 
+        public Guid Id { get; private set; }
+        [DataMember]
         public string Name
         {
             get { return _name; }
@@ -29,6 +30,7 @@ namespace Products.Task14.Products
                 }
             }
         }
+        [DataMember]
         public decimal Price
         {
             get { return _price; }
@@ -44,6 +46,7 @@ namespace Products.Task14.Products
                 }
             }
         }
+        [DataMember]
         public int Weight
         {
             get { return _weight; }
@@ -73,7 +76,7 @@ namespace Products.Task14.Products
 
         public Dairy(string name, decimal price, int weight,
             DateTime storagePeriod)
-            : this ($"Dairy-{name}", price, weight)
+            : this($"Dairy-{name}[{storagePeriod.ToShortDateString()}]", price, weight)
         {
             if (name == null)
             {
@@ -118,7 +121,7 @@ namespace Products.Task14.Products
 
         public override string ToString()
         {
-            return string.Format($"Product Name: {Name + "[" + StoragePeriod.ToShortDateString() + "]",-25}|" +
+            return string.Format($"Product Name: {Name,-25}|" +
                 $" Price: {Price,-8}| Weight: {Weight,-5}|");
         }
 

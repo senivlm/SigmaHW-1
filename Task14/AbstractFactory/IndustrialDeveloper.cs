@@ -4,7 +4,7 @@ using Task14.Enums;
 using Task14.Interfaces;
 using Task14.Products.Industrial;
 
-namespace Task14.AbstractFactoryMethod
+namespace Task14.AbstractFactory
 {
     internal class IndustrialDeveloper : AbstractFactoryDev
     {
@@ -73,19 +73,19 @@ namespace Task14.AbstractFactoryMethod
             _isCorosion = isСorrosion;
         }
 
-        public IndustrialDeveloper(string name, decimal price, int weight, IronType? type)
-        {
-            _name = name;
-            _price = price;
-            _weight = weight;
-            Type = type;
-        }
-
-        public IndustrialDeveloper(string name, decimal price, double volume, WoodGrade? grade)
+        public IndustrialDeveloper(string name, decimal price, double volume, IronType? type)
         {
             _name = name;
             _price = price;
             _volume = volume;
+            Type = type;
+        }
+
+        public IndustrialDeveloper(string name, decimal price, int weight, WoodGrade? grade)
+        {
+            _name = name;
+            _price = price;
+            _weight = weight;
             Grade = grade;
         }
 

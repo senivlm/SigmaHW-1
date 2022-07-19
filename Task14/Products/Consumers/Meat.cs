@@ -6,15 +6,16 @@ namespace Products.Task14.Products
 {
     [Serializable]
     [DataContract]
-    internal class Meat : IConsumerProduct
+    public class Meat : IConsumerProduct
     {
-        readonly MeatCategory? category;
-        readonly MeatType? meatType;
+        private readonly MeatCategory? category;
+        private readonly MeatType? meatType;
         private decimal _price;
         private int _weight;
         private string _name;
-        public Guid Id { get; private set; }
 
+        public Guid Id { get; private set; }
+        [DataMember]
         public string Name
         {
             get { return _name; }
@@ -30,6 +31,7 @@ namespace Products.Task14.Products
                 }
             }
         }
+        [DataMember]
         public decimal Price
         {
             get { return _price; }
@@ -45,6 +47,7 @@ namespace Products.Task14.Products
                 }
             }
         }
+        [DataMember]
         public int Weight
         {
             get { return _weight; }

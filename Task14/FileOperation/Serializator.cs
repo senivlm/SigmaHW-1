@@ -1,58 +1,87 @@
-﻿using System.Runtime.Serialization.Json;
+﻿using Products.Task14.Products;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Xml;
 using System.Xml.Serialization;
 using Task14.Interfaces;
+using Task14.Products.Industrial;
 
 namespace Task14.FileOperation
 {
     internal static class Serializator
     {
-        private static List<FieldSparator> _separeteFields;
+        private static List<FieldSeparator> _separeteFields;
+        private static DataContractSerializer _dcs;
 
         public static void SerializeXml(Dictionary<Guid, (IProduct, int)> products,
             string path = "../../../Files/ResultXml.xml")
         {
-            _separeteFields = new List<FieldSparator>(products.Count);
+            _separeteFields = new List<FieldSeparator>(products.Count);
 
             foreach (var key in products.Keys)
             {
-                _separeteFields.Add(new FieldSparator(key, products[key].Item1, products[key].Item2));
+                _separeteFields.Add(new FieldSeparator(key, products[key].Item1, products[key].Item2));
             }
 
-            using (StreamWriter writerr = new StreamWriter(path))
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(List<FieldSparator>), new[] { typeof(FieldSparator) });
-                serializer.Serialize(writerr, _separeteFields);
+                _dcs = new DataContractSerializer(typeof(List<FieldSeparator>), new List<Type>
+                {
+                    typeof(Guid),
+                    typeof(IProduct),
+                    typeof(Product),
+                    typeof(Dairy),
+                    typeof(Meat),
+                    typeof(Stone),
+                    typeof(Wood),
+                    typeof(Type),
+                    typeof(Iron)
+                });
 
-                writerr.Close();
+                _dcs.WriteObject(fs, _separeteFields);
+
+                fs.Close();
             }
         }
 
         public static Dictionary<Guid, (IProduct, int)> DeserializeXml(string path = "../../../Files/ResultXml.xml")
         {
-            _separeteFields = new List<FieldSparator>();
+            _dcs = new DataContractSerializer(typeof(List<FieldSeparator>), new List<Type>
+                {
+                    typeof(List<FieldSeparator>),
+                    typeof(Guid),
+                    typeof(IProduct),
+                    typeof(Product),
+                    typeof(Dairy),
+                    typeof(Meat),
+                    typeof(Stone),
+                    typeof(Wood),
+                    typeof(Type),
+                    typeof(Iron)
+                });
 
-            using (StreamReader fs = new StreamReader(path))
+            _separeteFields = new();
+
+            using (FileStream fs = new FileStream(path, FileMode.Open))
             {
-                XmlSerializer deserializer = new XmlSerializer(typeof(List<FieldSparator>), new[] { typeof(FieldSparator) });
-                _separeteFields = deserializer.Deserialize(fs) as List<FieldSparator>;
-
-                fs.Close();
+                _separeteFields = (List<FieldSeparator>)_dcs?.ReadObject(fs);
             }
 
             return Fillproducts(_separeteFields);
+
         }
 
         public static void SerializeJson(Dictionary<Guid, (IProduct, int)> products,
             string path = "../../../Files/ResultJson.json")
         {
-            _separeteFields = new List<FieldSparator>(products.Count);
+            _separeteFields = new List<FieldSeparator>(products.Count);
 
             foreach (var key in products.Keys)
             {
-                _separeteFields.Add(new FieldSparator(key, products[key].Item1, products[key].Item2));
+                _separeteFields.Add(new FieldSeparator(key, products[key].Item1, products[key].Item2));
             }
 
             var options = new JsonSerializerOptions
@@ -65,7 +94,7 @@ namespace Task14.FileOperation
 
             using (FileStream fs = new FileStream(path, FileMode.Truncate))
             {
-                var serializer = new DataContractJsonSerializer(typeof(List<FieldSparator>));
+                var serializer = new DataContractJsonSerializer(typeof(List<FieldSeparator>));
                 serializer.WriteObject(fs, _separeteFields);
 
                 fs.Close();
@@ -74,7 +103,7 @@ namespace Task14.FileOperation
 
         public static Dictionary<Guid, (IProduct, int)> DeserializeJson(string path = "../../../Files/ResultJson.json")
         {
-            _separeteFields = new List<FieldSparator>();
+            _separeteFields = new List<FieldSeparator>();
             string json = "";
 
             using (StreamReader fs = new StreamReader(path))
@@ -86,8 +115,8 @@ namespace Task14.FileOperation
 
             using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
             {
-                DataContractJsonSerializer deseralizer = new DataContractJsonSerializer(typeof(List<FieldSparator>));
-                List<FieldSparator>? list = deseralizer.ReadObject(ms) as List<FieldSparator>;
+                DataContractJsonSerializer deseralizer = new DataContractJsonSerializer(typeof(List<FieldSeparator>));
+                _separeteFields = deseralizer.ReadObject(ms) as List<FieldSeparator>;
 
                 ms.Close();
             }
@@ -95,14 +124,13 @@ namespace Task14.FileOperation
             return Fillproducts(_separeteFields);
         }
 
-        public static Dictionary<Guid, (IProduct, int)> Fillproducts(List<FieldSparator> products)
+        public static Dictionary<Guid, (IProduct, int)> Fillproducts(List<FieldSeparator> products)
         {
             Dictionary<Guid, (IProduct, int)> result = new();
 
             foreach (var item in products)
             {
-                // use abstract factory!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //result.Add(item.Key, ((IProduct)item., item.Count));
+                result.Add(item.Key, (item.Product, item.Count));
             }
 
             return result;

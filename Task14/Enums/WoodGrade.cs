@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task14.Enums
 {
-    enum WoodGrade
+    public enum WoodGrade
     {
         Beech = 1,
         Pine = 2,

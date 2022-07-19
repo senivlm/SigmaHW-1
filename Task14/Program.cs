@@ -28,12 +28,15 @@ namespace Task14
                     ProductService.AskerToExpired(stor);
                 }
 
-                //TestAbstractCreating(stor);
+                TestAbstractCreating(stor);
+                Console.WriteLine("\n------------------------------------------------------\n");
 
-                TestJsonSerialize(stor);
+                PrintAfterSerializaSerialize(stor, fLog);
 
-                TestXmlSerialize(stor);
+                TestJsonSerialize(stor, fLog);
+                Console.WriteLine("\n------------------------------------------------------\n");
 
+                TestXmlSerialize(stor, fLog);
 
 
                 Console.WriteLine("End proggram");
@@ -50,21 +53,64 @@ namespace Task14
             }
         }
 
-        private static void TestXmlSerialize(StorageSingleton stor)
+        private static void TestXmlSerialize(StorageSingleton stor, FileLogger fLog)
         {
 
             Serializator.SerializeXml(stor.GetDictionary());
 
             Dictionary<Guid, (IProduct, int)> result = Serializator.DeserializeXml();
 
+            fLog.WriteResultTxt("\r\n\t\t\t\tDeserialize Xml\r\n");
             foreach (var item in result)
             {
+                fLog.WriteResultTxt($"{item.Key}\t{item.Value.Item1}\t{item.Value.Item2}\t{item.Value.Item1.GetType()}");
+
+                Console.WriteLine(item.Key.ToString());
+                Console.WriteLine(item.Value.Item1.ToString());
+                Console.WriteLine(item.Value.Item2.ToString());
+
+
+                Console.WriteLine();
+            }
+        }
+
+        private static void PrintAfterSerializaSerialize(StorageSingleton stor, FileLogger fLog)
+        {
+            
+            Dictionary<Guid, (IProduct, int)> result = stor.GetDictionary();
+            
+            fLog.WriteResultTxt("\r\n\t\t\t\tAfter Serelialize/Deserializerr\r\n");
+            foreach (var item in result)
+            {
+                fLog.WriteResultTxt($"{item.Key}\t{item.Value.Item1}\t{item.Value.Item2}\t{item.Value.Item1.GetType()}");
+
                 Console.WriteLine(item.Key.ToString());
                 Console.WriteLine(item.Value.Item1.ToString());
                 Console.WriteLine(item.Value.Item2.ToString());
 
                 Console.WriteLine();
             }
+
+        }
+
+        private static void TestJsonSerialize(StorageSingleton stor, FileLogger fLog)
+        {
+            Serializator.SerializeJson(stor.GetDictionary());
+
+            Dictionary<Guid, (IProduct, int)> result = Serializator.DeserializeJson();
+
+            fLog.WriteResultTxt("\r\n\t\t\t\tDeserialize Json\r\n");
+            foreach (var item in result)
+            {
+                fLog.WriteResultTxt($"{item.Key}\t{item.Value.Item1}\t{item.Value.Item2}\t{item.Value.Item1.GetType()}");
+
+                Console.WriteLine(item.Key.ToString());
+                Console.WriteLine(item.Value.Item1.ToString());
+                Console.WriteLine(item.Value.Item2.ToString());
+
+                Console.WriteLine();
+            }
+
         }
 
         private static void TestAbstractCreating(StorageSingleton stor)
@@ -105,21 +151,5 @@ namespace Task14
             }
         }
 
-        private static void TestJsonSerialize(StorageSingleton stor)
-        {
-            Serializator.SerializeJson(stor.GetDictionary());
-
-            Dictionary<Guid, (IProduct, int)> result = Serializator.DeserializeJson();
-
-            foreach (var item in result)
-            {
-                Console.WriteLine(item.Key.ToString());
-                Console.WriteLine(item.Value.Item1.ToString());
-                Console.WriteLine(item.Value.Item2.ToString());
-
-                Console.WriteLine();
-            }
-
-        }
     }
 }

@@ -2,7 +2,7 @@
 using Products.Task14.Products;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using Task14.AbstractFactoryMethod;
+using Task14.AbstractFactory;
 using Task14.Enums;
 using Task14.Interfaces;
 
@@ -600,7 +600,7 @@ namespace Task14
             FractionStone? fraction = null;
             string name = "";
             decimal price = default;
-            int volume = default;
+            double volume = default;
 
             var culture1 = new CultureInfo("de-DE", false);
             var culture2 = new CultureInfo("en-US", false);
@@ -632,7 +632,7 @@ namespace Task14
                         }
 
                     }
-                    if (int.TryParse(buffer, out volume))
+                    if (double.TryParse(buffer, out volume))
                     {
                         continue;
                     }
@@ -697,7 +697,7 @@ namespace Task14
             IronType? type = null;
             string name = "";
             decimal price = default;
-            int volume = default;
+            double volume = default;
 
             var culture1 = new CultureInfo("de-DE", false);
             var culture2 = new CultureInfo("en-US", false);
@@ -729,7 +729,7 @@ namespace Task14
                         }
 
                     }
-                    if (int.TryParse(buffer, out volume))
+                    if (double.TryParse(buffer, out volume))
                     {
                         continue;
                     }
@@ -801,7 +801,7 @@ namespace Task14
             WoodGrade? grade = null;
             string name = "";
             decimal price = default;
-            int volume = default;
+            int weight = default;
 
             var culture1 = new CultureInfo("de-DE", false);
             var culture2 = new CultureInfo("en-US", false);
@@ -810,7 +810,7 @@ namespace Task14
 
             for (int i = 0; i < fields.Length; i++)
             {
-                if (grade == null | grade == null | price == default | volume == default)
+                if (grade == null | grade == null | price == default | weight == default)
                 {
                     buffer = fields[i].ToLower();
 
@@ -833,7 +833,7 @@ namespace Task14
                         }
 
                     }
-                    if (int.TryParse(buffer, out volume))
+                    if (int.TryParse(buffer, out weight))
                     {
                         continue;
                     }
@@ -870,18 +870,18 @@ namespace Task14
                 }
 
                 if (i == fields.Length & grade != null
-                    & price != default & volume != default)
+                    & price != default & weight != default)
                 {
-                    developer = new IndustrialDeveloper(name + "(" + grade.ToString() + ")", price, volume, grade);
+                    developer = new IndustrialDeveloper(name + "(" + grade.ToString() + ")", price, weight, grade);
                     someProduct = developer.CreateWeightProduct();
                     return true;
                 }
             }
 
             if (grade != null
-                    & price != default & volume != default)
+                    & price != default & weight != default)
             {
-                developer = new IndustrialDeveloper(name + "(" + grade.ToString() + ")", price, volume, grade);
+                developer = new IndustrialDeveloper(name + "(" + grade.ToString() + ")", price, weight, grade);
                 someProduct = developer.CreateWeightProduct();
                 return true;
             }

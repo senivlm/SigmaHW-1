@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task14.Enums
 {
-    enum IronType
+    public enum IronType
     {
         Fe = 2,
         Li = 6,

@@ -1,6 +1,6 @@
 ﻿namespace Task14.Enums
 {
-    enum FractionStone
+    public enum FractionStone
     {
         Five_Ten = 1,
         Ten_Twenty = 2,

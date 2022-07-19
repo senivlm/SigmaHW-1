@@ -6,7 +6,7 @@ namespace Task14.Products.Industrial
 {
     [Serializable]
     [DataContract]
-    internal class Iron : IIndustrialProduct
+    public class Iron : IIndustrialProduct
     {
         private Guid _id;
         private string _name;
@@ -15,6 +15,7 @@ namespace Task14.Products.Industrial
         public bool isСorrosion { get; }
         public IronType? Type { get; }
 
+        [DataMember]
         public double Volume
         {
             get
@@ -30,6 +31,7 @@ namespace Task14.Products.Industrial
             }
         }
         public Guid Id => _id;
+        [DataMember]
         public string Name
         {
             get
@@ -44,6 +46,7 @@ namespace Task14.Products.Industrial
                 }
             }
         }
+        [DataMember]
         public decimal Price
         {
             get

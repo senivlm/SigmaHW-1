@@ -6,14 +6,16 @@ namespace Task14.Products.Industrial
 {
     [Serializable]
     [DataContract]
-    internal class Wood : IIndustrialProduct
+    public class Wood : IIndustrialProduct
     {
         private Guid _id;
         private double _volume;
+        private int _weight;
         private string _name;
         private decimal _price;
         public WoodGrade? Grade { get; }
 
+        [DataMember]
         public double Volume
         {
             get
@@ -28,7 +30,23 @@ namespace Task14.Products.Industrial
                 }
             }
         }
+        [DataMember]
+        public int Weight
+        {
+            get
+            {
+                return _weight;
+            }
+            private set
+            {
+                if (value >= 0)
+                {
+                    _weight = value;
+                }
+            }
+        }
         public Guid Id => _id;
+        [DataMember]
         public string Name
         {
             get
@@ -43,6 +61,7 @@ namespace Task14.Products.Industrial
                 }
             }
         }
+        [DataMember]
         public decimal Price
         {
             get
@@ -63,12 +82,12 @@ namespace Task14.Products.Industrial
             _id = Guid.NewGuid();
         }
 
-        public Wood(string name, decimal price, double volume, WoodGrade? grade)
+        public Wood(string name, decimal price, int weight, WoodGrade? grade)
         {
             _id = Guid.NewGuid();
             _name = name;
             _price = price;
-            _volume = volume;
+            _weight = weight;
             Grade = grade;
         }
 
@@ -79,7 +98,7 @@ namespace Task14.Products.Industrial
 
         public override string ToString()
         {
-            return string.Format($"Product Name: {Name,-25}| Price: {Price,-8}| Volume: {Volume,-5}|");
+            return string.Format($"Product Name: {Name,-25}| Price: {Price,-8}| Weight: {Weight,-5}|");
         }
 
         public override bool Equals(object? obj)

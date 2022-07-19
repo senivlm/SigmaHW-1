@@ -2,7 +2,7 @@
 using Products.Task14.Products;
 using Task14.Interfaces;
 
-namespace Task14.AbstractFactoryMethod
+namespace Task14.AbstractFactory
 {
     internal class ConsumerDeveloper : AbstractFactoryDev
     {

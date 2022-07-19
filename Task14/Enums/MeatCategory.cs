@@ -1,4 +1,4 @@
 ﻿namespace Products.Task14.Enums
 {
-    enum MeatCategory { NaN, TopGrade, SecondGrade }
+    public enum MeatCategory { NaN, TopGrade, SecondGrade }
 }

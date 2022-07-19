@@ -8,11 +8,12 @@ namespace Products.Task14.Products
     [DataContract]
     public class Product : IConsumerProduct
     {
-        public Guid Id { get; private set; }
         private decimal price;
         private int weight;
         private string name;
 
+        public Guid Id { get; private set; }
+        [DataMember]
         public string Name
         {
             get { return name; }
@@ -28,6 +29,7 @@ namespace Products.Task14.Products
                 }
             }
         }
+        [DataMember]
         public decimal Price
         {
             get { return price; }
@@ -43,6 +45,7 @@ namespace Products.Task14.Products
                 }
             }
         }
+        [DataMember]
         public int Weight
         {
             get { return weight; }

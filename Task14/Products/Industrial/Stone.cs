@@ -6,7 +6,7 @@ namespace Task14.Products.Industrial
 {
     [Serializable]
     [DataContract]
-    internal class Stone : IIndustrialProduct
+    public class Stone : IIndustrialProduct
     {
         private Guid _id;
         private double _volume;
@@ -14,21 +14,23 @@ namespace Task14.Products.Industrial
         private decimal _price;
         public FractionStone? Fraction { get; }
 
+        [DataMember]
         public double Volume
         {
             get
             {
                 return _volume;
             }
-             private set
+            private set
             {
-                if(value >= 0)
+                if (value >= 0)
                 {
                     _volume = value;
                 }
             }
         }
         public Guid Id => _id;
+        [DataMember]
         public string Name
         {
             get
@@ -37,12 +39,13 @@ namespace Task14.Products.Industrial
             }
             private set
             {
-                if(value != null | value != "")
+                if (value != null | value != "")
                 {
                     _name = value;
                 }
             }
         }
+        [DataMember]
         public decimal Price
         {
             get

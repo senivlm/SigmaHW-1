@@ -1,6 +1,6 @@
 ﻿using Task14.Interfaces;
 
-namespace Task14.AbstractFactoryMethod
+namespace Task14.AbstractFactory
 {
     delegate void StorageTermHandler(string name, IProduct prod);
 
