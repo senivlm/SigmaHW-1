@@ -4,8 +4,6 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Xml;
-using System.Xml.Serialization;
 using Task14.Interfaces;
 using Task14.Products.Industrial;
 
@@ -50,18 +48,18 @@ namespace Task14.FileOperation
         public static Dictionary<Guid, (IProduct, int)> DeserializeXml(string path = "../../../Files/ResultXml.xml")
         {
             _dcs = new DataContractSerializer(typeof(List<FieldSeparator>), new List<Type>
-                {
-                    typeof(List<FieldSeparator>),
-                    typeof(Guid),
-                    typeof(IProduct),
-                    typeof(Product),
-                    typeof(Dairy),
-                    typeof(Meat),
-                    typeof(Stone),
-                    typeof(Wood),
-                    typeof(Type),
-                    typeof(Iron)
-                });
+            {
+                typeof(List<FieldSeparator>),
+                typeof(Guid),
+                typeof(IProduct),
+                typeof(Product),
+                typeof(Dairy),
+                typeof(Meat),
+                typeof(Stone),
+                typeof(Wood),
+                typeof(Type),
+                typeof(Iron)
+            });
 
             _separeteFields = new();
 
@@ -70,8 +68,7 @@ namespace Task14.FileOperation
                 _separeteFields = (List<FieldSeparator>)_dcs?.ReadObject(fs);
             }
 
-            return Fillproducts(_separeteFields);
-
+            return FillProducts(_separeteFields);
         }
 
         public static void SerializeJson(Dictionary<Guid, (IProduct, int)> products,
@@ -121,10 +118,10 @@ namespace Task14.FileOperation
                 ms.Close();
             }
 
-            return Fillproducts(_separeteFields);
+            return FillProducts(_separeteFields);
         }
 
-        public static Dictionary<Guid, (IProduct, int)> Fillproducts(List<FieldSeparator> products)
+        public static Dictionary<Guid, (IProduct, int)> FillProducts(List<FieldSeparator> products)
         {
             Dictionary<Guid, (IProduct, int)> result = new();
 

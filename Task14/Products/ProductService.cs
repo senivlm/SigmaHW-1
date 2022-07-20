@@ -68,7 +68,7 @@ namespace Products.Task14.Products
 
         private static void AskHandler(StorageSingleton stor)
         {
-            FileLogger log = new FileLogger();
+            FileService log = new FileService();
             for (int i = 0; i < TempOnEvents.Count; i++)
             {
                 stor.Delete(TempOnEvents[i].Id);

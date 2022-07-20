@@ -8,7 +8,7 @@ using Task14.Interfaces;
 
 namespace Task14
 {
-    internal class FileLogger : IDisposable
+    internal class FileService : IDisposable
     {
         private readonly FileReader fReader;
         private readonly FileWriter fWriter;
@@ -17,14 +17,14 @@ namespace Task14
         public event Action IncorrectProductInFile;
         private IProduct someProduct;
 
-        public FileLogger()
+        public FileService()
         {
             fReader = new FileReader();
             fWriter = new FileWriter();
             IncorrectProductInFile += ProductService.OnFailRead;
         }
 
-        ~FileLogger()
+        ~FileService()
         {
             fWriter.Dispose();
             fWriter.Dispose();
@@ -35,11 +35,6 @@ namespace Task14
         {
             fWriter.Dispose();
             fWriter.Dispose();
-        }
-
-        public void SetCorrectPathToDirectoryNotFound(string updatePath)
-        {
-            fWriter.ChangeFileNametoFullPath(updatePath);
         }
 
         public void SetCorrectPathToFileNotFound(string updateFilePath)
@@ -897,7 +892,6 @@ namespace Task14
         {
             return $"Data/Time\t\t\t\tMessage \t\t\tLine\r\n";
         }
-
 
     }
 }

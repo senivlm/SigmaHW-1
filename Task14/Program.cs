@@ -17,7 +17,7 @@ namespace Task14
 
         public static void RunApp()
         {
-            FileLogger fLog = new FileLogger();
+            FileService fLog = new FileService();
             var stor = StorageSingleton.Instance();
             try
             {
@@ -53,7 +53,7 @@ namespace Task14
             }
         }
 
-        private static void TestXmlSerialize(StorageSingleton stor, FileLogger fLog)
+        private static void TestXmlSerialize(StorageSingleton stor, FileService fLog)
         {
 
             Serializator.SerializeXml(stor.GetDictionary());
@@ -74,7 +74,7 @@ namespace Task14
             }
         }
 
-        private static void PrintAfterSerializaSerialize(StorageSingleton stor, FileLogger fLog)
+        private static void PrintAfterSerializaSerialize(StorageSingleton stor, FileService fLog)
         {
             
             Dictionary<Guid, (IProduct, int)> result = stor.GetDictionary();
@@ -93,7 +93,7 @@ namespace Task14
 
         }
 
-        private static void TestJsonSerialize(StorageSingleton stor, FileLogger fLog)
+        private static void TestJsonSerialize(StorageSingleton stor, FileService fLog)
         {
             Serializator.SerializeJson(stor.GetDictionary());
 
