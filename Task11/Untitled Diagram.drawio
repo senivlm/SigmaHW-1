@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-07-20T14:35:16.806Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="o_Ar-c8ucFqRa4XV1loH" version="20.1.1" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-07-20T14:37:04.451Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" etag="yd__9iCq9JyxoW46PK8z" version="20.1.1" type="github" pages="2">
   <diagram id="0ZP30sV3yEi4wlxD2MXa" name="AbstractFactory">
-    <mxGraphModel dx="4963" dy="4927" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1737" dy="3244" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -408,62 +408,61 @@
           <mxGeometry x="2315" y="-1753" width="220" height="190" as="geometry" />
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;IViewElustrator&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ get Hello: string&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ get Verification: bool&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetHelloPage(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetPageMenu(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetMenuAnswerVariants(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetProducts(): void&lt;/p&gt;&amp;nbsp;+ GetProductsAnswerVariants(): void&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheck(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheckAnswerVariants(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="2150" y="-910" width="250" height="190" as="geometry" />
+          <mxGeometry x="2090" y="-880" width="250" height="190" as="geometry" />
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ViewConsole&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ get Hello: string&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ get Verification: bool&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetHelloPage(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetPageMenu(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetMenuAnswerVariants(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetProducts(): void&lt;/p&gt;&amp;nbsp;+ GetProductsAnswerVariants(): void&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheck(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheckAnswerVariants(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ViewConsole()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="2150" y="-630" width="250" height="190" as="geometry" />
+          <mxGeometry x="2090" y="-600" width="250" height="190" as="geometry" />
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-8" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;AbstractViewDecorator&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;# get view: IViewElustrator&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetHelloPage(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetPageMenu(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetMenuAnswerVariants(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetProducts(): void&lt;/p&gt;&amp;nbsp;+ GetProductsAnswerVariants(): void&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheck(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheckAnswerVariants(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ViewDecorator(view :IViewElustrator)&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="2571" y="-910" width="250" height="190" as="geometry" />
+          <mxGeometry x="2511" y="-880" width="250" height="190" as="geometry" />
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-10" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=0.002;exitY=0.317;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="-4B9LhODd-cD6jTbSWe7-8">
           <mxGeometry x="-0.7333" y="-20" relative="1" as="geometry">
-            <mxPoint x="2550" y="-850" as="sourcePoint" />
-            <mxPoint x="2400" y="-850" as="targetPoint" />
+            <mxPoint x="2490" y="-820" as="sourcePoint" />
+            <mxPoint x="2340" y="-820" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-12" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.998;entryY=0.583;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.579;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="-4B9LhODd-cD6jTbSWe7-8" target="-4B9LhODd-cD6jTbSWe7-6">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="2550" y="-800" as="sourcePoint" />
-            <mxPoint x="2400" y="-800" as="targetPoint" />
+            <mxPoint x="2490" y="-770" as="sourcePoint" />
+            <mxPoint x="2340" y="-770" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-13" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="-4B9LhODd-cD6jTbSWe7-7" target="-4B9LhODd-cD6jTbSWe7-6">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="2231" y="-690" as="sourcePoint" />
-            <mxPoint x="2081" y="-690" as="targetPoint" />
+            <mxPoint x="2171" y="-660" as="sourcePoint" />
+            <mxPoint x="2021" y="-660" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-14" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ViewWindows&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ get Hello: string&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ get Verification: bool&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetHelloPage(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetPageMenu(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetMenuAnswerVariants(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetProducts(): void&lt;/p&gt;&amp;nbsp;+ GetProductsAnswerVariants(): void&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheck(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheckAnswerVariants(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ViewConsole()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="2431" y="-630" width="250" height="190" as="geometry" />
+          <mxGeometry x="2371" y="-600" width="250" height="190" as="geometry" />
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-15" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ViewMac&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ get Hello: string&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ get Verification: bool&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetHelloPage(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetPageMenu(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetMenuAnswerVariants(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetProducts(): void&lt;/p&gt;&amp;nbsp;+ GetProductsAnswerVariants(): void&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheck(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheckAnswerVariants(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ViewConsole()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
-          <mxGeometry x="2741" y="-630" width="250" height="190" as="geometry" />
+          <mxGeometry x="2681" y="-600" width="250" height="190" as="geometry" />
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-16" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="-4B9LhODd-cD6jTbSWe7-14" target="-4B9LhODd-cD6jTbSWe7-8">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="2571" y="-630" as="sourcePoint" />
-            <mxPoint x="2571" y="-720" as="targetPoint" />
+            <mxPoint x="2511" y="-600" as="sourcePoint" />
+            <mxPoint x="2511" y="-690" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-17" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.52;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="-4B9LhODd-cD6jTbSWe7-15" target="-4B9LhODd-cD6jTbSWe7-8">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="2566" y="-620" as="sourcePoint" />
-            <mxPoint x="2631" y="-720" as="targetPoint" />
+            <mxPoint x="2506" y="-590" as="sourcePoint" />
+            <mxPoint x="2571" y="-690" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="-4B9LhODd-cD6jTbSWe7-18" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Facade&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- viewer: IViewerElustrator&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- product: IProduct&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- developer: AbstractDeveloper&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- fileService: FileService&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetHelloPage(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Autorization(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetPageMenu(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetMenuAnswerVariants(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetProducts(): void&lt;/p&gt;&amp;nbsp;+ GetProductsAnswerVariants(): void&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheck(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ GetCheckAnswerVariants(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ViewConsole()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
           <mxGeometry x="1330" y="-1260" width="380" height="325" as="geometry" />
         </mxCell>
-        <mxCell id="-4B9LhODd-cD6jTbSWe7-19" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1.002;exitY=0.613;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.408;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="-4B9LhODd-cD6jTbSWe7-18" target="-4B9LhODd-cD6jTbSWe7-6">
+        <mxCell id="-4B9LhODd-cD6jTbSWe7-19" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.408;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="-4B9LhODd-cD6jTbSWe7-18" target="-4B9LhODd-cD6jTbSWe7-6">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="2067.6200000000003" y="-1070" as="sourcePoint" />
             <mxPoint x="1979" y="-848.9" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1716" y="-1061" />
-              <mxPoint x="1979" y="-1060" />
-              <mxPoint x="1979" y="-832" />
+              <mxPoint x="2060" y="-935" />
+              <mxPoint x="2060" y="-802" />
             </Array>
           </mxGeometry>
         </mxCell>
