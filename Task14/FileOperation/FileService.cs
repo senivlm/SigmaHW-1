@@ -5,9 +5,10 @@ using System.Text.RegularExpressions;
 using Task14.AbstractFactory;
 using Task14.Enums;
 using Task14.Interfaces;
+// У загальному великий молодець!
 
 namespace Task14
-{
+{//занадто абстрактна назва класу. І є питання до проектування цього класу. Надлишковість. Складається враження, що Ви завжди хочете замінити в сутностях поняття знаю на маю.
     internal class FileService : IDisposable
     {
         private readonly FileReader fReader;
